@@ -22,7 +22,7 @@ A full-stack web application for managing a computer inventory with royal-themed
 | API      | http://localhost:5000/swagger     |
 | Database | localhost:1433 (SA credentials)  |
 
-Default SA password: `YourStrong@Passw0rd` (override via `.env` file).
+Default SA password: `123` (override via `.env` file).
 
 ## Architecture
 
