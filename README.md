@@ -1,6 +1,6 @@
-# Compu Palace -- Laptop Sales Management
+# 👑 Compu Palace -- Computer Sales Management
 
-A full-stack web application for managing a laptop inventory with royal-themed product naming, tiered badge system, and rich data visualization. Built with React, ASP.NET 8, and SQL Server 2022, fully containerized with Docker Compose.
+A full-stack web application for managing a computer inventory with royal-themed product naming, tiered badge system, and rich data visualization. Built with React, ASP.NET 8, and SQL Server 2022, fully containerized with Docker Compose.
 
 ## Tech Stack
 
@@ -56,7 +56,7 @@ Key patterns:
 ## Project Structure
 
 ```
-laptop-sales-management/
+computer-sales-management/
 ├── docker-compose.yml
 ├── .env
 ├── .dockerignore
@@ -161,7 +161,7 @@ Frontend: `cd src/frontend && npm install && npm run dev`
 
 | Variable                                | Default                  | Description                   |
 | --------------------------------------- | ------------------------ | ----------------------------- |
-| `SA_PASSWORD`                           | `YourStrong@Passw0rd`    | SQL Server SA password        |
+| `SA_PASSWORD`                           | `123`    | SQL Server SA password        |
 | `ASPNETCORE_ENVIRONMENT`                | `Development`            | .NET environment              |
 | `ASPNETCORE_URLS`                       | `http://+:5000`          | Backend listen URL            |
 | `ConnectionStrings__DefaultConnection`  | *(set in compose)*       | SQL Server connection string  |
@@ -169,4 +169,8 @@ Frontend: `cd src/frontend && npm install && npm run dev`
 
 ## License
 
-See [LICENSE](./LICENSE) for details.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+You may redistribute and/or modify this software under the terms of the GPL-3.0 as published by the Free Software Foundation. See [LICENSE](./LICENSE) in the repository root for the full license text.
+
+If you contribute code, you agree that your contributions are provided under the same GPL-3.0 terms.
