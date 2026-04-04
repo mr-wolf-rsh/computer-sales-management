@@ -1,5 +1,5 @@
 -- =============================================================================
--- Compu Palace - Laptop Sales Management
+-- Compu Palace - Computer Sales Management
 -- Stored Procedures
 -- =============================================================================
 -- CRUD operations, paginated search, and dashboard statistics.

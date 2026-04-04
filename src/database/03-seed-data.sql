@@ -1,5 +1,5 @@
 -- =============================================================================
--- Compu Palace - Laptop Sales Management
+-- Compu Palace - Computer Sales Management
 -- Seed Data
 -- =============================================================================
 -- Inserts 10 computers from the Excel dataset with royal-themed names.

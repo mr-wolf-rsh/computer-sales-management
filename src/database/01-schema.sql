@@ -1,5 +1,5 @@
 -- =============================================================================
--- Compu Palace - Laptop Sales Management
+-- Compu Palace - Computer Sales Management
 -- Schema Definition (SQL Server 2022)
 -- =============================================================================
 -- Creates the normalized database schema for managing computer inventory

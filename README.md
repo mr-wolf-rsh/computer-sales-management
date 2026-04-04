@@ -161,7 +161,7 @@ Frontend: `cd src/frontend && npm install && npm run dev`
 
 | Variable                                | Default                  | Description                   |
 | --------------------------------------- | ------------------------ | ----------------------------- |
-| `SA_PASSWORD`                           | `123`    | SQL Server SA password        |
+| `SA_PASSWORD`                           | `123`                    | SQL Server SA password        |
 | `ASPNETCORE_ENVIRONMENT`                | `Development`            | .NET environment              |
 | `ASPNETCORE_URLS`                       | `http://+:5000`          | Backend listen URL            |
 | `ConnectionStrings__DefaultConnection`  | *(set in compose)*       | SQL Server connection string  |

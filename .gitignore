@@ -45,6 +45,7 @@ nunit-*.xml
 .vscode/
 
 # Env
+.env
 .env.local
 *.env.local
 

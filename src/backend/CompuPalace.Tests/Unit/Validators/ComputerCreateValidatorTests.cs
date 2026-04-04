@@ -12,7 +12,7 @@ public class ComputerCreateValidatorTests
     {
         return new ComputerCreateDto
         {
-            Name = "Test Laptop",
+            Name = "Test Computer",
             RamAmountMB = 16384,
             Price = 1299.99m,
             Weight = 2.1m,

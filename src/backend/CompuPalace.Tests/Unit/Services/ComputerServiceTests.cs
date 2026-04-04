@@ -61,7 +61,7 @@ public class ComputerServiceTests
         // Assert
         result.Should().NotBeNull();
         result!.Id.Should().Be(1);
-        result.Name.Should().Be("Test Laptop");
+        result.Name.Should().Be("Test Computer");
         result.ProcessorName.Should().Be("Core i7-12700H");
         result.GpuName.Should().Be("RTX 4060");
         result.TierBadge.Should().NotBeNullOrEmpty();
@@ -109,7 +109,7 @@ public class ComputerServiceTests
 
         // Assert
         result.Should().NotBeNull();
-        result.Name.Should().Be("Test Laptop");
+        result.Name.Should().Be("Test Computer");
         result.TierBadge.Should().NotBeNullOrEmpty();
         _unitOfWorkMock.Verify(u => u.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
     }
@@ -233,10 +233,10 @@ public class ComputerServiceTests
         return new Computer
         {
             Id = id,
-            Name = "Test Laptop",
+            Name = "Test Computer",
             RamAmountMB = 16384,
             Price = 1299.99m,
-            ImageUrl = "https://example.com/laptop.jpg",
+            ImageUrl = "https://example.com/computer.jpg",
             Weight = 2.1m,
             WeightUnit = WeightUnit.Kg,
             PsuWattage = 650,
@@ -262,10 +262,10 @@ public class ComputerServiceTests
     {
         return new ComputerCreateDto
         {
-            Name = "Test Laptop",
+            Name = "Test Computer",
             RamAmountMB = 16384,
             Price = 1299.99m,
-            ImageUrl = "https://example.com/laptop.jpg",
+            ImageUrl = "https://example.com/computer.jpg",
             Weight = 2.1m,
             WeightUnit = "Kg",
             PsuWattage = 650,

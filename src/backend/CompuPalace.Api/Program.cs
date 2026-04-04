@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Title = "CompuPalace API",
         Version = "v1",
-        Description = "Laptop Sales Management API for Compu Palace"
+        Description = "Computer Sales Management API for Compu Palace"
     });
 });
 
