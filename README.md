@@ -14,7 +14,7 @@ A full-stack web application for managing a computer inventory with royal-themed
 
 ## Quick Start
 
-`docker compose up --build`
+`docker compose up --build` or run **`rebuild.bat`** for a full clean rebuild.
 
 | Service  | URL                              |
 | -------- | -------------------------------- |
@@ -22,7 +22,7 @@ A full-stack web application for managing a computer inventory with royal-themed
 | API      | http://localhost:5000/swagger     |
 | Database | localhost:1433 (SA credentials)  |
 
-Default SA password: `123` (override via `.env` file).
+Default SA password: `CompuPalace2026!` (override via `.env` file).
 
 ## Architecture
 
@@ -58,6 +58,8 @@ Key patterns:
 ```
 computer-sales-management/
 ├── docker-compose.yml
+├── rebuild.bat
+├── run-tests.bat
 ├── .env
 ├── .dockerignore
 ├── .gitignore
@@ -142,6 +144,8 @@ Key constraints: cascading deletes on child tables, check constraints on enums (
 
 ## Running Tests
 
+Run **`run-tests.bat`** to execute both backend and frontend tests with a summary report, or run them individually:
+
 Backend: `cd backend && dotnet test`
 
 Frontend: `cd frontend && npm test`
@@ -160,7 +164,7 @@ Frontend: `cd frontend && npm install && npm run dev`
 
 | Variable                                | Default                  | Description                   |
 | --------------------------------------- | ------------------------ | ----------------------------- |
-| `SA_PASSWORD`                           | `123`                    | SQL Server SA password        |
+| `SA_PASSWORD`                           | `CompuPalace2026!`       | SQL Server SA password        |
 | `ASPNETCORE_ENVIRONMENT`                | `Development`            | .NET environment              |
 | `ASPNETCORE_URLS`                       | `http://+:5000`          | Backend listen URL            |
 | `ConnectionStrings__DefaultConnection`  | *(set in compose)*       | SQL Server connection string  |
