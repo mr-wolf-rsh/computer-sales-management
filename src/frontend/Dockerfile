@@ -12,9 +12,9 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Install dependencies first (layer caching)
-COPY package.json package-lock.json* ./
-RUN npm ci
+# Install dependencies (generates package-lock.json since it's not committed)
+COPY package.json ./
+RUN npm install
 
 # Copy source and build
 COPY . .
