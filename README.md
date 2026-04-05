@@ -44,7 +44,7 @@ Key patterns:
 - Full CRUD for computer inventory management
 - Paginated data grid with search and filtering
 - Royal tier badge system (Page, Squire, Knight, Baron, Duke, Prince, Sovereign)
-- Product images with URL preview
+- Product images with Unsplash URLs and live preview
 - Price management and filtering
 - Dashboard with charts and statistics (Recharts)
 - Dark mode ("Night Court" theme)
@@ -62,55 +62,54 @@ computer-sales-management/
 ├── .dockerignore
 ├── .gitignore
 ├── README.md
-└── src/
-    ├── database/
-    │   ├── Dockerfile
-    │   ├── entrypoint.sh
-    │   ├── 01-schema.sql
-    │   ├── 02-stored-procedures.sql
-    │   └── 03-seed-data.sql
-    ├── backend/
-    │   ├── CompuPalace.sln
-    │   ├── CompuPalace.Domain/
-    │   │   ├── Entities/          (Computer, Processor, Gpu, StorageDrive, UsbPort)
-    │   │   └── Enums/             (StorageDriveType, WeightUnit)
-    │   ├── CompuPalace.Application/
-    │   │   ├── DTOs/              (ComputerDto, PaginatedResult, DashboardStatsDto, etc.)
-    │   │   ├── Interfaces/        (IComputerRepository, IUnitOfWork, etc.)
-    │   │   ├── Services/          (ComputerService with tier badge logic)
-    │   │   ├── Validators/        (FluentValidation rules)
-    │   │   └── Mappings/          (AutoMapper profiles)
-    │   ├── CompuPalace.Infrastructure/
-    │   │   ├── Data/              (AppDbContext, EF Core configurations)
-    │   │   └── Repositories/      (ComputerRepository, UnitOfWork, etc.)
-    │   ├── CompuPalace.Api/
-    │   │   ├── Dockerfile
-    │   │   ├── Controllers/       (Computers, Processors, Gpus)
-    │   │   ├── Middleware/        (ExceptionHandling, RequestLogging)
-    │   │   └── Properties/
-    │   └── CompuPalace.Tests/
-    │       └── Unit/              (Services, Validators)
-    └── frontend/
-        ├── Dockerfile
-        ├── nginx.conf
-        ├── package.json
-        ├── vite.config.ts
-        └── src/
-            ├── app/               (Redux store, typed hooks)
-            ├── theme/             (MUI themes, ThemeContext)
-            ├── routes/            (AppRouter with lazy loading)
-            └── features/
-                ├── computers/
-                │   ├── api/       (RTK Query API slice)
-                │   ├── components/ (ComputerList, ComputerCard, ComputerForm, ComputerDetail, SearchBar)
-                │   ├── hooks/     (useDebounce, useKeyboardShortcuts, useComputerFilters)
-                │   ├── utils/     (csvExport, tierBadge)
-                │   └── types/     (TypeScript interfaces)
-                ├── dashboard/     (Dashboard with Recharts)
-                ├── compare/       (CompareView, compareSlice)
-                └── shared/
-                    ├── components/ (Layout, ConfirmDialog, LoadingSpinner, Pagination)
-                    └── utils/     (formatters)
+├── database/
+│   ├── Dockerfile
+│   ├── entrypoint.sh
+│   ├── 01-schema.sql
+│   ├── 02-stored-procedures.sql
+│   └── 03-seed-data.sql
+├── backend/
+│   ├── CompuPalace.sln
+│   ├── CompuPalace.Domain/
+│   │   ├── Entities/          (Computer, Processor, Gpu, StorageDrive, UsbPort)
+│   │   └── Enums/             (StorageDriveType, WeightUnit)
+│   ├── CompuPalace.Application/
+│   │   ├── DTOs/              (ComputerDto, PaginatedResult, DashboardStatsDto, etc.)
+│   │   ├── Interfaces/        (IComputerRepository, IUnitOfWork, etc.)
+│   │   ├── Services/          (ComputerService with tier badge logic)
+│   │   ├── Validators/        (FluentValidation rules)
+│   │   └── Mappings/          (AutoMapper profiles)
+│   ├── CompuPalace.Infrastructure/
+│   │   ├── Data/              (AppDbContext, EF Core configurations)
+│   │   └── Repositories/      (ComputerRepository, UnitOfWork, etc.)
+│   ├── CompuPalace.Api/
+│   │   ├── Dockerfile
+│   │   ├── Controllers/       (Computers, Processors, Gpus)
+│   │   ├── Middleware/        (ExceptionHandling, RequestLogging)
+│   │   └── Properties/
+│   └── CompuPalace.Tests/
+│       └── Unit/              (Services, Validators)
+└── frontend/
+    ├── Dockerfile
+    ├── nginx.conf
+    ├── package.json
+    ├── vite.config.ts
+    └── src/
+        ├── app/               (Redux store, typed hooks)
+        ├── theme/             (MUI themes, ThemeContext)
+        ├── routes/            (AppRouter with lazy loading)
+        └── features/
+            ├── computers/
+            │   ├── api/       (RTK Query API slice)
+            │   ├── components/ (ComputerList, ComputerCard, ComputerForm, ComputerDetail, SearchBar)
+            │   ├── hooks/     (useDebounce, useKeyboardShortcuts, useComputerFilters)
+            │   ├── utils/     (csvExport, tierBadge)
+            │   └── types/     (TypeScript interfaces)
+            ├── dashboard/     (Dashboard with Recharts)
+            ├── compare/       (CompareView, compareSlice)
+            └── shared/
+                ├── components/ (Layout, ConfirmDialog, LoadingSpinner, Pagination)
+                └── utils/     (formatters)
 ```
 
 ## Database Schema
@@ -143,9 +142,9 @@ Key constraints: cascading deletes on child tables, check constraints on enums (
 
 ## Running Tests
 
-Backend: `cd src/backend && dotnet test`
+Backend: `cd backend && dotnet test`
 
-Frontend: `cd src/frontend && npm test`
+Frontend: `cd frontend && npm test`
 
 ## Development
 
@@ -153,9 +152,9 @@ Frontend: `cd src/frontend && npm test`
 
 Database: `docker compose up database`
 
-Backend: `cd src/backend && dotnet run --project CompuPalace.Api`
+Backend: `cd backend && dotnet run --project CompuPalace.Api`
 
-Frontend: `cd src/frontend && npm install && npm run dev`
+Frontend: `cd frontend && npm install && npm run dev`
 
 ### Environment Variables
 
