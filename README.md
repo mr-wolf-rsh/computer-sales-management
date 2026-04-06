@@ -169,13 +169,12 @@ Frontend: `cd frontend && npm install && npm run dev`
 
 Copy `.env.example` to `.env` before running. All variables are documented there.
 
-| Variable                                | Description                   |
-| --------------------------------------- | ----------------------------- |
-| `SA_PASSWORD`                           | SQL Server SA password        |
-| `ASPNETCORE_ENVIRONMENT`                | `Development`            | .NET environment              |
-| `ASPNETCORE_URLS`                       | `http://+:5000`          | Backend listen URL            |
-| `ConnectionStrings__DefaultConnection`  | *(set in compose)*       | SQL Server connection string  |
-| `VITE_API_URL`                          | `http://backend:5000`    | API base URL for frontend     |
+| Variable                   | Description                          |
+| -------------------------- | ------------------------------------ |
+| `SA_PASSWORD`              | SQL Server SA password               |
+| `ASPNETCORE_ENVIRONMENT`   | .NET environment                     |
+| `ASPNETCORE_URLS`          | Backend listen URL                   |
+| `VITE_API_URL`             | API base URL for frontend            |
 
 ## License
 

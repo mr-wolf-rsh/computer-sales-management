@@ -31,8 +31,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:5000
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=${ASPNETCORE_URLS}
       - ConnectionStrings__DefaultConnection=Server=db,1433;Database=CompuPalace;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=true
     depends_on:
       db:
@@ -47,7 +47,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - VITE_API_URL=http://backend:5000
+      - VITE_API_URL=${VITE_API_URL}
     depends_on:
       - backend
 
