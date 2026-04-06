@@ -41,14 +41,6 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
     setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
   }, []);
 
-  const resetFilters = useCallback(() => {
-    setPage(1);
-    setPageSize(10);
-    setSearchTermLocal('');
-    setSortBy('name');
-    setSortOrder('asc');
-  }, []);
-
   return {
     page,
     pageSize,

@@ -67,6 +67,7 @@ computer-sales-management/
 ├── run-tests.bat
 ├── .env.example
 ├── .dockerignore
+├── .gitattributes
 ├── .gitignore
 ├── README.md
 ├── database/
@@ -112,7 +113,7 @@ computer-sales-management/
             │   ├── utils/     (csvExport, tierBadge)
             │   └── types/     (TypeScript interfaces)
             ├── dashboard/     (Dashboard with Recharts)
-            ├── compare/       (CompareView, compareSlice)
+            ├── compare/       (CompareView)
             └── shared/
                 ├── components/ (Layout, ConfirmDialog, LoadingSpinner, Pagination)
                 └── utils/     (formatters)

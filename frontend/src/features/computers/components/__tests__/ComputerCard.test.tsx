@@ -7,7 +7,6 @@ import { ThemeProvider } from '@mui/material';
 import ComputerCard from '../ComputerCard';
 import { lightTheme } from '@/theme/muiTheme';
 import computersReducer from '../../computersSlice';
-import compareReducer from '@/features/compare/compareSlice';
 import type { Computer } from '../../types/computer.types';
 
 const mockComputer: Computer = {
@@ -36,7 +35,6 @@ function createTestStore() {
   return configureStore({
     reducer: {
       computers: computersReducer,
-      compare: compareReducer,
     },
   });
 }

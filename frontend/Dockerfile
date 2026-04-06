@@ -1,36 +1,18 @@
 # =============================================================================
-# Compu Palace - Frontend (React + Vite)
+# Compu Palace - Frontend (React + Vite) — Dev Mode
 # =============================================================================
-# Multi-stage build: install deps & build, then serve with a lightweight
-# static file server.
+# Single-stage: runs the Vite dev server with HMR for local development.
 # =============================================================================
 
-# ---------------------------------------------------------------------------
-# Stage 1 - Build
-# ---------------------------------------------------------------------------
-FROM node:20-alpine AS build
-
-WORKDIR /app
-
-# Install dependencies (generates package-lock.json since it's not committed)
-COPY package.json ./
-RUN npm install
-
-# Copy source and build
-COPY . .
-RUN npm run build
-
-# ---------------------------------------------------------------------------
-# Stage 2 - Serve
-# ---------------------------------------------------------------------------
 FROM node:20-alpine
 
 WORKDIR /app
 
-RUN npm install -g serve
+COPY package.json ./
+RUN npm install
 
-COPY --from=build /app/dist ./dist
+COPY . .
 
 EXPOSE 3000
 
-CMD ["serve", "-s", "dist", "-l", "3000"]
+CMD ["npm", "run", "dev"]

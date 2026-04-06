@@ -12,6 +12,11 @@ SCRIPTS_DIR="/docker-entrypoint-initdb"
 SQLCMD="/opt/mssql-tools18/bin/sqlcmd"
 SA_PASSWORD="${MSSQL_SA_PASSWORD}"
 
+if [ -z "${SA_PASSWORD}" ]; then
+    echo "[ERROR] MSSQL_SA_PASSWORD is not set. Check your .env file."
+    exit 1
+fi
+
 echo "[entrypoint] Starting SQL Server..."
 /opt/mssql/bin/sqlservr &
 SQL_PID=$!
