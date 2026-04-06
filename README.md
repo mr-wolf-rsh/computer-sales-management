@@ -12,6 +12,14 @@ A full-stack web application for managing a computer inventory with royal-themed
 | Infrastructure | Docker Compose                                   |
 | Testing        | Vitest + React Testing Library / xUnit           |
 
+## Screenshots
+
+_Coming soon_
+
+## Prerequisites
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
 ## Quick Start
 
 ```
@@ -27,6 +35,8 @@ Or run **`rebuild.bat`** for a full clean rebuild.
 | API      | http://localhost:5000/swagger     |
 | Database | localhost:1433 (SA credentials)  |
 
+Both frontend and backend containers run in **dev mode with hot reload** — edit code and see changes instantly without rebuilding. The database is pre-seeded with 100 computers, 16 processors, and 15 GPUs.
+
 Environment variables are defined in `.env` (copied from `.env.example`).
 
 ## Architecture
@@ -40,8 +50,9 @@ The backend follows **Clean Architecture** with four layers:
 
 Key patterns:
 - **Repository + Unit of Work** for data access
-- **Stored procedures** for search and paginated queries
+- **Stored procedures** for all CRUD operations, paginated search, and dashboard aggregation (7 total)
 - **RTK Query** for frontend data fetching and caching
+- **Vite dev proxy** forwards `/api` requests to the backend container, eliminating CORS in development
 - **Container-Presentational** component pattern
 
 ## Features
@@ -52,11 +63,29 @@ Key patterns:
 - Product images with Unsplash URLs and live preview
 - Price management and filtering
 - Dashboard with charts and statistics (Recharts)
-- Dark mode ("Night Court" theme)
+- Toggle between Royal Court (light) and Night Court (dark) themes
 - CSV data export (file-saver)
-- Side-by-side computer comparison
+- Side-by-side computer comparison with gold-highlighted best values per spec
 - Keyboard shortcuts (`/` search, `n` new, `Esc` clear)
 - Form validation with Zod + React Hook Form
+
+## Tier Badge System
+
+Each computer is assigned a royal tier based on a weighted score of its specs:
+
+**Formula:** `Score = (RAM_MB / 1024) × 0.3 + (TotalStorageGB / 1000) × 0.2 + (Price / 200) × 0.3 + (PSU_Wattage / 100) × 0.2`
+
+| Score Range | Tier      | Level       |
+| ----------- | --------- | ----------- |
+| < 3         | Page      | Entry       |
+| 3 -- 4.99   | Squire    | Budget      |
+| 5 -- 6.99   | Knight    | Mid-range   |
+| 7 -- 8.99   | Baron     | Upper mid   |
+| 9 -- 10.99  | Duke      | Performance |
+| 11 -- 12.99 | Prince    | High-end    |
+| >= 13       | Sovereign | Flagship    |
+
+The tier is calculated server-side in `ComputerService` when mapping entities to DTOs.
 
 ## Project Structure
 
@@ -157,11 +186,19 @@ Frontend: `cd frontend && npm test`
 
 ## Development
 
+### Docker (recommended)
+
+```
+docker compose up --build
+```
+
+All three services start with proper dependency ordering. The frontend and backend containers support hot reload — file changes are detected automatically. The database initializes itself with schema, stored procedures, and seed data on first run.
+
 ### Running services individually
 
 Database: `docker compose up db`
 
-Backend: `cd backend && dotnet run --project CompuPalace.Api`
+Backend: `cd backend && dotnet watch run --project CompuPalace.Api`
 
 Frontend: `cd frontend && npm install && npm run dev`
 
@@ -173,8 +210,11 @@ Copy `.env.example` to `.env` before running. All variables are documented there
 | -------------------------- | ------------------------------------ |
 | `SA_PASSWORD`              | SQL Server SA password               |
 | `ASPNETCORE_ENVIRONMENT`   | .NET environment                     |
-| `ASPNETCORE_URLS`          | Backend listen URL                   |
-| `VITE_API_URL`             | API base URL for frontend            |
+| `MSSQL_PID`               | SQL Server edition (Developer)       |
+
+## Acknowledgments
+
+- Product images sourced from [Unsplash](https://unsplash.com/)
 
 ## License
 
