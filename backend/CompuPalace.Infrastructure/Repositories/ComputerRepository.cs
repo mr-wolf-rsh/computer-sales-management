@@ -97,7 +97,7 @@ public class ComputerRepository : IComputerRepository
             _ => isAscending ? query.OrderBy(c => c.CreatedAt) : query.OrderByDescending(c => c.CreatedAt),
         };
 
-        return ordered.ThenBy(c => c.Id);
+        return isAscending ? ordered.ThenBy(c => c.Id) : ordered.ThenByDescending(c => c.Id);
     }
 
     public async Task<Computer> CreateAsync(Computer computer, CancellationToken cancellationToken = default)
