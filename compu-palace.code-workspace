@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": "."
+    },
+    {
+      "name": "Frontend",
+      "path": "frontend"
+    },
+    {
+      "name": "Backend",
+      "path": "backend"
+    },
+    {
+      "name": "Database",
+      "path": "database"
+    }
+  ],
+  "settings": {
+    "typescript.tsdk": "frontend/node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/bin": true,
+      "**/obj": true
+    }
+  }
+}

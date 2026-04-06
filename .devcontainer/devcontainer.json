@@ -6,6 +6,11 @@
   ],
   "service": "frontend",
   "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "8.0"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -16,10 +21,12 @@
         "ms-mssql.mssql"
       ],
       "settings": {
-        "typescript.tsdk": "/workspace/frontend/node_modules/typescript/lib",
-        "editor.formatOnSave": true
+        "typescript.tsdk": "/app/node_modules/typescript/lib",
+        "editor.formatOnSave": true,
+        "omnisharp.projectLoadTimeout": 120
       }
     }
   },
+  "postCreateCommand": "cd /workspace/frontend && npm install && cd /workspace/backend && dotnet restore",
   "forwardPorts": [3000, 5000, 1433]
 }
