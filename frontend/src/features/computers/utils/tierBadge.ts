@@ -23,7 +23,3 @@ const DEFAULT_TIER: TierInfo = {
 export function getTierInfo(tier: string): TierInfo {
   return TIER_MAP[tier] ?? DEFAULT_TIER;
 }
-
-export function getTierColor(tier: string): string {
-  return getTierInfo(tier).color;
-}

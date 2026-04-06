@@ -98,7 +98,6 @@ computer-sales-management/
 │       └── Unit/              (Services, Validators)
 └── frontend/
     ├── Dockerfile
-    ├── nginx.conf
     ├── package.json
     ├── vite.config.ts
     └── src/
@@ -159,7 +158,7 @@ Frontend: `cd frontend && npm test`
 
 ### Running services individually
 
-Database: `docker compose up database`
+Database: `docker compose up db`
 
 Backend: `cd backend && dotnet run --project CompuPalace.Api`
 

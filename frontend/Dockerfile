@@ -34,12 +34,3 @@ COPY --from=build /app/dist ./dist
 EXPOSE 3000
 
 CMD ["serve", "-s", "dist", "-l", "3000"]
-
-# ---------------------------------------------------------------------------
-# Alternative: nginx-based serving (uncomment below, comment out Stage 2)
-# ---------------------------------------------------------------------------
-# FROM nginx:alpine
-# COPY --from=build /app/dist /usr/share/nginx/html
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-# EXPOSE 3000
-# CMD ["nginx", "-g", "daemon off;"]

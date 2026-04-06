@@ -12,7 +12,7 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=${SA_PASSWORD}
-      - MSSQL_PID=Developer
+      - MSSQL_PID=${MSSQL_PID}
     volumes:
       - sqlserver-data:/var/opt/mssql
     healthcheck:

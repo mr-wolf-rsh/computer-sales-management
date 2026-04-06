@@ -7,13 +7,10 @@
 
 FROM mcr.microsoft.com/mssql/server:2022-latest
 
-# Accept the EULA (required for SQL Server)
+# Required by SQL Server image (constant, not config)
 ENV ACCEPT_EULA=Y
 
-# SA password - provided by docker-compose via .env file
-
-# SQL Server configuration
-ENV MSSQL_PID=Developer
+# MSSQL_SA_PASSWORD and MSSQL_PID are provided by docker-compose via .env file
 
 # Switch to root to create init directory, then back to mssql
 USER root

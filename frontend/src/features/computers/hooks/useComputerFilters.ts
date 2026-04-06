@@ -16,7 +16,6 @@ interface ComputerFiltersActions {
   setSearchTerm: (term: string) => void;
   setSortBy: (field: string) => void;
   toggleSortOrder: () => void;
-  resetFilters: () => void;
 }
 
 export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActions {
@@ -62,6 +61,5 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
     setSearchTerm,
     setSortBy,
     toggleSortOrder,
-    resetFilters,
   };
 }
