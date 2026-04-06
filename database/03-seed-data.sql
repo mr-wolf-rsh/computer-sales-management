@@ -104,207 +104,207 @@ GO
 --   J = https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop    (retro tech)
 -- =============================================================================
 
-INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, PsuWattage, ProcessorId, GpuId) VALUES
+INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, PsuWattage, ProcessorId, GpuId, Status) VALUES
     -- 1
-    (N'The Page''s Companion',          8192,    499.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  8.10, N'kg', 500,  1,  1),
+    (N'The Page''s Companion',          8192,    499.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  8.10, N'kg', 500,  1,  1,  N'Active'),
     -- 2
-    (N'The Squire''s Arsenal',         16384,    649.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 12.00, N'kg', 500,  2,  2),
+    (N'The Squire''s Arsenal',         16384,    649.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 12.00, N'kg', 500,  2,  2,  N'Active'),
     -- 3
-    (N'The Herald''s Tower',            8192,    549.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 16.00, N'lb', 450,  3,  3),
+    (N'The Herald''s Tower',            8192,    549.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 16.00, N'lb', 450,  3,  3,  N'Active'),
     -- 4
-    (N'The Knight''s Fortress',        16384,    899.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 13.80, N'lb', 500,  4,  4),
+    (N'The Knight''s Fortress',        16384,    899.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 13.80, N'lb', 500,  4,  4,  N'Active'),
     -- 5
-    (N'The Baron''s Citadel',          32768,   1099.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.00, N'kg', 1000, 5,  5),
+    (N'The Baron''s Citadel',          32768,   1099.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.00, N'kg', 1000, 5,  5,  N'Active'),
     -- 6
-    (N'The Duke''s Sanctum',           32768,   1249.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    6.00, N'kg', 450,  6,  6),
+    (N'The Duke''s Sanctum',           32768,   1249.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    6.00, N'kg', 450,  6,  6,  N'Active'),
     -- 7
-    (N'The Prince''s Armory',           8192,    749.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 15.00, N'lb', 1000, 7,  4),
+    (N'The Prince''s Armory',           8192,    749.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 15.00, N'lb', 1000, 7,  4,  N'Active'),
     -- 8
-    (N'The Viscount''s Chamber',       16384,    599.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    8.00, N'lb', 750,  7,  1),
+    (N'The Viscount''s Chamber',       16384,    599.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    8.00, N'lb', 750,  7,  1,  N'Active'),
     -- 9
-    (N'The Sovereign''s Throne',        2048,   1499.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  9.00, N'kg', 508,  8,  7),
+    (N'The Sovereign''s Throne',        2048,   1499.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  9.00, N'kg', 508,  8,  7,  N'Active'),
     -- 10
-    (N'The Court Jester''s Box',         512,    349.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   22.00, N'lb', 700,  7,  5),
+    (N'The Court Jester''s Box',         512,    349.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   22.00, N'lb', 700,  7,  5,  N'Active'),
     -- 11
-    (N'The Archduke''s Engine',        65536,   3499.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  9.50, N'kg', 1200, 9,  8),
+    (N'The Archduke''s Engine',        65536,   3499.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  9.50, N'kg', 1200, 9,  8,  N'Active'),
     -- 12
-    (N'The Emperor''s Dominion',      131072,   4999.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 11.00, N'kg', 1200, 16, 8),
+    (N'The Emperor''s Dominion',      131072,   4999.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 11.00, N'kg', 1200, 16, 8,  N'Active'),
     -- 13
-    (N'The Regent''s Might',           65536,   2999.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 10.20, N'kg', 1000, 15, 15),
+    (N'The Regent''s Might',           65536,   2999.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 10.20, N'kg', 1000, 15, 15, N'Active'),
     -- 14
-    (N'The Paladin''s Core',           32768,   1799.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  8.80, N'kg', 850,  9,  9),
+    (N'The Paladin''s Core',           32768,   1799.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  8.80, N'kg', 850,  9,  9,  N'Active'),
     -- 15
-    (N'The Warden''s Watch',           16384,    999.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.50, N'kg', 650,  11, 11),
+    (N'The Warden''s Watch',           16384,    999.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.50, N'kg', 650,  11, 11, N'Active'),
     -- 16
-    (N'The Chancellor''s Decree',      32768,   1599.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    9.00, N'kg', 750,  10, 10),
+    (N'The Chancellor''s Decree',      32768,   1599.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    9.00, N'kg', 750,  10, 10, N'Active'),
     -- 17
-    (N'The Viceroy''s Command',        16384,   1149.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  8.30, N'kg', 700,  12, 13),
+    (N'The Viceroy''s Command',        16384,   1149.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  8.30, N'kg', 700,  12, 13, N'Active'),
     -- 18
-    (N'The Marshal''s Banner',          8192,    699.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   14.00, N'lb', 550,  13, 12),
+    (N'The Marshal''s Banner',          8192,    699.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   14.00, N'lb', 550,  13, 12, N'Active'),
     -- 19
-    (N'The Constable''s Keep',          4096,    449.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 11.00, N'lb', 400,  1,  3),
+    (N'The Constable''s Keep',          4096,    449.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 11.00, N'lb', 400,  1,  3,  N'Active'),
     -- 20
-    (N'The Chamberlain''s Vault',      32768,   1399.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',    7.20, N'kg', 800,  14, 14),
+    (N'The Chamberlain''s Vault',      32768,   1399.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',    7.20, N'kg', 800,  14, 14, N'Active'),
     -- 21
-    (N'The Steward''s Watch',          16384,    879.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  6.80, N'kg', 600,  11, 9),
+    (N'The Steward''s Watch',          16384,    879.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  6.80, N'kg', 600,  11, 9,  N'Active'),
     -- 22
-    (N'The Banneret''s Standard',       8192,    599.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 13.50, N'lb', 500,  7,  2),
+    (N'The Banneret''s Standard',       8192,    599.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 13.50, N'lb', 500,  7,  2,  N'Active'),
     -- 23
-    (N'The Thane''s Bastion',          32768,   1699.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  8.50, N'kg', 850,  12, 15),
+    (N'The Thane''s Bastion',          32768,   1699.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  8.50, N'kg', 850,  12, 15, N'Active'),
     -- 24
-    (N'The Liegeman''s Post',           4096,    379.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 10.00, N'lb', 350,  3,  3),
+    (N'The Liegeman''s Post',           4096,    379.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 10.00, N'lb', 350,  3,  3,  N'Active'),
     -- 25
-    (N'The Seneschal''s Hall',         65536,   2499.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  9.80, N'kg', 1000, 15, 8),
+    (N'The Seneschal''s Hall',         65536,   2499.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  9.80, N'kg', 1000, 15, 8,  N'Active'),
     -- 26
-    (N'The Castellan''s Tower',        32768,   1349.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    8.00, N'kg', 750,  10, 9),
+    (N'The Castellan''s Tower',        32768,   1349.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    8.00, N'kg', 750,  10, 9,  N'Active'),
     -- 27
-    (N'The Warlord''s Siege',          65536,   2799.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 12.00, N'kg', 1200, 9,  8),
+    (N'The Warlord''s Siege',          65536,   2799.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 12.00, N'kg', 1200, 9,  8,  N'Active'),
     -- 28
-    (N'The Envoy''s Dispatch',          8192,    529.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    5.50, N'kg', 450,  13, 12),
+    (N'The Envoy''s Dispatch',          8192,    529.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    5.50, N'kg', 450,  13, 12, N'Active'),
     -- 29
-    (N'The Tribune''s Oration',        16384,    949.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  7.80, N'kg', 650,  14, 11),
+    (N'The Tribune''s Oration',        16384,    949.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  7.80, N'kg', 650,  14, 11, N'Active'),
     -- 30
-    (N'The Legate''s Decree',           2048,    329.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   18.00, N'lb', 400,  2,  6),
+    (N'The Legate''s Decree',           2048,    329.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   18.00, N'lb', 400,  2,  6,  N'Active'),
     -- 31
-    (N'The Prelate''s Sanctum',        32768,   1899.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  8.20, N'kg', 900,  16, 10),
+    (N'The Prelate''s Sanctum',        32768,   1899.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  8.20, N'kg', 900,  16, 10, N'Active'),
     -- 32
-    (N'The Exarch''s Domain',          65536,   3199.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 10.50, N'kg', 1200, 15, 15),
+    (N'The Exarch''s Domain',          65536,   3199.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 10.50, N'kg', 1200, 15, 15, N'Active'),
     -- 33
-    (N'The Patriarch''s Legacy',        4096,    419.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 12.00, N'lb', 400,  3,  6),
+    (N'The Patriarch''s Legacy',        4096,    419.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 12.00, N'lb', 400,  3,  6,  N'Active'),
     -- 34
-    (N'The Prefect''s Order',           8192,    679.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  6.20, N'kg', 550,  7,  2),
+    (N'The Prefect''s Order',           8192,    679.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  6.20, N'kg', 550,  7,  2,  N'Active'),
     -- 35
-    (N'The Tribune''s Voice',          16384,   1049.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  8.90, N'kg', 700,  11, 13),
+    (N'The Tribune''s Voice',          16384,   1049.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  8.90, N'kg', 700,  11, 13, N'Active'),
     -- 36
-    (N'The Praetor''s Judgment',       32768,   1549.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    9.30, N'kg', 800,  12, 14),
+    (N'The Praetor''s Judgment',       32768,   1549.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    9.30, N'kg', 800,  12, 14, N'Active'),
     -- 37
-    (N'The Consul''s Authority',       65536,   2699.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 11.50, N'kg', 1000, 16, 8),
+    (N'The Consul''s Authority',       65536,   2699.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 11.50, N'kg', 1000, 16, 8,  N'Active'),
     -- 38
-    (N'The Procurator''s Ledger',       8192,    589.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   14.50, N'lb', 500,  4,  5),
+    (N'The Procurator''s Ledger',       8192,    589.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   14.50, N'lb', 500,  4,  5,  N'Active'),
     -- 39
-    (N'The Strategos'' Gambit',        16384,   1199.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  8.60, N'kg', 750,  14, 9),
+    (N'The Strategos'' Gambit',        16384,   1199.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  8.60, N'kg', 750,  14, 9,  N'Active'),
     -- 40
-    (N'The Eparch''s Edict',             512,    299.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   20.00, N'lb', 350,  1,  3),
+    (N'The Eparch''s Edict',             512,    299.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   20.00, N'lb', 350,  1,  3,  N'Active'),
     -- 41
-    (N'The Archon''s Seal',            32768,   1449.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  7.70, N'kg', 800,  10, 10),
+    (N'The Archon''s Seal',            32768,   1449.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  7.70, N'kg', 800,  10, 10, N'Active'),
     -- 42
-    (N'The Tyrant''s Grip',            65536,   3099.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 10.80, N'kg', 1200, 9,  15),
+    (N'The Tyrant''s Grip',            65536,   3099.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 10.80, N'kg', 1200, 9,  15, N'Active'),
     -- 43
-    (N'The Oligarch''s Reserve',        4096,    459.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 11.00, N'lb', 400,  2,  6),
+    (N'The Oligarch''s Reserve',        4096,    459.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 11.00, N'lb', 400,  2,  6,  N'Active'),
     -- 44
-    (N'The Satrap''s Province',        16384,    849.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  7.40, N'kg', 600,  6,  4),
+    (N'The Satrap''s Province',        16384,    849.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  7.40, N'kg', 600,  6,  4,  N'Active'),
     -- 45
-    (N'The Vizier''s Counsel',         32768,   1699.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  8.10, N'kg', 850,  12, 15),
+    (N'The Vizier''s Counsel',         32768,   1699.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  8.10, N'kg', 850,  12, 15, N'Active'),
     -- 46
-    (N'The Sultan''s Pavilion',        65536,   2999.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   11.20, N'kg', 1000, 15, 8),
+    (N'The Sultan''s Pavilion',        65536,   2999.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   11.20, N'kg', 1000, 15, 8,  N'Active'),
     -- 47
-    (N'The Caliph''s Fortress',       131072,   4599.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 12.50, N'kg', 1200, 16, 8),
+    (N'The Caliph''s Fortress',       131072,   4599.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 12.50, N'kg', 1200, 16, 8,  N'Active'),
     -- 48
-    (N'The Emir''s Outpost',            8192,    729.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   15.50, N'lb', 550,  5,  5),
+    (N'The Emir''s Outpost',            8192,    729.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   15.50, N'lb', 550,  5,  5,  N'Active'),
     -- 49
-    (N'The Pasha''s Enclave',          16384,   1099.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  8.30, N'kg', 700,  11, 11),
+    (N'The Pasha''s Enclave',          16384,   1099.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  8.30, N'kg', 700,  11, 11, N'Active'),
     -- 50
-    (N'The Bey''s Crossing',            2048,    359.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   17.00, N'lb', 380,  1,  6),
+    (N'The Bey''s Crossing',            2048,    359.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   17.00, N'lb', 380,  1,  6,  N'Active'),
     -- 51
-    (N'The Shogun''s Stronghold',      65536,   3399.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  9.90, N'kg', 1200, 9,  8),
+    (N'The Shogun''s Stronghold',      65536,   3399.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  9.90, N'kg', 1200, 9,  8,  N'Active'),
     -- 52
-    (N'The Daimyo''s Keep',            32768,   1849.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',  8.70, N'kg', 900,  10, 10),
+    (N'The Daimyo''s Keep',            32768,   1849.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',  8.70, N'kg', 900,  10, 10, N'Active'),
     -- 53
-    (N'The Samurai''s Edge',           16384,    999.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  7.10, N'kg', 650,  14, 14),
+    (N'The Samurai''s Edge',           16384,    999.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  7.10, N'kg', 650,  14, 14, N'Active'),
     -- 54
-    (N'The Ronin''s Path',              8192,    649.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  5.80, N'kg', 500,  13, 11),
+    (N'The Ronin''s Path',              8192,    649.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  5.80, N'kg', 500,  13, 11, N'Active'),
     -- 55
-    (N'The Ninja''s Shadow',            4096,    399.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop', 10.00, N'lb', 380,  3,  3),
+    (N'The Ninja''s Shadow',            4096,    399.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop', 10.00, N'lb', 380,  3,  3,  N'Active'),
     -- 56
-    (N'The Warlord''s Dominion',       65536,   2599.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   10.00, N'kg', 1000, 15, 15),
+    (N'The Warlord''s Dominion',       65536,   2599.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   10.00, N'kg', 1000, 15, 15, N'Active'),
     -- 57
-    (N'The Chieftain''s Hearth',       16384,    879.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  8.00, N'kg', 650,  12, 13),
+    (N'The Chieftain''s Hearth',       16384,    879.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  8.00, N'kg', 650,  12, 13, N'Active'),
     -- 58
-    (N'The Jarl''s Hall',              32768,   1499.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    9.40, N'kg', 800,  10, 9),
+    (N'The Jarl''s Hall',              32768,   1499.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    9.40, N'kg', 800,  10, 9,  N'Active'),
     -- 59
-    (N'The Thegn''s Holding',           4096,    429.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 12.50, N'lb', 400,  2,  5),
+    (N'The Thegn''s Holding',           4096,    429.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 12.50, N'lb', 400,  2,  5,  N'Active'),
     -- 60
-    (N'The Housecarl''s Post',          8192,    549.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   14.00, N'lb', 500,  7,  2),
+    (N'The Housecarl''s Post',          8192,    549.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   14.00, N'lb', 500,  7,  2,  N'Active'),
     -- 61
-    (N'The Overlord''s Citadel',      131072,   4799.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop', 13.00, N'kg', 1200, 16, 8),
+    (N'The Overlord''s Citadel',      131072,   4799.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop', 13.00, N'kg', 1200, 16, 8,  N'Active'),
     -- 62
-    (N'The Suzerain''s Court',         65536,   3299.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 11.80, N'kg', 1200, 15, 10),
+    (N'The Suzerain''s Court',         65536,   3299.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 11.80, N'kg', 1200, 15, 10, N'Active'),
     -- 63
-    (N'The Potentate''s Chamber',      32768,   2199.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  9.10, N'kg', 900,  9,  9),
+    (N'The Potentate''s Chamber',      32768,   2199.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  9.10, N'kg', 900,  9,  9,  N'Active'),
     -- 64
-    (N'The Magnate''s Study',          16384,   1249.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  8.40, N'kg', 750,  11, 13),
+    (N'The Magnate''s Study',          16384,   1249.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  8.40, N'kg', 750,  11, 13, N'Active'),
     -- 65
-    (N'The Patrician''s Villa',         8192,    769.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.20, N'kg', 600,  6,  4),
+    (N'The Patrician''s Villa',         8192,    769.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.20, N'kg', 600,  6,  4,  N'Active'),
     -- 66
-    (N'The Centurion''s Camp',          4096,    449.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   11.50, N'lb', 400,  4,  6),
+    (N'The Centurion''s Camp',          4096,    449.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   11.50, N'lb', 400,  4,  6,  N'Active'),
     -- 67
-    (N'The Legionnaire''s March',       8192,    619.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  6.50, N'kg', 500,  5,  5),
+    (N'The Legionnaire''s March',       8192,    619.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  6.50, N'kg', 500,  5,  5,  N'Active'),
     -- 68
-    (N'The Tribune''s Rostrum',        16384,   1099.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    9.20, N'kg', 700,  14, 12),
+    (N'The Tribune''s Rostrum',        16384,   1099.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    9.20, N'kg', 700,  14, 12, N'Active'),
     -- 69
-    (N'The Prefect''s Fortress',       32768,   1599.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  8.80, N'kg', 800,  12, 14),
+    (N'The Prefect''s Fortress',       32768,   1599.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  8.80, N'kg', 800,  12, 14, N'Active'),
     -- 70
-    (N'The Praetor''s Command',        65536,   2899.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   10.40, N'kg', 1000, 16, 15),
+    (N'The Praetor''s Command',        65536,   2899.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   10.40, N'kg', 1000, 16, 15, N'Active'),
     -- 71
-    (N'The Dictator''s Seat',          65536,   3599.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop', 12.20, N'kg', 1200, 9,  8),
+    (N'The Dictator''s Seat',          65536,   3599.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop', 12.20, N'kg', 1200, 9,  8,  N'Active'),
     -- 72
-    (N'The Imperator''s Will',        131072,   4299.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 11.60, N'kg', 1200, 15, 8),
+    (N'The Imperator''s Will',        131072,   4299.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 11.60, N'kg', 1200, 15, 8,  N'Active'),
     -- 73
-    (N'The Triumvir''s Alliance',       2048,    319.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 19.00, N'lb', 380,  2,  3),
+    (N'The Triumvir''s Alliance',       2048,    319.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop', 19.00, N'lb', 380,  2,  3,  N'Active'),
     -- 74
-    (N'The Aedile''s Square',           4096,    439.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 11.00, N'lb', 400,  3,  6),
+    (N'The Aedile''s Square',           4096,    439.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 11.00, N'lb', 400,  3,  6,  N'Active'),
     -- 75
-    (N'The Quaestor''s Treasury',       8192,    689.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.00, N'kg', 550,  7,  2),
+    (N'The Quaestor''s Treasury',       8192,    689.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  7.00, N'kg', 550,  7,  2,  N'Active'),
     -- 76
-    (N'The Censor''s Ledger',          16384,    999.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    8.20, N'kg', 650,  11, 11),
+    (N'The Censor''s Ledger',          16384,    999.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',    8.20, N'kg', 650,  11, 11, N'Active'),
     -- 77
-    (N'The Pontifex''s Shrine',        32768,   1749.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  9.60, N'kg', 850,  10, 10),
+    (N'The Pontifex''s Shrine',        32768,   1749.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  9.60, N'kg', 850,  10, 10, N'Active'),
     -- 78
-    (N'The Augur''s Vision',           65536,   2799.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   10.70, N'kg', 1000, 16, 15),
+    (N'The Augur''s Vision',           65536,   2799.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   10.70, N'kg', 1000, 16, 15, N'Active'),
     -- 79
-    (N'The Haruspex''s Oracle',          512,    309.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 21.00, N'lb', 360,  1,  7),
+    (N'The Haruspex''s Oracle',          512,    309.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 21.00, N'lb', 360,  1,  7,  N'Active'),
     -- 80
-    (N'The Flamen''s Altar',            4096,    469.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   12.00, N'lb', 420,  2,  6),
+    (N'The Flamen''s Altar',            4096,    469.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   12.00, N'lb', 420,  2,  6,  N'Active'),
     -- 81
-    (N'The Vestal''s Hearth',           8192,    599.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  5.90, N'kg', 480,  13, 12),
+    (N'The Vestal''s Hearth',           8192,    599.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  5.90, N'kg', 480,  13, 12, N'Active'),
     -- 82
-    (N'The Sibyl''s Prophecy',         16384,    949.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',  7.60, N'kg', 650,  14, 9),
+    (N'The Sibyl''s Prophecy',         16384,    949.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',  7.60, N'kg', 650,  14, 9,  N'Active'),
     -- 83
-    (N'The Oracle''s Revelation',      32768,   1799.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  8.30, N'kg', 900,  12, 15),
+    (N'The Oracle''s Revelation',      32768,   1799.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  8.30, N'kg', 900,  12, 15, N'Active'),
     -- 84
-    (N'The Prophet''s Ascent',         65536,   3099.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 11.40, N'kg', 1200, 9,  8),
+    (N'The Prophet''s Ascent',         65536,   3099.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop', 11.40, N'kg', 1200, 9,  8,  N'Active'),
     -- 85
-    (N'The Hierophant''s Mystery',      2048,    339.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop', 18.50, N'lb', 380,  3,  7),
+    (N'The Hierophant''s Mystery',      2048,    339.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop', 18.50, N'lb', 380,  3,  7,  N'Active'),
     -- 86
-    (N'The Archmage''s Tower',         65536,   3749.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   10.10, N'kg', 1200, 15, 8),
+    (N'The Archmage''s Tower',         65536,   3749.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   10.10, N'kg', 1200, 15, 8,  N'New'),
     -- 87
-    (N'The Sorcerer''s Sanctum',       32768,   2049.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  8.90, N'kg', 950,  16, 10),
+    (N'The Sorcerer''s Sanctum',       32768,   2049.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop',  8.90, N'kg', 950,  16, 10, N'New'),
     -- 88
-    (N'The Warlock''s Pact',           16384,   1199.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    7.50, N'kg', 750,  10, 14),
+    (N'The Warlock''s Pact',           16384,   1199.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',    7.50, N'kg', 750,  10, 14, N'New'),
     -- 89
-    (N'The Wizard''s Workshop',         8192,    749.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  6.40, N'kg', 600,  11, 13),
+    (N'The Wizard''s Workshop',         8192,    749.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop',  6.40, N'kg', 600,  11, 13, N'New'),
     -- 90
-    (N'The Conjurer''s Circle',          512,    299.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   23.00, N'lb', 350,  1,  7),
+    (N'The Conjurer''s Circle',          512,    299.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   23.00, N'lb', 350,  1,  7,  N'New'),
     -- 91
-    (N'The Enchanter''s Forge',        32768,   1649.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  9.00, N'kg', 850,  12, 9),
+    (N'The Enchanter''s Forge',        32768,   1649.99, N'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop',  9.00, N'kg', 850,  12, 9,  N'New'),
     -- 92
-    (N'The Necromancer''s Crypt',       4096,    389.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 13.00, N'lb', 400,  4,  5),
+    (N'The Necromancer''s Crypt',       4096,    389.99, N'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop', 13.00, N'lb', 400,  4,  5,  N'New'),
     -- 93
-    (N'The Alchemist''s Lab',           8192,    579.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  6.10, N'kg', 500,  7,  11),
+    (N'The Alchemist''s Lab',           8192,    579.99, N'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop',  6.10, N'kg', 500,  7,  11, N'New'),
     -- 94
-    (N'The Sage''s Tome',              16384,   1049.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  8.10, N'kg', 700,  14, 12),
+    (N'The Sage''s Tome',              16384,   1049.99, N'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=300&fit=crop',  8.10, N'kg', 700,  14, 12, N'New'),
     -- 95
-    (N'The Scholar''s Codex',          32768,   1449.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  8.50, N'kg', 800,  10, 15),
+    (N'The Scholar''s Codex',          32768,   1449.99, N'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop',  8.50, N'kg', 800,  10, 15, N'New'),
     -- 96
-    (N'The Archivist''s Repository',   65536,   2499.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   10.30, N'kg', 1000, 15, 8),
+    (N'The Archivist''s Repository',   65536,   2499.99, N'https://images.unsplash.com/photo-1547082299-de196ea013d6?w=400&h=300&fit=crop',   10.30, N'kg', 1000, 15, 8,  N'New'),
     -- 97
-    (N'The Lorekeeper''s Vault',      131072,   4199.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 12.80, N'kg', 1200, 16, 8),
+    (N'The Lorekeeper''s Vault',      131072,   4199.99, N'https://images.unsplash.com/photo-1602080858428-57174f9431cf?w=400&h=300&fit=crop', 12.80, N'kg', 1200, 16, 8,  N'New'),
     -- 98
-    (N'The Chronicler''s Annals',       4096,    409.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   10.50, N'lb', 400,  3,  6),
+    (N'The Chronicler''s Annals',       4096,    409.99, N'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=300&fit=crop',   10.50, N'lb', 400,  3,  6,  N'New'),
     -- 99
-    (N'The Scribe''s Scriptorium',      2048,    329.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 16.00, N'lb', 380,  2,  3),
+    (N'The Scribe''s Scriptorium',      2048,    329.99, N'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=300&fit=crop', 16.00, N'lb', 380,  2,  3,  N'New'),
     -- 100
-    (N'The Grand Sovereign''s Apex',  131072,   4999.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   13.50, N'kg', 1200, 16, 8);
+    (N'The Grand Sovereign''s Apex',  131072,   4999.99, N'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop',   13.50, N'kg', 1200, 16, 8,  N'New');
 GO
 
 -- =============================================================================

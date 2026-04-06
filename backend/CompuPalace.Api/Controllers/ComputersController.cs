@@ -19,9 +19,11 @@ public class ComputersController : ControllerBase
     public async Task<ActionResult<PaginatedResult<ComputerDto>>> GetPaged(
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10,
+        [FromQuery] string sortBy = "createdAt",
+        [FromQuery] string sortOrder = "desc",
         CancellationToken cancellationToken = default)
     {
-        var result = await _computerService.GetPagedAsync(page, pageSize, cancellationToken);
+        var result = await _computerService.GetPagedAsync(page, pageSize, sortBy, sortOrder, cancellationToken);
         return Ok(result);
     }
 
@@ -40,9 +42,11 @@ public class ComputersController : ControllerBase
         [FromQuery] string q = "",
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10,
+        [FromQuery] string sortBy = "createdAt",
+        [FromQuery] string sortOrder = "desc",
         CancellationToken cancellationToken = default)
     {
-        var result = await _computerService.SearchAsync(q, page, pageSize, cancellationToken);
+        var result = await _computerService.SearchAsync(q, page, pageSize, sortBy, sortOrder, cancellationToken);
         return Ok(result);
     }
 

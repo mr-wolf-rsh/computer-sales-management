@@ -26,9 +26,9 @@ public class ComputerService : IComputerService
         _updateValidator = updateValidator;
     }
 
-    public async Task<PaginatedResult<ComputerDto>> GetPagedAsync(int page, int pageSize, CancellationToken cancellationToken = default)
+    public async Task<PaginatedResult<ComputerDto>> GetPagedAsync(int page, int pageSize, string sortBy = "createdAt", string sortOrder = "desc", CancellationToken cancellationToken = default)
     {
-        var result = await _unitOfWork.Computers.GetPagedAsync(page, pageSize, cancellationToken);
+        var result = await _unitOfWork.Computers.GetPagedAsync(page, pageSize, sortBy, sortOrder, cancellationToken);
         var dtos = _mapper.Map<List<ComputerDto>>(result.Items);
 
         foreach (var dto in dtos)
@@ -55,9 +55,9 @@ public class ComputerService : IComputerService
         return dto;
     }
 
-    public async Task<PaginatedResult<ComputerDto>> SearchAsync(string query, int page, int pageSize, CancellationToken cancellationToken = default)
+    public async Task<PaginatedResult<ComputerDto>> SearchAsync(string query, int page, int pageSize, string sortBy = "createdAt", string sortOrder = "desc", CancellationToken cancellationToken = default)
     {
-        var result = await _unitOfWork.Computers.SearchAsync(query, page, pageSize, cancellationToken);
+        var result = await _unitOfWork.Computers.SearchAsync(query, page, pageSize, sortBy, sortOrder, cancellationToken);
         var dtos = _mapper.Map<List<ComputerDto>>(result.Items);
 
         foreach (var dto in dtos)

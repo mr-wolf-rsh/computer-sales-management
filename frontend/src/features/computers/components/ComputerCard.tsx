@@ -6,6 +6,7 @@ import {
   Box,
   Chip,
   Checkbox,
+  alpha,
 } from '@mui/material';
 import MemoryIcon from '@mui/icons-material/Memory';
 import StorageIcon from '@mui/icons-material/Storage';
@@ -57,13 +58,32 @@ export default function ComputerCard({
         />
       )}
 
-      <CardMedia
-        component="img"
-        height="180"
-        image={computer.imageUrl || 'https://placehold.co/400x300/2D1B4E/D4AF37?text=%F0%9F%91%91'}
-        alt={computer.name}
-        sx={{ objectFit: 'cover', bgcolor: 'background.default' }}
-      />
+      <Box sx={{ position: 'relative' }}>
+        <CardMedia
+          component="img"
+          height="180"
+          image={computer.imageUrl || 'https://placehold.co/400x300/2D1B4E/D4AF37?text=%F0%9F%91%91'}
+          alt={computer.name}
+          sx={{ objectFit: 'cover', bgcolor: 'background.default' }}
+        />
+        {computer.isNew && (
+          <Chip
+            label="NEW"
+            size="small"
+            sx={{
+              position: 'absolute',
+              top: 8,
+              left: 8,
+              bgcolor: '#4caf50',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '0.7rem',
+              letterSpacing: '0.05em',
+              boxShadow: (theme) => `0 2px 8px ${alpha(theme.palette.common.black, 0.3)}`,
+            }}
+          />
+        )}
+      </Box>
 
       <CardContent>
         <Box

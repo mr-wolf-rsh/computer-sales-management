@@ -28,6 +28,8 @@ export interface Computer {
   storageDrives: StorageDrive[];
   usbPorts: UsbPort[];
   tierBadge: string;
+  status: string;
+  isNew: boolean;
   createdAt: string;
   updatedAt: string | null;
 }

@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Grid,
@@ -10,6 +11,7 @@ import ComputerIcon from '@mui/icons-material/Computer';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MemoryIcon from '@mui/icons-material/Memory';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import {
   PieChart,
   Pie,
@@ -23,7 +25,8 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { useGetDashboardQuery } from '../computers/api/computersApi';
+import { useGetDashboardQuery, useGetComputersQuery } from '../computers/api/computersApi';
+import { exportComputersToCSV } from '../computers/utils/csvExport';
 import { formatPrice, formatRam } from '../shared/utils/formatters';
 import LoadingSpinner from '../shared/components/LoadingSpinner';
 
@@ -40,6 +43,7 @@ const PIE_COLORS = [
 
 export default function Dashboard() {
   const { data: stats, isLoading, isError } = useGetDashboardQuery();
+  const { data: allComputers } = useGetComputersQuery({ page: 1, size: 9999 });
 
   if (isLoading) return <LoadingSpinner />;
   if (isError || !stats) {
@@ -56,9 +60,20 @@ export default function Dashboard() {
 
   return (
     <Box>
-      <Typography variant="h4" component="h1" sx={{ mb: 3 }}>
-        Royal Dashboard
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
+        <Typography variant="h4" component="h1">
+          Royal Dashboard
+        </Typography>
+        <Button
+          variant="outlined"
+          color="secondary"
+          startIcon={<FileDownloadIcon />}
+          disabled={!allComputers?.items?.length}
+          onClick={() => exportComputersToCSV(allComputers?.items ?? [])}
+        >
+          Export to CSV
+        </Button>
+      </Box>
 
       {/* Summary Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>

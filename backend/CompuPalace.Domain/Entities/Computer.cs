@@ -14,6 +14,7 @@ public class Computer
     public int PsuWattage { get; set; }
     public int ProcessorId { get; set; }
     public int GpuId { get; set; }
+    public string Status { get; set; } = "New";
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
 

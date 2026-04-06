@@ -11,6 +11,8 @@ import type {
 interface ListParams {
   page?: number;
   size?: number;
+  sortBy?: string;
+  sortOrder?: string;
 }
 
 interface SearchParams extends ListParams {
@@ -23,8 +25,8 @@ export const computersApi = createApi({
   tagTypes: ['Computer', 'ComputerList', 'Dashboard'],
   endpoints: (builder) => ({
     getComputers: builder.query<PaginatedResult<Computer>, ListParams>({
-      query: ({ page = 1, size = 10 } = {}) =>
-        `computers?page=${page}&pageSize=${size}`,
+      query: ({ page = 1, size = 10, sortBy = 'createdAt', sortOrder = 'desc' } = {}) =>
+        `computers?page=${page}&pageSize=${size}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
       providesTags: (result) =>
         result
           ? [
@@ -43,8 +45,8 @@ export const computersApi = createApi({
     }),
 
     searchComputers: builder.query<PaginatedResult<Computer>, SearchParams>({
-      query: ({ q, page = 1, size = 10 }) =>
-        `computers/search?q=${encodeURIComponent(q)}&page=${page}&pageSize=${size}`,
+      query: ({ q, page = 1, size = 10, sortBy = 'createdAt', sortOrder = 'desc' }) =>
+        `computers/search?q=${encodeURIComponent(q)}&page=${page}&pageSize=${size}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
       providesTags: [{ type: 'ComputerList' }],
     }),
 

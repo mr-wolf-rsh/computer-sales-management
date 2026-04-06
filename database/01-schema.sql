@@ -56,6 +56,7 @@ CREATE TABLE Computers (
     PsuWattage  INT             NOT NULL,
     ProcessorId INT             NOT NULL,
     GpuId       INT             NOT NULL,
+    Status      NVARCHAR(20)    NOT NULL DEFAULT 'New',
     CreatedAt   DATETIME2       DEFAULT SYSUTCDATETIME(),
     UpdatedAt   DATETIME2       NULL,
 
@@ -65,7 +66,8 @@ CREATE TABLE Computers (
         REFERENCES Gpus(Id),
     CONSTRAINT CK_Computers_WeightUnit CHECK (WeightUnit IN ('kg', 'lb')),
     CONSTRAINT CK_Computers_Price CHECK (Price >= 0),
-    CONSTRAINT CK_Computers_RamAmountMB CHECK (RamAmountMB > 0)
+    CONSTRAINT CK_Computers_RamAmountMB CHECK (RamAmountMB > 0),
+    CONSTRAINT CK_Computers_Status CHECK (Status IN ('New', 'Active', 'Discontinued'))
 );
 GO
 

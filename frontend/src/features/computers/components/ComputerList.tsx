@@ -4,7 +4,7 @@ import {
   Button,
   Fab,
   Grid,
-  IconButton,
+  MenuItem,
   Paper,
   Table,
   TableBody,
@@ -13,9 +13,9 @@ import {
   TableHead,
   TableRow,
   TableSortLabel,
+  TextField,
   ToggleButton,
   ToggleButtonGroup,
-  Tooltip,
   Typography,
   Chip,
   Checkbox,
@@ -25,7 +25,6 @@ import AddIcon from '@mui/icons-material/Add';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import {
@@ -39,7 +38,6 @@ import {
 } from '../api/computersApi';
 import { useComputerFilters } from '../hooks/useComputerFilters';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
-import { exportComputersToCSV } from '../utils/csvExport';
 import { getTierInfo } from '../utils/tierBadge';
 import { formatPrice, formatRam } from '@/features/shared/utils/formatters';
 import SearchBar from './SearchBar';
@@ -60,22 +58,24 @@ export default function ComputerList() {
     debouncedSearch,
     sortBy,
     sortOrder,
+    tierFilter,
     setPage,
     setPageSize,
     setSearchTerm,
     setSortBy,
     toggleSortOrder,
+    setTierFilter,
   } = useComputerFilters();
 
   const isSearching = debouncedSearch.length > 0;
 
   const listQuery = useGetComputersQuery(
-    { page, size: pageSize },
+    { page, size: pageSize, sortBy, sortOrder },
     { skip: isSearching },
   );
 
   const searchQuery = useSearchComputersQuery(
-    { q: debouncedSearch, page, size: pageSize },
+    { q: debouncedSearch, page, size: pageSize, sortBy, sortOrder },
     { skip: !isSearching },
   );
 
@@ -84,24 +84,10 @@ export default function ComputerList() {
     : listQuery;
 
   const computers = data?.items ?? [];
+  const filteredComputers = tierFilter
+    ? computers.filter((c) => c.tierBadge === tierFilter)
+    : computers;
   const totalPages = data?.totalPages ?? 0;
-
-  const sorted = [...computers].sort((a, b) => {
-    let cmp = 0;
-    switch (sortBy) {
-      case 'price':
-        cmp = a.price - b.price;
-        break;
-      case 'ram':
-        cmp = a.ramAmountMB - b.ramAmountMB;
-        break;
-      case 'name':
-      default:
-        cmp = a.name.localeCompare(b.name);
-        break;
-    }
-    return sortOrder === 'asc' ? cmp : -cmp;
-  });
 
   const handleSort = useCallback(
     (field: string) => {
@@ -137,41 +123,59 @@ export default function ComputerList() {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
           flexWrap: 'wrap',
           gap: 2,
           mb: 3,
         }}
       >
-        <Typography variant="h4" component="h1">
+        {/* Left: Title */}
+        <Typography variant="h4" component="h1" sx={{ whiteSpace: 'nowrap' }}>
           Royal Catalog
         </Typography>
 
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
+        {/* Center: Search + Tier Filter + Compare */}
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 1,
+            flexWrap: 'wrap',
+          }}
+        >
           <SearchBar value={searchTerm} onChange={setSearchTerm} />
 
-          <ToggleButtonGroup
-            value={viewMode}
-            exclusive
-            onChange={(_, v) => v && dispatch(setViewMode(v))}
+          <TextField
+            select
             size="small"
+            value={tierFilter}
+            onChange={(e) => setTierFilter(e.target.value)}
+            label="Tier"
+            sx={{
+              minWidth: 140,
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'secondary.main',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'secondary.main',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'secondary.main',
+                },
+              },
+            }}
           >
-            <ToggleButton value="grid">
-              <ViewModuleIcon />
-            </ToggleButton>
-            <ToggleButton value="list">
-              <ViewListIcon />
-            </ToggleButton>
-          </ToggleButtonGroup>
-
-          <Tooltip title="Export to CSV">
-            <IconButton
-              onClick={() => exportComputersToCSV(sorted)}
-              color="secondary"
-            >
-              <FileDownloadIcon />
-            </IconButton>
-          </Tooltip>
+            <MenuItem value="">All Tiers</MenuItem>
+            <MenuItem value="Page">Page</MenuItem>
+            <MenuItem value="Squire">Squire</MenuItem>
+            <MenuItem value="Knight">Knight</MenuItem>
+            <MenuItem value="Baron">Baron</MenuItem>
+            <MenuItem value="Duke">Duke</MenuItem>
+            <MenuItem value="Prince">Prince</MenuItem>
+            <MenuItem value="Sovereign">Sovereign</MenuItem>
+          </TextField>
 
           <Button
             variant="outlined"
@@ -182,13 +186,28 @@ export default function ComputerList() {
             Compare ({selectedIds.length})
           </Button>
         </Box>
+
+        {/* Right: View toggle */}
+        <ToggleButtonGroup
+          value={viewMode}
+          exclusive
+          onChange={(_, v) => v && dispatch(setViewMode(v))}
+          size="small"
+        >
+          <ToggleButton value="grid">
+            <ViewModuleIcon />
+          </ToggleButton>
+          <ToggleButton value="list">
+            <ViewListIcon />
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Box>
 
       {isLoading ? (
         <LoadingSpinner />
       ) : viewMode === 'grid' ? (
         <Grid container spacing={3}>
-          {sorted.map((computer) => (
+          {filteredComputers.map((computer) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={computer.id}>
               <ComputerCard
                 computer={computer}
@@ -207,17 +226,17 @@ export default function ComputerList() {
                   <Checkbox
                     indeterminate={
                       selectedIds.length > 0 &&
-                      selectedIds.length < sorted.length
+                      selectedIds.length < filteredComputers.length
                     }
                     checked={
-                      sorted.length > 0 &&
-                      sorted.every((c) => selectedIds.includes(c.id))
+                      filteredComputers.length > 0 &&
+                      filteredComputers.every((c) => selectedIds.includes(c.id))
                     }
                     onChange={() => {
-                      if (sorted.every((c) => selectedIds.includes(c.id))) {
+                      if (filteredComputers.every((c) => selectedIds.includes(c.id))) {
                         dispatch(clearSelected());
                       } else {
-                        sorted.forEach((c) => {
+                        filteredComputers.forEach((c) => {
                           if (!selectedIds.includes(c.id)) {
                             dispatch(toggleSelected(c.id));
                           }
@@ -259,7 +278,7 @@ export default function ComputerList() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {sorted.map((computer) => {
+              {filteredComputers.map((computer) => {
                 const tier = getTierInfo(computer.tierBadge);
                 return (
                   <TableRow
@@ -276,9 +295,24 @@ export default function ComputerList() {
                       />
                     </TableCell>
                     <TableCell>
-                      <Typography fontWeight={600}>
-                        {computer.name}
-                      </Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Typography fontWeight={600}>
+                          {computer.name}
+                        </Typography>
+                        {computer.isNew && (
+                          <Chip
+                            label="NEW"
+                            size="small"
+                            sx={{
+                              bgcolor: '#4caf50',
+                              color: '#fff',
+                              fontWeight: 700,
+                              fontSize: '0.65rem',
+                              height: 20,
+                            }}
+                          />
+                        )}
+                      </Box>
                     </TableCell>
                     <TableCell>
                       <Chip
@@ -304,7 +338,7 @@ export default function ComputerList() {
                   </TableRow>
                 );
               })}
-              {sorted.length === 0 && (
+              {filteredComputers.length === 0 && (
                 <TableRow>
                   <TableCell colSpan={7} align="center">
                     <Typography color="text.secondary" sx={{ py: 4 }}>

@@ -15,15 +15,15 @@ public class ComputerRepository : IComputerRepository
         _context = context;
     }
 
-    public async Task<PaginatedResult<Computer>> GetPagedAsync(int page, int pageSize, CancellationToken cancellationToken = default)
+    public async Task<PaginatedResult<Computer>> GetPagedAsync(int page, int pageSize, string sortBy = "createdAt", string sortOrder = "desc", CancellationToken cancellationToken = default)
     {
-        var query = _context.Computers
+        var baseQuery = _context.Computers
             .Include(c => c.Processor)
             .Include(c => c.Gpu)
             .Include(c => c.StorageDrives)
-            .Include(c => c.UsbPorts)
-            .OrderByDescending(c => c.CreatedAt)
-            .ThenBy(c => c.Id)
+            .Include(c => c.UsbPorts);
+
+        var query = ApplySorting(baseQuery, sortBy, sortOrder)
             .AsNoTracking();
 
         var totalCount = await query.CountAsync(cancellationToken);
@@ -52,9 +52,9 @@ public class ComputerRepository : IComputerRepository
             .FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
     }
 
-    public async Task<PaginatedResult<Computer>> SearchAsync(string query, int page, int pageSize, CancellationToken cancellationToken = default)
+    public async Task<PaginatedResult<Computer>> SearchAsync(string query, int page, int pageSize, string sortBy = "createdAt", string sortOrder = "desc", CancellationToken cancellationToken = default)
     {
-        var searchQuery = _context.Computers
+        var baseQuery = _context.Computers
             .Include(c => c.Processor)
             .Include(c => c.Gpu)
             .Include(c => c.StorageDrives)
@@ -64,9 +64,9 @@ public class ComputerRepository : IComputerRepository
                 EF.Functions.Like(c.Processor.Name, $"%{query}%") ||
                 EF.Functions.Like(c.Processor.Brand, $"%{query}%") ||
                 EF.Functions.Like(c.Gpu.Name, $"%{query}%") ||
-                EF.Functions.Like(c.Gpu.Brand, $"%{query}%"))
-            .OrderByDescending(c => c.CreatedAt)
-            .ThenBy(c => c.Id)
+                EF.Functions.Like(c.Gpu.Brand, $"%{query}%"));
+
+        var searchQuery = ApplySorting(baseQuery, sortBy, sortOrder)
             .AsNoTracking();
 
         var totalCount = await searchQuery.CountAsync(cancellationToken);
@@ -83,6 +83,21 @@ public class ComputerRepository : IComputerRepository
             Page = page,
             PageSize = pageSize
         };
+    }
+
+    private static IQueryable<Computer> ApplySorting(IQueryable<Computer> query, string sortBy, string sortOrder)
+    {
+        var isAscending = string.Equals(sortOrder, "asc", StringComparison.OrdinalIgnoreCase);
+
+        IOrderedQueryable<Computer> ordered = sortBy?.ToLowerInvariant() switch
+        {
+            "name" => isAscending ? query.OrderBy(c => c.Name) : query.OrderByDescending(c => c.Name),
+            "price" => isAscending ? query.OrderBy(c => c.Price) : query.OrderByDescending(c => c.Price),
+            "ram" => isAscending ? query.OrderBy(c => c.RamAmountMB) : query.OrderByDescending(c => c.RamAmountMB),
+            _ => isAscending ? query.OrderBy(c => c.CreatedAt) : query.OrderByDescending(c => c.CreatedAt),
+        };
+
+        return ordered.ThenBy(c => c.Id);
     }
 
     public async Task<Computer> CreateAsync(Computer computer, CancellationToken cancellationToken = default)

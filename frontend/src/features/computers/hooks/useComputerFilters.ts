@@ -1,4 +1,9 @@
 import { useState, useCallback } from 'react';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import {
+  setPage as setPageAction,
+  setPageSize as setPageSizeAction,
+} from '../computersSlice';
 import { useDebounce } from './useDebounce';
 
 interface ComputerFiltersState {
@@ -8,6 +13,7 @@ interface ComputerFiltersState {
   debouncedSearch: string;
   sortBy: string;
   sortOrder: 'asc' | 'desc';
+  tierFilter: string;
 }
 
 interface ComputerFiltersActions {
@@ -16,26 +22,38 @@ interface ComputerFiltersActions {
   setSearchTerm: (term: string) => void;
   setSortBy: (field: string) => void;
   toggleSortOrder: () => void;
+  setTierFilter: (tier: string) => void;
 }
 
 export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActions {
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const dispatch = useAppDispatch();
+  const page = useAppSelector((s) => s.computers.page);
+  const pageSize = useAppSelector((s) => s.computers.pageSize);
+
   const [searchTerm, setSearchTermLocal] = useState('');
   const [sortBy, setSortBy] = useState('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [tierFilter, setTierFilter] = useState('');
 
   const debouncedSearch = useDebounce(searchTerm, 300);
 
-  const setSearchTerm = useCallback((term: string) => {
-    setSearchTermLocal(term);
-    setPage(1);
-  }, []);
+  const setPage = useCallback(
+    (p: number) => dispatch(setPageAction(p)),
+    [dispatch],
+  );
 
-  const handleSetPageSize = useCallback((size: number) => {
-    setPageSize(size);
-    setPage(1);
-  }, []);
+  const setSearchTerm = useCallback(
+    (term: string) => {
+      setSearchTermLocal(term);
+      dispatch(setPageAction(1));
+    },
+    [dispatch],
+  );
+
+  const handleSetPageSize = useCallback(
+    (size: number) => dispatch(setPageSizeAction(size)),
+    [dispatch],
+  );
 
   const toggleSortOrder = useCallback(() => {
     setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
@@ -48,10 +66,12 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
     debouncedSearch,
     sortBy,
     sortOrder,
+    tierFilter,
     setPage,
     setPageSize: handleSetPageSize,
     setSearchTerm,
     setSortBy,
     toggleSortOrder,
+    setTierFilter,
   };
 }

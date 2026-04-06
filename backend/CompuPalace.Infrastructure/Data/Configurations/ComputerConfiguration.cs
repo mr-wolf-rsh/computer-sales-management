@@ -40,6 +40,11 @@ public class ComputerConfiguration : IEntityTypeConfiguration<Computer>
         builder.Property(c => c.PsuWattage)
             .IsRequired();
 
+        builder.Property(c => c.Status)
+            .IsRequired()
+            .HasMaxLength(20)
+            .HasDefaultValue("New");
+
         builder.Property(c => c.CreatedAt)
             .IsRequired();
 

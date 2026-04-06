@@ -19,6 +19,8 @@ public class ComputerDto
     public List<StorageDriveDto> StorageDrives { get; set; } = new();
     public List<UsbPortDto> UsbPorts { get; set; } = new();
     public string TierBadge { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
+    public bool IsNew { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
 }

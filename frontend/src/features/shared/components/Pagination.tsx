@@ -42,7 +42,20 @@ export default function Pagination({
         value={pageSize}
         onChange={(e) => onPageSizeChange(Number(e.target.value))}
         label="Per page"
-        sx={{ minWidth: 100 }}
+        sx={{
+          minWidth: 100,
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: 'secondary.main',
+            },
+            '&:hover fieldset': {
+              borderColor: 'secondary.main',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: 'secondary.main',
+            },
+          },
+        }}
       >
         {PAGE_SIZE_OPTIONS.map((opt) => (
           <MenuItem key={opt} value={opt}>
