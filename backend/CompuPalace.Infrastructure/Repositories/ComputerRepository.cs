@@ -23,6 +23,7 @@ public class ComputerRepository : IComputerRepository
             .Include(c => c.StorageDrives)
             .Include(c => c.UsbPorts)
             .OrderByDescending(c => c.CreatedAt)
+            .ThenBy(c => c.Id)
             .AsNoTracking();
 
         var totalCount = await query.CountAsync(cancellationToken);
@@ -65,6 +66,7 @@ public class ComputerRepository : IComputerRepository
                 EF.Functions.Like(c.Gpu.Name, $"%{query}%") ||
                 EF.Functions.Like(c.Gpu.Brand, $"%{query}%"))
             .OrderByDescending(c => c.CreatedAt)
+            .ThenBy(c => c.Id)
             .AsNoTracking();
 
         var totalCount = await searchQuery.CountAsync(cancellationToken);
