@@ -26,20 +26,6 @@ import {
 import LoadingSpinner from '../shared/components/LoadingSpinner';
 import type { Computer } from '../computers/types/computer.types';
 
-function ComputerFetcher({
-  id,
-  onData,
-}: {
-  id: number;
-  onData: (computer: Computer) => void;
-}) {
-  const { data, isLoading } = useGetComputerQuery(id);
-  if (data && !isLoading) {
-    onData(data);
-  }
-  return isLoading ? <LoadingSpinner /> : null;
-}
-
 export default function CompareView() {
   const navigate = useNavigate();
   const selectedIds = useAppSelector((s) => s.computers.selectedIds);

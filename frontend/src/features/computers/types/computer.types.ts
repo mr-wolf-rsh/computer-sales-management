@@ -17,7 +17,7 @@ export interface Computer {
   price: number;
   imageUrl: string | null;
   weight: number;
-  weightUnit: string;
+  weightUnit: 'kg' | 'lb';
   psuWattage: number;
   processorId: number;
   processorName: string;
@@ -68,7 +68,7 @@ export interface ComputerFormData {
   price: number;
   imageUrl: string | null;
   weight: number;
-  weightUnit: string;
+  weightUnit: 'kg' | 'lb';
   psuWattage: number;
   processorId: number;
   gpuId: number;
