@@ -2,7 +2,7 @@
 -- Compu Palace - Computer Sales Management
 -- Seed Data
 -- =============================================================================
--- Inserts 100 computers with gaming/tech-themed names.
+-- Inserts 100 computers with royal-themed names.
 -- Processors and GPUs are inserted first as lookup data, then computers,
 -- then child records (storage drives and USB ports).
 -- =============================================================================
@@ -91,465 +91,441 @@ GO
 --  14  = AMD Radeon RX 6700 XT
 --  15  = NVIDIA GeForce RTX 3080
 --
--- Image URL pool (gaming PCs by tier, all via picsum.photos):
---   Budget  = https://picsum.photos/seed/budget-{N}/400/300   (price < $500)
---   Mid     = https://picsum.photos/seed/mid-{N}/400/300      (price $500-$1499)
---   High    = https://picsum.photos/seed/high-{N}/400/300     (price $1500-$2999)
---   Flagship= https://picsum.photos/seed/flag-{N}/400/300     (price $3000+)
+-- Tier scoring: score = (RamAmountMB/1024)*0.3 + (totalStorageGB/1000)*0.2 + (Price/200)*0.3 + (PsuWattage/100)*0.2
+--   Page     : score < 3
+--   Squire   : score 3-5
+--   Knight   : score 5-7
+--   Baron    : score 7-9
+--   Duke     : score 9-11
+--   Prince   : score 11-13
+--   Sovereign: score >= 13
+--
+-- Image URL pool (royal PCs by tier, all via picsum.photos):
+--   sovereign = https://picsum.photos/seed/sovereign-{N}/400/300  (score >= 13)
+--   prince    = https://picsum.photos/seed/prince-{N}/400/300     (score 11-13)
+--   duke      = https://picsum.photos/seed/duke-{N}/400/300       (score 9-11)
+--   baron     = https://picsum.photos/seed/baron-{N}/400/300      (score 7-9)
+--   knight    = https://picsum.photos/seed/knight-{N}/400/300     (score 5-7)
+--   squire    = https://picsum.photos/seed/squire-{N}/400/300     (score 3-5)
+--   page      = https://picsum.photos/seed/page-{N}/400/300       (score < 3)
 -- =============================================================================
 
 INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, PsuWattage, ProcessorId, GpuId, Status) VALUES
-    -- 1
-    (N'The Phoenix''s Blaze',           65536,   3499.99, N'https://picsum.photos/seed/flag-1/400/300',   9.50, N'kg', 1200, 9,  8,  N'Active'),
-    -- 2
-    (N'The Dragon''s Hoard',           131072,   4999.99, N'https://picsum.photos/seed/flag-2/400/300',  11.00, N'kg', 1200, 16, 8,  N'Active'),
-    -- 3
-    (N'The Titan''s Resolve',           65536,   2999.99, N'https://picsum.photos/seed/high-1/400/300',  10.20, N'kg', 1000, 15, 15, N'Active'),
-    -- 4
-    (N'The Griffin''s Talon',           32768,   1799.99, N'https://picsum.photos/seed/high-2/400/300',   8.80, N'kg', 850,  9,  9,  N'Active'),
-    -- 5
-    (N'The Pulsar''s Drift',            16384,    999.99, N'https://picsum.photos/seed/mid-1/400/300',    7.50, N'kg', 650,  11, 11, N'Active'),
-    -- 6
-    (N'The Nebula''s Core',             32768,   1599.99, N'https://picsum.photos/seed/high-3/400/300',   9.00, N'kg', 750,  10, 10, N'Active'),
-    -- 7
-    (N'The Quasar''s Pulse',            16384,   1149.99, N'https://picsum.photos/seed/mid-2/400/300',    8.30, N'kg', 700,  12, 13, N'Active'),
-    -- 8
-    (N'The Comet''s Trail',              8192,    699.99, N'https://picsum.photos/seed/mid-3/400/300',   14.00, N'lb', 550,  13, 12, N'Active'),
-    -- 9
-    (N'The Vortex''s Edge',              4096,    449.99, N'https://picsum.photos/seed/budget-1/400/300', 11.00, N'lb', 400,  1,  3,  N'Active'),
-    -- 10
-    (N'The Hydra''s Strike',            32768,   1399.99, N'https://picsum.photos/seed/mid-4/400/300',    7.20, N'kg', 800,  14, 14, N'Active'),
-    -- 11
-    (N'The Nova''s Burst',              16384,    879.99, N'https://picsum.photos/seed/mid-5/400/300',    6.80, N'kg', 600,  11, 9,  N'Active'),
-    -- 12
-    (N'The Turbo''s Rush',               8192,    599.99, N'https://picsum.photos/seed/mid-6/400/300',   13.50, N'lb', 500,  7,  2,  N'Active'),
-    -- 13
-    (N'The Kraken''s Depth',            32768,   1699.99, N'https://picsum.photos/seed/high-4/400/300',   8.50, N'kg', 850,  12, 15, N'Active'),
-    -- 14
-    (N'The Pixel''s Dream',              4096,    379.99, N'https://picsum.photos/seed/budget-2/400/300', 10.00, N'lb', 350,  3,  3,  N'Active'),
-    -- 15
-    (N'The Thunderbolt''s Path',        65536,   2499.99, N'https://picsum.photos/seed/high-5/400/300',   9.80, N'kg', 1000, 15, 8,  N'Active'),
-    -- 16
-    (N'The Phantom''s Ghost',           32768,   1349.99, N'https://picsum.photos/seed/mid-7/400/300',    8.00, N'kg', 750,  10, 9,  N'Active'),
-    -- 17
-    (N'The Inferno''s Wrath',           65536,   2799.99, N'https://picsum.photos/seed/high-6/400/300',  12.00, N'kg', 1200, 9,  8,  N'Active'),
-    -- 18
-    (N'The Nitro''s Ignition',           8192,    529.99, N'https://picsum.photos/seed/mid-8/400/300',    5.50, N'kg', 450,  13, 12, N'Active'),
-    -- 19
-    (N'The Eclipse''s Shadow',          16384,    949.99, N'https://picsum.photos/seed/mid-9/400/300',    7.80, N'kg', 650,  14, 11, N'Active'),
-    -- 20
-    (N'The Glacial''s Freeze',           2048,    329.99, N'https://picsum.photos/seed/budget-3/400/300', 18.00, N'lb', 400,  2,  6,  N'Active'),
-    -- 21
-    (N'The Sentinel''s Vigil',          32768,   1899.99, N'https://picsum.photos/seed/high-7/400/300',   8.20, N'kg', 900,  16, 10, N'Active'),
-    -- 22
-    (N'The Warlock''s Seal',            65536,   3199.99, N'https://picsum.photos/seed/flag-3/400/300',  10.50, N'kg', 1200, 15, 15, N'Active'),
-    -- 23
-    (N'The Cipher''s Lock',              4096,    419.99, N'https://picsum.photos/seed/budget-4/400/300', 12.00, N'lb', 400,  3,  6,  N'Active'),
-    -- 24
-    (N'The Respawn''s Rise',             8192,    679.99, N'https://picsum.photos/seed/mid-10/400/300',   6.20, N'kg', 550,  7,  2,  N'Active'),
-    -- 25
-    (N'The Storm''s Eye',               16384,   1049.99, N'https://picsum.photos/seed/mid-11/400/300',   8.90, N'kg', 700,  11, 13, N'Active'),
-    -- 26
-    (N'The Berserker''s Fury',          32768,   1549.99, N'https://picsum.photos/seed/high-8/400/300',   9.30, N'kg', 800,  12, 14, N'Active'),
-    -- 27
-    (N'The Gladiator''s Arena',         65536,   2699.99, N'https://picsum.photos/seed/high-9/400/300',  11.50, N'kg', 1000, 16, 8,  N'Active'),
-    -- 28
-    (N'The Overclock''s Peak',           8192,    589.99, N'https://picsum.photos/seed/mid-12/400/300',  14.50, N'lb', 500,  4,  5,  N'Active'),
-    -- 29
-    (N'The Ranger''s Aim',              16384,   1199.99, N'https://picsum.photos/seed/mid-13/400/300',   8.60, N'kg', 750,  14, 9,  N'Active'),
-    -- 30
-    (N'The Static''s Spark',             2048,    299.99, N'https://picsum.photos/seed/budget-5/400/300', 20.00, N'lb', 350,  1,  3,  N'Active'),
-    -- 31
-    (N'The Paladin''s Oath',            32768,   1449.99, N'https://picsum.photos/seed/mid-14/400/300',   7.70, N'kg', 800,  10, 10, N'Active'),
-    -- 32
-    (N'The Leviathan''s Wake',          65536,   3099.99, N'https://picsum.photos/seed/flag-4/400/300',  10.80, N'kg', 1200, 9,  15, N'Active'),
-    -- 33
-    (N'The Ember''s Glow',               4096,    459.99, N'https://picsum.photos/seed/budget-6/400/300', 11.00, N'lb', 400,  2,  6,  N'Active'),
-    -- 34
-    (N'The Cyclone''s Spin',            16384,    849.99, N'https://picsum.photos/seed/mid-15/400/300',   7.40, N'kg', 600,  6,  4,  N'Active'),
-    -- 35
-    (N'The Wraith''s Haunt',            32768,   1699.99, N'https://picsum.photos/seed/high-10/400/300',  8.10, N'kg', 850,  12, 15, N'Active'),
-    -- 36
-    (N'The Colossus''s Might',          65536,   2999.99, N'https://picsum.photos/seed/high-11/400/300', 11.20, N'kg', 1000, 15, 8,  N'Active'),
-    -- 37
-    (N'The Supernova''s Flash',        131072,   4599.99, N'https://picsum.photos/seed/flag-5/400/300',  12.50, N'kg', 1200, 16, 8,  N'Active'),
-    -- 38
-    (N'The Blizzard''s Chill',           8192,    729.99, N'https://picsum.photos/seed/mid-16/400/300',  15.50, N'lb', 550,  5,  5,  N'Active'),
-    -- 39
-    (N'The Viper''s Bite',              16384,   1099.99, N'https://picsum.photos/seed/mid-17/400/300',   8.30, N'kg', 700,  11, 11, N'Active'),
-    -- 40
-    (N'The Pixel''s Flux',               2048,    359.99, N'https://picsum.photos/seed/budget-7/400/300', 17.00, N'lb', 400,  1,  6,  N'Active'),
-    -- 41
-    (N'The Basilisk''s Gaze',           65536,   3399.99, N'https://picsum.photos/seed/flag-6/400/300',   9.90, N'kg', 1200, 9,  8,  N'Active'),
-    -- 42
-    (N'The Manticore''s Roar',          32768,   1849.99, N'https://picsum.photos/seed/high-12/400/300',  8.70, N'kg', 900,  10, 10, N'Active'),
-    -- 43
-    (N'The Specter''s Veil',            16384,    999.99, N'https://picsum.photos/seed/mid-18/400/300',   7.10, N'kg', 650,  14, 14, N'Active'),
-    -- 44
-    (N'The Rogue''s Gambit',             8192,    649.99, N'https://picsum.photos/seed/mid-19/400/300',   5.80, N'kg', 500,  13, 11, N'Active'),
-    -- 45
-    (N'The Cipher''s Vault',             4096,    399.99, N'https://picsum.photos/seed/budget-8/400/300', 10.00, N'lb', 400,  3,  3,  N'Active'),
-    -- 46
-    (N'The Chimera''s Form',            65536,   2599.99, N'https://picsum.photos/seed/high-13/400/300', 10.00, N'kg', 1000, 15, 15, N'Active'),
-    -- 47
-    (N'The Warden''s Crest',            16384,    879.99, N'https://picsum.photos/seed/mid-20/400/300',   8.00, N'kg', 650,  12, 13, N'Active'),
-    -- 48
-    (N'The Valkyrie''s Call',           32768,   1499.99, N'https://picsum.photos/seed/mid-21/400/300',   9.40, N'kg', 800,  10, 9,  N'Active'),
-    -- 49
-    (N'The Vector''s Path',              4096,    429.99, N'https://picsum.photos/seed/budget-9/400/300', 12.50, N'lb', 400,  2,  5,  N'Active'),
-    -- 50
-    (N'The Drifter''s Mark',             8192,    549.99, N'https://picsum.photos/seed/mid-22/400/300',  14.00, N'lb', 500,  7,  2,  N'Active'),
-    -- 51
-    (N'The Olympus''s Peak',           131072,   4799.99, N'https://picsum.photos/seed/flag-7/400/300',  13.00, N'kg', 1200, 16, 8,  N'Active'),
-    -- 52
-    (N'The Rift''s Collapse',           65536,   3299.99, N'https://picsum.photos/seed/flag-8/400/300',  11.80, N'kg', 1200, 15, 10, N'Active'),
-    -- 53
-    (N'The Behemoth''s Charge',         32768,   2199.99, N'https://picsum.photos/seed/high-14/400/300',  9.10, N'kg', 900,  9,  9,  N'Active'),
-    -- 54
-    (N'The Stryker''s Mark',            16384,   1249.99, N'https://picsum.photos/seed/mid-23/400/300',   8.40, N'kg', 750,  11, 13, N'Active'),
-    -- 55
-    (N'The Lynx''s Leap',                8192,    769.99, N'https://picsum.photos/seed/mid-24/400/300',   7.20, N'kg', 600,  6,  4,  N'Active'),
-    -- 56
-    (N'The Goblin''s Cache',             4096,    449.99, N'https://picsum.photos/seed/budget-10/400/300', 11.50, N'lb', 400,  4,  6,  N'Active'),
-    -- 57
-    (N'The Frost''s Bite',               8192,    619.99, N'https://picsum.photos/seed/mid-25/400/300',   6.50, N'kg', 500,  5,  5,  N'Active'),
-    -- 58
-    (N'The Apex''s Throne',             16384,   1099.99, N'https://picsum.photos/seed/mid-26/400/300',   9.20, N'kg', 700,  14, 12, N'Active'),
-    -- 59
-    (N'The Tempest''s Fury',            32768,   1599.99, N'https://picsum.photos/seed/high-15/400/300',  8.80, N'kg', 800,  12, 14, N'Active'),
-    -- 60
-    (N'The Abyss''s Call',              65536,   2899.99, N'https://picsum.photos/seed/high-16/400/300', 10.40, N'kg', 1000, 16, 15, N'Active'),
-    -- 61
-    (N'The Raptor''s Dive',             65536,   3599.99, N'https://picsum.photos/seed/flag-9/400/300',  12.20, N'kg', 1200, 9,  8,  N'Active'),
-    -- 62
-    (N'The Wyvern''s Wing',            131072,   4299.99, N'https://picsum.photos/seed/flag-10/400/300', 11.60, N'kg', 1200, 15, 8,  N'Active'),
-    -- 63
-    (N'The Glitch''s Echo',              2048,    319.99, N'https://picsum.photos/seed/budget-11/400/300', 19.00, N'lb', 400,  2,  3,  N'Active'),
-    -- 64
-    (N'The Rune''s Glyph',               4096,    439.99, N'https://picsum.photos/seed/budget-12/400/300', 11.00, N'lb', 400,  3,  6,  N'Active'),
-    -- 65
-    (N'The Surge''s Wave',               8192,    689.99, N'https://picsum.photos/seed/mid-27/400/300',   7.00, N'kg', 550,  7,  2,  N'Active'),
-    -- 66
-    (N'The Mirage''s Veil',             16384,    999.99, N'https://picsum.photos/seed/mid-28/400/300',   8.20, N'kg', 650,  11, 11, N'Active'),
-    -- 67
-    (N'The Cerberus''s Guard',          32768,   1749.99, N'https://picsum.photos/seed/high-17/400/300',  9.60, N'kg', 850,  10, 10, N'Active'),
-    -- 68
-    (N'The Pulsar''s Storm',            65536,   2799.99, N'https://picsum.photos/seed/high-18/400/300', 10.70, N'kg', 1000, 16, 15, N'Active'),
-    -- 69
-    (N'The Byte''s Ghost',               2048,    309.99, N'https://picsum.photos/seed/budget-13/400/300', 21.00, N'lb', 350,  1,  7,  N'Active'),
-    -- 70
-    (N'The Spark''s Ignite',             4096,    469.99, N'https://picsum.photos/seed/budget-14/400/300', 12.00, N'lb', 400,  2,  6,  N'Active'),
-    -- 71
-    (N'The Neon''s Grid',                8192,    599.99, N'https://picsum.photos/seed/mid-29/400/300',   5.90, N'kg', 500,  13, 12, N'Active'),
-    -- 72
-    (N'The Aurora''s Glow',             16384,    949.99, N'https://picsum.photos/seed/mid-30/400/300',   7.60, N'kg', 650,  14, 9,  N'Active'),
-    -- 73
-    (N'The Titan''s Fist',              32768,   1799.99, N'https://picsum.photos/seed/high-19/400/300',  8.30, N'kg', 900,  12, 15, N'Active'),
-    -- 74
-    (N'The Andromeda''s Light',         65536,   3099.99, N'https://picsum.photos/seed/flag-11/400/300', 11.40, N'kg', 1200, 9,  8,  N'Active'),
-    -- 75
-    (N'The Nano''s Drift',               2048,    339.99, N'https://picsum.photos/seed/budget-15/400/300', 18.50, N'lb', 400,  3,  7,  N'Active'),
-    -- 76
-    (N'The Goliath''s Stride',          65536,   3749.99, N'https://picsum.photos/seed/flag-12/400/300', 10.10, N'kg', 1200, 15, 8,  N'Active'),
-    -- 77
-    (N'The Photon''s Beam',             32768,   2049.99, N'https://picsum.photos/seed/high-20/400/300',  8.90, N'kg', 950,  16, 10, N'Active'),
-    -- 78
-    (N'The Specter''s Hunt',            16384,   1199.99, N'https://picsum.photos/seed/mid-31/400/300',   7.50, N'kg', 750,  10, 14, N'Active'),
-    -- 79
-    (N'The Nexus''s Link',               8192,    749.99, N'https://picsum.photos/seed/mid-32/400/300',   6.40, N'kg', 600,  11, 13, N'Active'),
-    -- 80
-    (N'The Ion''s Charge',               2048,    299.99, N'https://picsum.photos/seed/budget-16/400/300', 23.00, N'lb', 350,  1,  7,  N'Active'),
-    -- 81
-    (N'The Cyclops''s Gaze',            32768,   1649.99, N'https://picsum.photos/seed/high-21/400/300',  9.00, N'kg', 850,  12, 9,  N'Active'),
-    -- 82
-    (N'The Drone''s Flight',             4096,    389.99, N'https://picsum.photos/seed/budget-17/400/300', 13.00, N'lb', 400,  4,  5,  N'Active'),
-    -- 83
-    (N'The Flux''s Current',             8192,    579.99, N'https://picsum.photos/seed/mid-33/400/300',   6.10, N'kg', 500,  7,  11, N'Active'),
-    -- 84
-    (N'The Ronin''s Code',              16384,   1049.99, N'https://picsum.photos/seed/mid-34/400/300',   8.10, N'kg', 700,  14, 12, N'Active'),
-    -- 85
-    (N'The Samurai''s Blade',           32768,   1449.99, N'https://picsum.photos/seed/mid-35/400/300',   8.50, N'kg', 800,  10, 15, N'Active'),
-    -- 86
-    (N'The Galactic''s Surge',          65536,   2499.99, N'https://picsum.photos/seed/high-22/400/300', 10.30, N'kg', 1000, 15, 8,  N'Active'),
-    -- 87
-    (N'The Celestial''s Arc',          131072,   4199.99, N'https://picsum.photos/seed/flag-13/400/300', 12.80, N'kg', 1200, 16, 8,  N'Active'),
-    -- 88
-    (N'The Quark''s Spin',               4096,    409.99, N'https://picsum.photos/seed/budget-18/400/300', 10.50, N'lb', 400,  3,  6,  N'Active'),
-    -- 89
-    (N'The Nano''s Pulse',               2048,    329.99, N'https://picsum.photos/seed/budget-19/400/300', 16.00, N'lb', 400,  2,  3,  N'Active'),
-    -- 90
-    (N'The Zenith''s Apex',            131072,   4999.99, N'https://picsum.photos/seed/flag-14/400/300', 13.50, N'kg', 1200, 16, 8,  N'Active'),
-    -- 91
-    (N'The Page''s Companion',           8192,    499.99, N'https://picsum.photos/seed/budget-20/400/300',  8.10, N'kg', 500,  1,  1,  N'New'),
-    -- 92
-    (N'The Squire''s Arsenal',          16384,    649.99, N'https://picsum.photos/seed/mid-36/400/300',  12.00, N'kg', 500,  2,  2,  N'New'),
-    -- 93
-    (N'The Herald''s Tower',             8192,    549.99, N'https://picsum.photos/seed/mid-37/400/300',  16.00, N'lb', 450,  3,  3,  N'New'),
-    -- 94
-    (N'The Knight''s Fortress',         16384,    899.99, N'https://picsum.photos/seed/mid-38/400/300',  13.80, N'lb', 500,  4,  4,  N'New'),
-    -- 95
-    (N'The Baron''s Citadel',           32768,   1099.99, N'https://picsum.photos/seed/mid-39/400/300',   7.00, N'kg', 1000, 5,  5,  N'New'),
-    -- 96
-    (N'The Duke''s Sanctum',            32768,   1249.99, N'https://picsum.photos/seed/mid-40/400/300',   6.00, N'kg', 450,  6,  6,  N'New'),
-    -- 97
-    (N'The Prince''s Armory',            8192,    749.99, N'https://picsum.photos/seed/mid-41/400/300',  15.00, N'lb', 1000, 7,  4,  N'New'),
-    -- 98
-    (N'The Viscount''s Chamber',        16384,    599.99, N'https://picsum.photos/seed/mid-42/400/300',   8.00, N'lb', 750,  7,  1,  N'New'),
-    -- 99
-    (N'The Sovereign''s Throne',         2048,   1499.99, N'https://picsum.photos/seed/mid-43/400/300',   9.00, N'kg', 500,  8,  7,  N'New'),
-    -- 100
-    (N'The Court Jester''s Box',         2048,    349.99, N'https://picsum.photos/seed/budget-21/400/300', 22.00, N'lb', 700,  7,  5,  N'New');
+    -- 1. The Archduke's Engine — Sovereign: RAM=131072,Storage=12000,Price=3499.99,PSU=1200 => score~48.45
+    (N'The Archduke''s Engine',        131072,  3499.99, N'https://picsum.photos/seed/sovereign-1/400/300',  9.50, N'kg', 1200, 9,  8,  N'Active'),
+    -- 2. The Emperor's Dominion — Sovereign: RAM=131072,Storage=12000,Price=4999.99,PSU=1200 => score~50.70
+    (N'The Emperor''s Dominion',       131072,  4999.99, N'https://picsum.photos/seed/sovereign-2/400/300', 11.00, N'kg', 1200, 16, 8,  N'Active'),
+    -- 3. The Regent's Might — Sovereign: RAM=131072,Storage=12000,Price=3999.99,PSU=1200 => score~49.20
+    (N'The Regent''s Might',           131072,  3999.99, N'https://picsum.photos/seed/sovereign-3/400/300', 10.20, N'kg', 1200, 15, 15, N'Active'),
+    -- 4. The Paladin's Core — Duke: RAM=16384,Storage=3000,Price=2199.99,PSU=950 => score~10.60
+    (N'The Paladin''s Core',            16384,  2199.99, N'https://picsum.photos/seed/duke-1/400/300',       8.80, N'kg',  950, 9,  9,  N'Active'),
+    -- 5. The Warden's Watch — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Warden''s Watch',             8192,   999.99, N'https://picsum.photos/seed/knight-1/400/300',     7.50, N'kg',  700, 11, 11, N'Active'),
+    -- 6. The Chancellor's Decree — Prince: RAM=32768,Storage=256,Price=699.99,PSU=450 => score~11.60
+    (N'The Chancellor''s Decree',       32768,   699.99, N'https://picsum.photos/seed/prince-1/400/300',     9.00, N'kg',  450, 10, 10, N'Active'),
+    -- 7. The Viceroy's Command — Baron: RAM=16384,Storage=512,Price=699.99,PSU=600 => score~7.15
+    (N'The Viceroy''s Command',         16384,   699.99, N'https://picsum.photos/seed/baron-1/400/300',      8.30, N'kg',  600, 12, 13, N'Active'),
+    -- 8. The Marshal's Banner — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Marshal''s Banner',           8192,   999.99, N'https://picsum.photos/seed/knight-2/400/300',    14.00, N'lb',  700, 13, 12, N'Active'),
+    -- 9. The Constable's Keep — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Constable''s Keep',           8192,   299.99, N'https://picsum.photos/seed/squire-1/400/300',    11.00, N'lb',  300, 1,  3,  N'Active'),
+    -- 10. The Chamberlain's Vault — Duke: RAM=16384,Storage=2000,Price=1999.99,PSU=900 => score~10.00
+    (N'The Chamberlain''s Vault',       16384,  1999.99, N'https://picsum.photos/seed/duke-2/400/300',       7.20, N'kg',  900, 14, 14, N'Active'),
+    -- 11. The Steward's Watch — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Steward''s Watch',            8192,   999.99, N'https://picsum.photos/seed/knight-3/400/300',     6.80, N'kg',  700, 11, 9,  N'Active'),
+    -- 12. The Banneret's Standard — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
+    (N'The Banneret''s Standard',        8192,  1099.99, N'https://picsum.photos/seed/knight-4/400/300',    13.50, N'lb',  750, 7,  2,  N'Active'),
+    -- 13. The Thane's Bastion — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
+    (N'The Thane''s Bastion',           16384,  1799.99, N'https://picsum.photos/seed/duke-3/400/300',       8.50, N'kg',  850, 12, 15, N'Active'),
+    -- 14. The Liegeman's Post — Squire: RAM=8192,Storage=128,Price=199.99,PSU=250 => score~3.23
+    (N'The Liegeman''s Post',            8192,   199.99, N'https://picsum.photos/seed/squire-2/400/300',    10.00, N'lb',  250, 3,  3,  N'Active'),
+    -- 15. The Seneschal's Hall — Prince: RAM=32768,Storage=500,Price=899.99,PSU=500 => score~12.05
+    (N'The Seneschal''s Hall',          32768,   899.99, N'https://picsum.photos/seed/prince-2/400/300',     9.80, N'kg',  500, 15, 8,  N'Active'),
+    -- 16. The Castellan's Tower — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
+    (N'The Castellan''s Tower',         16384,  2199.99, N'https://picsum.photos/seed/duke-4/400/300',       8.00, N'kg', 1000, 10, 9,  N'Active'),
+    -- 17. The Warlord's Siege — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
+    (N'The Warlord''s Siege',           32768,   799.99, N'https://picsum.photos/seed/prince-3/400/300',    12.00, N'kg',  450, 9,  8,  N'Active'),
+    -- 18. The Envoy's Dispatch — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Envoy''s Dispatch',           8192,   299.99, N'https://picsum.photos/seed/squire-3/400/300',     5.50, N'kg',  300, 13, 12, N'Active'),
+    -- 19. The Tribune's Oration — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Tribune''s Oration',          8192,   999.99, N'https://picsum.photos/seed/knight-5/400/300',     7.80, N'kg',  700, 14, 11, N'Active'),
+    -- 20. The Legate's Decree — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=650 => score~7.50
+    (N'The Legate''s Decree',           16384,   799.99, N'https://picsum.photos/seed/baron-2/400/300',     18.00, N'lb',  650, 2,  6,  N'Active'),
+    -- 21. The Prelate's Sanctum — Duke: RAM=16384,Storage=1000,Price=1999.99,PSU=900 => score~10.00
+    (N'The Prelate''s Sanctum',         16384,  1999.99, N'https://picsum.photos/seed/duke-5/400/300',       8.20, N'kg',  900, 16, 10, N'Active'),
+    -- 22. The Exarch's Domain — Prince: RAM=32768,Storage=500,Price=999.99,PSU=550 => score~12.30
+    (N'The Exarch''s Domain',           32768,   999.99, N'https://picsum.photos/seed/prince-4/400/300',    10.50, N'kg',  550, 15, 15, N'Active'),
+    -- 23. The Patriarch's Legacy — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Patriarch''s Legacy',         8192,   299.99, N'https://picsum.photos/seed/squire-4/400/300',    12.00, N'lb',  300, 3,  6,  N'Active'),
+    -- 24. The Prefect's Order — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Prefect''s Order',            8192,   299.99, N'https://picsum.photos/seed/squire-5/400/300',     6.20, N'kg',  300, 7,  2,  N'Active'),
+    -- 25. The Tribune's Voice — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
+    (N'The Tribune''s Voice',            8192,  1099.99, N'https://picsum.photos/seed/knight-6/400/300',     8.90, N'kg',  750, 11, 13, N'Active'),
+    -- 26. The Praetor's Judgment — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
+    (N'The Praetor''s Judgment',        16384,   999.99, N'https://picsum.photos/seed/baron-3/400/300',      9.30, N'kg',  700, 12, 14, N'Active'),
+    -- 27. The Consul's Authority — Sovereign: RAM=131072,Storage=8000,Price=2699.99,PSU=1000 => score~43.45
+    (N'The Consul''s Authority',        131072,  2699.99, N'https://picsum.photos/seed/sovereign-4/400/300', 11.50, N'kg', 1000, 16, 8,  N'Active'),
+    -- 28. The Procurator's Ledger — Squire: RAM=8192,Storage=500,Price=399.99,PSU=350 => score~3.75
+    (N'The Procurator''s Ledger',        8192,   399.99, N'https://picsum.photos/seed/squire-6/400/300',    14.50, N'lb',  350, 4,  5,  N'Active'),
+    -- 29. The Strategos' Gambit — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Strategos'' Gambit',          8192,   999.99, N'https://picsum.photos/seed/knight-7/400/300',     8.60, N'kg',  700, 14, 9,  N'Active'),
+    -- 30. The Eparch's Edict — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Eparch''s Edict',             2048,   249.99, N'https://picsum.photos/seed/page-1/400/300',       20.00, N'lb',  300, 1,  3,  N'Active'),
+    -- 31. The Archon's Seal — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
+    (N'The Archon''s Seal',             16384,  1799.99, N'https://picsum.photos/seed/duke-6/400/300',       7.70, N'kg',  850, 10, 10, N'Active'),
+    -- 32. The Tyrant's Grip — Prince: RAM=32768,Storage=512,Price=799.99,PSU=450 => score~11.80
+    (N'The Tyrant''s Grip',             32768,   799.99, N'https://picsum.photos/seed/prince-5/400/300',    10.80, N'kg',  450, 9,  15, N'Active'),
+    -- 33. The Oligarch's Reserve — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Oligarch''s Reserve',         8192,   299.99, N'https://picsum.photos/seed/squire-7/400/300',    11.00, N'lb',  300, 2,  6,  N'Active'),
+    -- 34. The Satrap's Province — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Satrap''s Province',          8192,   999.99, N'https://picsum.photos/seed/knight-8/400/300',     7.40, N'kg',  700, 6,  4,  N'Active'),
+    -- 35. The Vizier's Counsel — Baron: RAM=16384,Storage=1000,Price=1099.99,PSU=750 => score~8.20
+    (N'The Vizier''s Counsel',          16384,  1099.99, N'https://picsum.photos/seed/baron-4/400/300',      8.10, N'kg',  750, 12, 15, N'Active'),
+    -- 36. The Sultan's Pavilion — Duke: RAM=16384,Storage=2000,Price=1999.99,PSU=900 => score~10.00
+    (N'The Sultan''s Pavilion',         16384,  1999.99, N'https://picsum.photos/seed/duke-7/400/300',      11.20, N'kg',  900, 15, 8,  N'Active'),
+    -- 37. The Caliph's Fortress — Sovereign: RAM=131072,Storage=12000,Price=4599.99,PSU=1200 => score~51.80
+    (N'The Caliph''s Fortress',         131072,  4599.99, N'https://picsum.photos/seed/sovereign-5/400/300', 12.50, N'kg', 1200, 16, 8,  N'Active'),
+    -- 38. The Emir's Outpost — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
+    (N'The Emir''s Outpost',             8192,  1099.99, N'https://picsum.photos/seed/knight-9/400/300',    15.50, N'lb',  750, 5,  5,  N'Active'),
+    -- 39. The Pasha's Enclave — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Pasha''s Enclave',            8192,   999.99, N'https://picsum.photos/seed/knight-10/400/300',    8.30, N'kg',  700, 11, 11, N'Active'),
+    -- 40. The Bey's Crossing — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Bey''s Crossing',             2048,   249.99, N'https://picsum.photos/seed/page-2/400/300',       17.00, N'lb',  300, 1,  6,  N'Active'),
+    -- 41. The Shogun's Stronghold — Prince: RAM=32768,Storage=256,Price=999.99,PSU=500 => score~12.15
+    (N'The Shogun''s Stronghold',       32768,   999.99, N'https://picsum.photos/seed/prince-6/400/300',     9.90, N'kg',  500, 9,  8,  N'Active'),
+    -- 42. The Daimyo's Keep — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
+    (N'The Daimyo''s Keep',             16384,  2199.99, N'https://picsum.photos/seed/duke-8/400/300',       8.70, N'kg', 1000, 10, 10, N'Active'),
+    -- 43. The Samurai's Edge — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Samurai''s Edge',             8192,   999.99, N'https://picsum.photos/seed/knight-11/400/300',    7.10, N'kg',  700, 14, 14, N'Active'),
+    -- 44. The Ronin's Path — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Ronin''s Path',               8192,   299.99, N'https://picsum.photos/seed/squire-8/400/300',     5.80, N'kg',  300, 13, 11, N'Active'),
+    -- 45. The Ninja's Shadow — Squire: RAM=8192,Storage=500,Price=399.99,PSU=350 => score~3.75
+    (N'The Ninja''s Shadow',             8192,   399.99, N'https://picsum.photos/seed/squire-9/400/300',    10.00, N'lb',  350, 3,  3,  N'Active'),
+    -- 46. The Warlord's Dominion — Duke: RAM=16384,Storage=2000,Price=2099.99,PSU=950 => score~10.45
+    (N'The Warlord''s Dominion',        16384,  2099.99, N'https://picsum.photos/seed/duke-9/400/300',      10.00, N'kg',  950, 15, 15, N'Active'),
+    -- 47. The Chieftain's Hearth — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
+    (N'The Chieftain''s Hearth',        16384,   999.99, N'https://picsum.photos/seed/baron-5/400/300',      8.00, N'kg',  700, 12, 13, N'Active'),
+    -- 48. The Jarl's Hall — Baron: RAM=16384,Storage=1000,Price=899.99,PSU=650 => score~7.65
+    (N'The Jarl''s Hall',               16384,   899.99, N'https://picsum.photos/seed/baron-6/400/300',      9.40, N'kg',  650, 10, 9,  N'Active'),
+    -- 49. The Thegn's Holding — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=600 => score~7.40
+    (N'The Thegn''s Holding',           16384,   799.99, N'https://picsum.photos/seed/baron-7/400/300',     12.50, N'lb',  600, 2,  5,  N'Active'),
+    -- 50. The Housecarl's Post — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Housecarl''s Post',           2048,   249.99, N'https://picsum.photos/seed/page-3/400/300',       14.00, N'lb',  300, 7,  2,  N'Active'),
+    -- 51. The Overlord's Citadel — Sovereign: RAM=131072,Storage=12000,Price=4799.99,PSU=1200 => score~52.05
+    (N'The Overlord''s Citadel',        131072,  4799.99, N'https://picsum.photos/seed/sovereign-6/400/300', 13.00, N'kg', 1200, 16, 8,  N'Active'),
+    -- 52. The Suzerain's Court — Sovereign: RAM=131072,Storage=8000,Price=3299.99,PSU=1200 => score~47.35
+    (N'The Suzerain''s Court',          131072,  3299.99, N'https://picsum.photos/seed/sovereign-7/400/300', 11.80, N'kg', 1200, 15, 10, N'Active'),
+    -- 53. The Potentate's Chamber — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
+    (N'The Potentate''s Chamber',       16384,  1799.99, N'https://picsum.photos/seed/duke-10/400/300',      9.10, N'kg',  850, 9,  9,  N'Active'),
+    -- 54. The Magnate's Study — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
+    (N'The Magnate''s Study',           16384,  1799.99, N'https://picsum.photos/seed/duke-11/400/300',      8.40, N'kg',  850, 11, 13, N'Active'),
+    -- 55. The Patrician's Villa — Prince: RAM=32768,Storage=128,Price=499.99,PSU=350 => score~11.08
+    (N'The Patrician''s Villa',         32768,   499.99, N'https://picsum.photos/seed/prince-7/400/300',     7.20, N'kg',  350, 6,  4,  N'Active'),
+    -- 56. The Centurion's Camp — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Centurion''s Camp',           8192,   299.99, N'https://picsum.photos/seed/squire-10/400/300',   11.50, N'lb',  300, 4,  6,  N'Active'),
+    -- 57. The Legionnaire's March — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Legionnaire''s March',        8192,   999.99, N'https://picsum.photos/seed/knight-12/400/300',    6.50, N'kg',  700, 5,  5,  N'Active'),
+    -- 58. The Tribune's Rostrum — Baron: RAM=16384,Storage=1000,Price=1099.99,PSU=750 => score~8.20
+    (N'The Tribune''s Rostrum',         16384,  1099.99, N'https://picsum.photos/seed/baron-8/400/300',      9.20, N'kg',  750, 14, 12, N'Active'),
+    -- 59. The Prefect's Fortress — Duke: RAM=16384,Storage=2000,Price=1999.99,PSU=900 => score~10.00
+    (N'The Prefect''s Fortress',        16384,  1999.99, N'https://picsum.photos/seed/duke-12/400/300',      8.80, N'kg',  900, 12, 14, N'Active'),
+    -- 60. The Praetor's Command — Prince: RAM=32768,Storage=512,Price=999.99,PSU=550 => score~12.30
+    (N'The Praetor''s Command',         32768,   999.99, N'https://picsum.photos/seed/prince-8/400/300',    10.40, N'kg',  550, 16, 15, N'Active'),
+    -- 61. The Dictator's Seat — Sovereign: RAM=131072,Storage=8000,Price=3599.99,PSU=1200 => score~47.80
+    (N'The Dictator''s Seat',           131072,  3599.99, N'https://picsum.photos/seed/sovereign-8/400/300', 12.20, N'kg', 1200, 9,  8,  N'Active'),
+    -- 62. The Imperator's Will — Sovereign: RAM=131072,Storage=12000,Price=4299.99,PSU=1200 => score~51.30
+    (N'The Imperator''s Will',          131072,  4299.99, N'https://picsum.photos/seed/sovereign-9/400/300', 11.60, N'kg', 1200, 15, 8,  N'Active'),
+    -- 63. The Triumvir's Alliance — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Triumvir''s Alliance',        2048,   249.99, N'https://picsum.photos/seed/page-4/400/300',       19.00, N'lb',  300, 2,  3,  N'Active'),
+    -- 64. The Aedile's Square — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Aedile''s Square',            8192,   299.99, N'https://picsum.photos/seed/squire-11/400/300',   11.00, N'lb',  300, 3,  6,  N'Active'),
+    -- 65. The Quaestor's Treasury — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
+    (N'The Quaestor''s Treasury',        8192,  1099.99, N'https://picsum.photos/seed/knight-13/400/300',    7.00, N'kg',  750, 7,  2,  N'Active'),
+    -- 66. The Censor's Ledger — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
+    (N'The Censor''s Ledger',           16384,   999.99, N'https://picsum.photos/seed/baron-9/400/300',      8.20, N'kg',  700, 11, 11, N'Active'),
+    -- 67. The Pontifex's Shrine — Prince: RAM=32768,Storage=256,Price=699.99,PSU=450 => score~11.60
+    (N'The Pontifex''s Shrine',         32768,   699.99, N'https://picsum.photos/seed/prince-9/400/300',     9.60, N'kg',  450, 10, 10, N'Active'),
+    -- 68. The Augur's Vision — Sovereign: RAM=131072,Storage=12000,Price=2799.99,PSU=1000 => score~45.80
+    (N'The Augur''s Vision',            131072,  2799.99, N'https://picsum.photos/seed/sovereign-10/400/300',10.70, N'kg', 1000, 16, 15, N'Active'),
+    -- 69. The Haruspex's Oracle — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Haruspex''s Oracle',          2048,   249.99, N'https://picsum.photos/seed/page-5/400/300',       21.00, N'lb',  300, 1,  7,  N'Active'),
+    -- 70. The Flamen's Altar — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Flamen''s Altar',             2048,   249.99, N'https://picsum.photos/seed/page-6/400/300',       12.00, N'lb',  300, 2,  6,  N'Active'),
+    -- 71. The Vestal's Hearth — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=600 => score~7.40
+    (N'The Vestal''s Hearth',           16384,   799.99, N'https://picsum.photos/seed/baron-10/400/300',     5.90, N'kg',  600, 13, 12, N'Active'),
+    -- 72. The Sibyl's Prophecy — Baron: RAM=16384,Storage=1000,Price=899.99,PSU=650 => score~7.65
+    (N'The Sibyl''s Prophecy',          16384,   899.99, N'https://picsum.photos/seed/baron-11/400/300',     7.60, N'kg',  650, 14, 9,  N'Active'),
+    -- 73. The Oracle's Revelation — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
+    (N'The Oracle''s Revelation',       32768,   799.99, N'https://picsum.photos/seed/prince-10/400/300',    8.30, N'kg',  450, 12, 15, N'Active'),
+    -- 74. The Prophet's Ascent — Prince: RAM=32768,Storage=256,Price=999.99,PSU=500 => score~12.15
+    (N'The Prophet''s Ascent',          32768,   999.99, N'https://picsum.photos/seed/prince-11/400/300',   11.40, N'kg',  500, 9,  8,  N'Active'),
+    -- 75. The Hierophant's Mystery — Page: RAM=2048,Storage=128,Price=299.99,PSU=350 => score~1.78
+    (N'The Hierophant''s Mystery',       2048,   299.99, N'https://picsum.photos/seed/page-7/400/300',       18.50, N'lb',  350, 3,  7,  N'Active'),
+    -- 76. The Archmage's Tower — Sovereign: RAM=131072,Storage=8000,Price=3749.99,PSU=1200 => score~48.00
+    (N'The Archmage''s Tower',          131072,  3749.99, N'https://picsum.photos/seed/sovereign-11/400/300',10.10, N'kg', 1200, 15, 8,  N'Active'),
+    -- 77. The Sorcerer's Sanctum — Prince: RAM=32768,Storage=500,Price=1199.99,PSU=600 => score~12.70
+    (N'The Sorcerer''s Sanctum',        32768,  1199.99, N'https://picsum.photos/seed/prince-12/400/300',    8.90, N'kg',  600, 16, 10, N'Active'),
+    -- 78. The Warlock's Pact — Duke: RAM=16384,Storage=1000,Price=1999.99,PSU=900 => score~10.00
+    (N'The Warlock''s Pact',            16384,  1999.99, N'https://picsum.photos/seed/duke-13/400/300',      7.50, N'kg',  900, 10, 14, N'Active'),
+    -- 79. The Wizard's Workshop — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
+    (N'The Wizard''s Workshop',         16384,  1799.99, N'https://picsum.photos/seed/duke-14/400/300',      6.40, N'kg',  850, 11, 13, N'Active'),
+    -- 80. The Conjurer's Circle — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Conjurer''s Circle',          2048,   249.99, N'https://picsum.photos/seed/page-8/400/300',       23.00, N'lb',  300, 1,  7,  N'Active'),
+    -- 81. The Enchanter's Forge — Prince: RAM=32768,Storage=128,Price=499.99,PSU=350 => score~11.08
+    (N'The Enchanter''s Forge',         32768,   499.99, N'https://picsum.photos/seed/prince-13/400/300',    9.00, N'kg',  350, 12, 9,  N'Active'),
+    -- 82. The Necromancer's Crypt — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
+    (N'The Necromancer''s Crypt',        8192,   999.99, N'https://picsum.photos/seed/knight-14/400/300',   13.00, N'lb',  700, 4,  5,  N'Active'),
+    -- 83. The Alchemist's Lab — Baron: RAM=16384,Storage=512,Price=699.99,PSU=600 => score~7.15
+    (N'The Alchemist''s Lab',           16384,   699.99, N'https://picsum.photos/seed/baron-12/400/300',     6.10, N'kg',  600, 7,  11, N'Active'),
+    -- 84. The Sage's Tome — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
+    (N'The Sage''s Tome',               16384,  2199.99, N'https://picsum.photos/seed/duke-15/400/300',      8.10, N'kg', 1000, 14, 12, N'Active'),
+    -- 85. The Scholar's Codex — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
+    (N'The Scholar''s Codex',           32768,   799.99, N'https://picsum.photos/seed/prince-14/400/300',    8.50, N'kg',  450, 10, 15, N'Active'),
+    -- 86. The Archivist's Repository — Sovereign: RAM=131072,Storage=8000,Price=2499.99,PSU=1000 => score~44.75
+    (N'The Archivist''s Repository',    131072,  2499.99, N'https://picsum.photos/seed/sovereign-12/400/300',10.30, N'kg', 1000, 15, 8,  N'Active'),
+    -- 87. The Lorekeeper's Vault — Sovereign: RAM=131072,Storage=12000,Price=4199.99,PSU=1200 => score~51.20
+    (N'The Lorekeeper''s Vault',        131072,  4199.99, N'https://picsum.photos/seed/sovereign-13/400/300',12.80, N'kg', 1200, 16, 8,  N'Active'),
+    -- 88. The Chronicler's Annals — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
+    (N'The Chronicler''s Annals',        8192,   299.99, N'https://picsum.photos/seed/squire-12/400/300',   10.50, N'lb',  300, 3,  6,  N'Active'),
+    -- 89. The Scribe's Scriptorium — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
+    (N'The Scribe''s Scriptorium',       2048,   249.99, N'https://picsum.photos/seed/page-9/400/300',       16.00, N'lb',  300, 2,  3,  N'Active'),
+    -- 90. The Grand Sovereign's Apex — Sovereign: RAM=131072,Storage=12000,Price=4999.99,PSU=1200 => score~52.10
+    (N'The Grand Sovereign''s Apex',    131072,  4999.99, N'https://picsum.photos/seed/sovereign-14/400/300',13.50, N'kg', 1200, 16, 8,  N'Active'),
+    -- 91. The Page's Companion (New) — Squire: score~4.35
+    (N'The Page''s Companion',           8192,   499.99, N'https://picsum.photos/seed/squire-13/400/300',    8.10, N'kg',  500, 1,  1,  N'New'),
+    -- 92. The Squire's Arsenal (New) — Baron: score~7.17
+    (N'The Squire''s Arsenal',          16384,   649.99, N'https://picsum.photos/seed/baron-13/400/300',    12.00, N'kg',  500, 2,  2,  N'New'),
+    -- 93. The Herald's Tower (New) — Squire: score~4.52
+    (N'The Herald''s Tower',             8192,   549.99, N'https://picsum.photos/seed/squire-14/400/300',   16.00, N'lb',  450, 3,  3,  N'New'),
+    -- 94. The Knight's Fortress (New) — Baron: score~7.95
+    (N'The Knight''s Fortress',         16384,   899.99, N'https://picsum.photos/seed/baron-14/400/300',    13.80, N'lb',  500, 4,  4,  N'New'),
+    -- 95. The Baron's Citadel (New) — Sovereign: score~13.35
+    (N'The Baron''s Citadel',           32768,  1099.99, N'https://picsum.photos/seed/sovereign-15/400/300',  7.00, N'kg', 1000, 5,  5,  N'New'),
+    -- 96. The Duke's Sanctum (New) — Prince: score~12.77
+    (N'The Duke''s Sanctum',            32768,  1249.99, N'https://picsum.photos/seed/prince-15/400/300',    6.00, N'kg',  450, 6,  6,  N'New'),
+    -- 97. The Prince's Armory (New) — Knight: score~5.92
+    (N'The Prince''s Armory',            8192,   749.99, N'https://picsum.photos/seed/knight-15/400/300',   15.00, N'lb', 1000, 7,  4,  N'New'),
+    -- 98. The Viscount's Chamber (New) — Baron: score~7.30
+    (N'The Viscount''s Chamber',        16384,   599.99, N'https://picsum.photos/seed/baron-15/400/300',     8.00, N'lb',  750, 7,  1,  N'New'),
+    -- 99. The Sovereign's Throne (New) — Squire: score~4.25
+    (N'The Sovereign''s Throne',         2048,  1499.99, N'https://picsum.photos/seed/squire-15/400/300',    9.00, N'kg',  500, 8,  7,  N'New'),
+    -- 100. The Court Jester's Box (New) — Page: score~2.55
+    (N'The Court Jester''s Box',         2048,   349.99, N'https://picsum.photos/seed/page-10/400/300',     22.00, N'lb',  700, 7,  5,  N'New');
 GO
 
 -- =============================================================================
 -- Storage Drives
 -- =============================================================================
 INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
-    -- 1. The Phoenix's Blaze: 2 TB SSD + 4 TB HDD
-    (1,  2000, N'SSD'),
-    (1,  4000, N'HDD'),
-    -- 2. The Dragon's Hoard: 4 TB SSD + 8 TB HDD
+    -- 1. The Archduke's Engine: 4 TB SSD + 8 TB HDD
+    (1,  4000, N'SSD'),
+    (1,  8000, N'HDD'),
+    -- 2. The Emperor's Dominion: 4 TB SSD + 8 TB HDD
     (2,  4000, N'SSD'),
     (2,  8000, N'HDD'),
-    -- 3. The Titan's Resolve: 2 TB SSD + 2 TB HDD
-    (3,  2000, N'SSD'),
-    (3,  2000, N'HDD'),
-    -- 4. The Griffin's Talon: 1 TB SSD + 2 TB HDD
+    -- 3. The Regent's Might: 4 TB SSD + 8 TB HDD
+    (3,  4000, N'SSD'),
+    (3,  8000, N'HDD'),
+    -- 4. The Paladin's Core: 1 TB SSD + 2 TB HDD
     (4,  1000, N'SSD'),
     (4,  2000, N'HDD'),
-    -- 5. The Pulsar's Drift: 512 GB SSD
+    -- 5. The Warden's Watch: 512 GB SSD
     (5,   512, N'SSD'),
-    -- 6. The Nebula's Core: 1 TB SSD + 2 TB HDD
-    (6,  1000, N'SSD'),
-    (6,  2000, N'HDD'),
-    -- 7. The Quasar's Pulse: 512 GB SSD + 1 TB HDD
+    -- 6. The Chancellor's Decree: 256 GB SSD
+    (6,   256, N'SSD'),
+    -- 7. The Viceroy's Command: 512 GB SSD
     (7,   512, N'SSD'),
-    (7,  1000, N'HDD'),
-    -- 8. The Comet's Trail: 256 GB SSD
-    (8,   256, N'SSD'),
-    -- 9. The Vortex's Edge: 500 GB HDD
-    (9,   500, N'HDD'),
-    -- 10. The Hydra's Strike: 2 TB SSD
+    -- 8. The Marshal's Banner: 512 GB SSD
+    (8,   512, N'SSD'),
+    -- 9. The Constable's Keep: 256 GB HDD
+    (9,   256, N'HDD'),
+    -- 10. The Chamberlain's Vault: 2 TB SSD
     (10,  2000, N'SSD'),
-    -- 11. The Nova's Burst: 512 GB SSD + 1 TB HDD
+    -- 11. The Steward's Watch: 512 GB SSD
     (11,   512, N'SSD'),
-    (11,  1000, N'HDD'),
-    -- 12. The Turbo's Rush: 256 GB SSD
-    (12,   256, N'SSD'),
-    -- 13. The Kraken's Depth: 1 TB SSD + 2 TB HDD
-    (13,  1000, N'SSD'),
-    (13,  2000, N'HDD'),
-    -- 14. The Pixel's Dream: 500 GB HDD
-    (14,   500, N'HDD'),
-    -- 15. The Thunderbolt's Path: 2 TB SSD + 4 TB HDD
-    (15,  2000, N'SSD'),
-    (15,  4000, N'HDD'),
-    -- 16. The Phantom's Ghost: 1 TB SSD + 1 TB HDD
+    -- 12. The Banneret's Standard: 512 GB SSD
+    (12,   512, N'SSD'),
+    -- 13. The Thane's Bastion: 2 TB SSD
+    (13,  2000, N'SSD'),
+    -- 14. The Liegeman's Post: 128 GB SSD
+    (14,   128, N'SSD'),
+    -- 15. The Seneschal's Hall: 500 GB SSD
+    (15,   500, N'SSD'),
+    -- 16. The Castellan's Tower: 1 TB SSD
     (16,  1000, N'SSD'),
-    (16,  1000, N'HDD'),
-    -- 17. The Inferno's Wrath: 4 TB SSD + 4 TB HDD
-    (17,  4000, N'SSD'),
-    (17,  4000, N'HDD'),
-    -- 18. The Nitro's Ignition: 128 GB SSD
-    (18,   128, N'SSD'),
-    -- 19. The Eclipse's Shadow: 512 GB SSD + 1 TB HDD
+    -- 17. The Warlord's Siege: 256 GB SSD
+    (17,   256, N'SSD'),
+    -- 18. The Envoy's Dispatch: 256 GB HDD
+    (18,   256, N'HDD'),
+    -- 19. The Tribune's Oration: 512 GB SSD
     (19,   512, N'SSD'),
-    (19,  1000, N'HDD'),
-    -- 20. The Glacial's Freeze: 500 GB HDD
-    (20,   500, N'HDD'),
-    -- 21. The Sentinel's Vigil: 2 TB SSD + 2 TB HDD
-    (21,  2000, N'SSD'),
-    (21,  2000, N'HDD'),
-    -- 22. The Warlock's Seal: 4 TB SSD + 4 TB HDD
-    (22,  4000, N'SSD'),
-    (22,  4000, N'HDD'),
-    -- 23. The Cipher's Lock: 500 GB HDD
-    (23,   500, N'HDD'),
-    -- 24. The Respawn's Rise: 256 GB SSD
-    (24,   256, N'SSD'),
-    -- 25. The Storm's Eye: 512 GB SSD + 1 TB HDD
+    -- 20. The Legate's Decree: 1 TB HDD
+    (20,  1000, N'HDD'),
+    -- 21. The Prelate's Sanctum: 1 TB SSD
+    (21,  1000, N'SSD'),
+    -- 22. The Exarch's Domain: 500 GB SSD
+    (22,   500, N'SSD'),
+    -- 23. The Patriarch's Legacy: 256 GB HDD
+    (23,   256, N'HDD'),
+    -- 24. The Prefect's Order: 256 GB HDD
+    (24,   256, N'HDD'),
+    -- 25. The Tribune's Voice: 512 GB SSD
     (25,   512, N'SSD'),
-    (25,  1000, N'HDD'),
-    -- 26. The Berserker's Fury: 1 TB SSD + 2 TB HDD
+    -- 26. The Praetor's Judgment: 1 TB SSD
     (26,  1000, N'SSD'),
-    (26,  2000, N'HDD'),
-    -- 27. The Gladiator's Arena: 2 TB SSD + 4 TB HDD
-    (27,  2000, N'SSD'),
-    (27,  4000, N'HDD'),
-    -- 28. The Overclock's Peak: 500 GB SSD
-    (28,   500, N'SSD'),
-    -- 29. The Ranger's Aim: 1 TB SSD
-    (29,  1000, N'SSD'),
-    -- 30. The Static's Spark: 128 GB SSD
+    -- 27. The Consul's Authority: 8 TB HDD
+    (27,  8000, N'HDD'),
+    -- 28. The Procurator's Ledger: 500 GB HDD
+    (28,   500, N'HDD'),
+    -- 29. The Strategos' Gambit: 512 GB SSD
+    (29,   512, N'SSD'),
+    -- 30. The Eparch's Edict: 128 GB SSD
     (30,   128, N'SSD'),
-    -- 31. The Paladin's Oath: 1 TB SSD + 1 TB HDD
-    (31,  1000, N'SSD'),
-    (31,  1000, N'HDD'),
-    -- 32. The Leviathan's Wake: 2 TB SSD + 4 TB HDD
-    (32,  2000, N'SSD'),
-    (32,  4000, N'HDD'),
-    -- 33. The Ember's Glow: 500 GB HDD
-    (33,   500, N'HDD'),
-    -- 34. The Cyclone's Spin: 512 GB SSD
+    -- 31. The Archon's Seal: 2 TB SSD
+    (31,  2000, N'SSD'),
+    -- 32. The Tyrant's Grip: 512 GB SSD
+    (32,   512, N'SSD'),
+    -- 33. The Oligarch's Reserve: 256 GB HDD
+    (33,   256, N'HDD'),
+    -- 34. The Satrap's Province: 512 GB SSD
     (34,   512, N'SSD'),
-    -- 35. The Wraith's Haunt: 2 TB SSD
-    (35,  2000, N'SSD'),
-    -- 36. The Colossus's Might: 2 TB SSD + 4 TB HDD
+    -- 35. The Vizier's Counsel: 1 TB SSD
+    (35,  1000, N'SSD'),
+    -- 36. The Sultan's Pavilion: 2 TB SSD
     (36,  2000, N'SSD'),
-    (36,  4000, N'HDD'),
-    -- 37. The Supernova's Flash: 4 TB SSD + 8 TB HDD
+    -- 37. The Caliph's Fortress: 4 TB SSD + 8 TB HDD
     (37,  4000, N'SSD'),
     (37,  8000, N'HDD'),
-    -- 38. The Blizzard's Chill: 500 GB SSD
-    (38,   500, N'SSD'),
-    -- 39. The Viper's Bite: 1 TB SSD
-    (39,  1000, N'SSD'),
-    -- 40. The Pixel's Flux: 256 GB HDD
-    (40,   256, N'HDD'),
-    -- 41. The Basilisk's Gaze: 4 TB SSD + 4 TB HDD
-    (41,  4000, N'SSD'),
-    (41,  4000, N'HDD'),
-    -- 42. The Manticore's Roar: 2 TB SSD + 2 TB HDD
-    (42,  2000, N'SSD'),
-    (42,  2000, N'HDD'),
-    -- 43. The Specter's Veil: 512 GB SSD + 1 TB HDD
+    -- 38. The Emir's Outpost: 512 GB SSD
+    (38,   512, N'SSD'),
+    -- 39. The Pasha's Enclave: 512 GB SSD
+    (39,   512, N'SSD'),
+    -- 40. The Bey's Crossing: 128 GB SSD
+    (40,   128, N'SSD'),
+    -- 41. The Shogun's Stronghold: 256 GB SSD
+    (41,   256, N'SSD'),
+    -- 42. The Daimyo's Keep: 1 TB SSD
+    (42,  1000, N'SSD'),
+    -- 43. The Samurai's Edge: 512 GB SSD
     (43,   512, N'SSD'),
-    (43,  1000, N'HDD'),
-    -- 44. The Rogue's Gambit: 256 GB SSD
-    (44,   256, N'SSD'),
-    -- 45. The Cipher's Vault: 500 GB HDD
+    -- 44. The Ronin's Path: 256 GB HDD
+    (44,   256, N'HDD'),
+    -- 45. The Ninja's Shadow: 500 GB HDD
     (45,   500, N'HDD'),
-    -- 46. The Chimera's Form: 2 TB SSD + 2 TB HDD
+    -- 46. The Warlord's Dominion: 2 TB SSD
     (46,  2000, N'SSD'),
-    (46,  2000, N'HDD'),
-    -- 47. The Warden's Crest: 1 TB SSD
+    -- 47. The Chieftain's Hearth: 1 TB SSD
     (47,  1000, N'SSD'),
-    -- 48. The Valkyrie's Call: 1 TB SSD + 2 TB HDD
+    -- 48. The Jarl's Hall: 1 TB SSD
     (48,  1000, N'SSD'),
-    (48,  2000, N'HDD'),
-    -- 49. The Vector's Path: 500 GB HDD
-    (49,   500, N'HDD'),
-    -- 50. The Drifter's Mark: 256 GB SSD
-    (50,   256, N'SSD'),
-    -- 51. The Olympus's Peak: 4 TB SSD + 8 TB HDD
+    -- 49. The Thegn's Holding: 1 TB HDD
+    (49,  1000, N'HDD'),
+    -- 50. The Housecarl's Post: 128 GB SSD
+    (50,   128, N'SSD'),
+    -- 51. The Overlord's Citadel: 4 TB SSD + 8 TB HDD
     (51,  4000, N'SSD'),
     (51,  8000, N'HDD'),
-    -- 52. The Rift's Collapse: 4 TB SSD + 4 TB HDD
-    (52,  4000, N'SSD'),
-    (52,  4000, N'HDD'),
-    -- 53. The Behemoth's Charge: 2 TB SSD + 2 TB HDD
+    -- 52. The Suzerain's Court: 8 TB HDD
+    (52,  8000, N'HDD'),
+    -- 53. The Potentate's Chamber: 2 TB SSD
     (53,  2000, N'SSD'),
-    (53,  2000, N'HDD'),
-    -- 54. The Stryker's Mark: 1 TB SSD + 1 TB HDD
+    -- 54. The Magnate's Study: 1 TB SSD
     (54,  1000, N'SSD'),
-    (54,  1000, N'HDD'),
-    -- 55. The Lynx's Leap: 512 GB SSD
-    (55,   512, N'SSD'),
-    -- 56. The Goblin's Cache: 500 GB HDD
-    (56,   500, N'HDD'),
-    -- 57. The Frost's Bite: 500 GB SSD
-    (57,   500, N'SSD'),
-    -- 58. The Apex's Throne: 1 TB SSD
+    -- 55. The Patrician's Villa: 128 GB SSD
+    (55,   128, N'SSD'),
+    -- 56. The Centurion's Camp: 256 GB HDD
+    (56,   256, N'HDD'),
+    -- 57. The Legionnaire's March: 512 GB SSD
+    (57,   512, N'SSD'),
+    -- 58. The Tribune's Rostrum: 1 TB SSD
     (58,  1000, N'SSD'),
-    -- 59. The Tempest's Fury: 1 TB SSD + 2 TB HDD
-    (59,  1000, N'SSD'),
-    (59,  2000, N'HDD'),
-    -- 60. The Abyss's Call: 2 TB SSD + 4 TB HDD
-    (60,  2000, N'SSD'),
-    (60,  4000, N'HDD'),
-    -- 61. The Raptor's Dive: 4 TB SSD + 4 TB HDD
-    (61,  4000, N'SSD'),
-    (61,  4000, N'HDD'),
-    -- 62. The Wyvern's Wing: 4 TB SSD + 8 TB HDD
+    -- 59. The Prefect's Fortress: 2 TB SSD
+    (59,  2000, N'SSD'),
+    -- 60. The Praetor's Command: 512 GB SSD
+    (60,   512, N'SSD'),
+    -- 61. The Dictator's Seat: 8 TB HDD
+    (61,  8000, N'HDD'),
+    -- 62. The Imperator's Will: 4 TB SSD + 8 TB HDD
     (62,  4000, N'SSD'),
     (62,  8000, N'HDD'),
-    -- 63. The Glitch's Echo: 256 GB HDD
-    (63,   256, N'HDD'),
-    -- 64. The Rune's Glyph: 500 GB HDD
-    (64,   500, N'HDD'),
-    -- 65. The Surge's Wave: 256 GB SSD
-    (65,   256, N'SSD'),
-    -- 66. The Mirage's Veil: 512 GB SSD
-    (66,   512, N'SSD'),
-    -- 67. The Cerberus's Guard: 1 TB SSD + 2 TB HDD
-    (67,  1000, N'SSD'),
-    (67,  2000, N'HDD'),
-    -- 68. The Pulsar's Storm: 2 TB SSD + 4 TB HDD
-    (68,  2000, N'SSD'),
-    (68,  4000, N'HDD'),
-    -- 69. The Byte's Ghost: 128 GB SSD
+    -- 63. The Triumvir's Alliance: 128 GB SSD
+    (63,   128, N'SSD'),
+    -- 64. The Aedile's Square: 256 GB HDD
+    (64,   256, N'HDD'),
+    -- 65. The Quaestor's Treasury: 512 GB SSD
+    (65,   512, N'SSD'),
+    -- 66. The Censor's Ledger: 1 TB SSD
+    (66,  1000, N'SSD'),
+    -- 67. The Pontifex's Shrine: 256 GB SSD
+    (67,   256, N'SSD'),
+    -- 68. The Augur's Vision: 4 TB SSD + 8 TB HDD
+    (68,  4000, N'SSD'),
+    (68,  8000, N'HDD'),
+    -- 69. The Haruspex's Oracle: 128 GB SSD
     (69,   128, N'SSD'),
-    -- 70. The Spark's Ignite: 500 GB HDD
-    (70,   500, N'HDD'),
-    -- 71. The Neon's Grid: 256 GB SSD
-    (71,   256, N'SSD'),
-    -- 72. The Aurora's Glow: 512 GB SSD + 1 TB HDD
-    (72,   512, N'SSD'),
-    (72,  1000, N'HDD'),
-    -- 73. The Titan's Fist: 2 TB SSD
-    (73,  2000, N'SSD'),
-    -- 74. The Andromeda's Light: 2 TB SSD + 4 TB HDD
-    (74,  2000, N'SSD'),
-    (74,  4000, N'HDD'),
-    -- 75. The Nano's Drift: 256 GB HDD
-    (75,   256, N'HDD'),
-    -- 76. The Goliath's Stride: 4 TB SSD + 4 TB HDD
-    (76,  4000, N'SSD'),
-    (76,  4000, N'HDD'),
-    -- 77. The Photon's Beam: 2 TB SSD + 2 TB HDD
-    (77,  2000, N'SSD'),
-    (77,  2000, N'HDD'),
-    -- 78. The Specter's Hunt: 1 TB SSD + 1 TB HDD
+    -- 70. The Flamen's Altar: 128 GB SSD
+    (70,   128, N'SSD'),
+    -- 71. The Vestal's Hearth: 1 TB SSD
+    (71,  1000, N'SSD'),
+    -- 72. The Sibyl's Prophecy: 1 TB SSD
+    (72,  1000, N'SSD'),
+    -- 73. The Oracle's Revelation: 256 GB SSD
+    (73,   256, N'SSD'),
+    -- 74. The Prophet's Ascent: 256 GB SSD
+    (74,   256, N'SSD'),
+    -- 75. The Hierophant's Mystery: 128 GB HDD
+    (75,   128, N'HDD'),
+    -- 76. The Archmage's Tower: 8 TB HDD
+    (76,  8000, N'HDD'),
+    -- 77. The Sorcerer's Sanctum: 500 GB SSD
+    (77,   500, N'SSD'),
+    -- 78. The Warlock's Pact: 1 TB SSD
     (78,  1000, N'SSD'),
-    (78,  1000, N'HDD'),
-    -- 79. The Nexus's Link: 512 GB SSD
-    (79,   512, N'SSD'),
-    -- 80. The Ion's Charge: 128 GB SSD
+    -- 79. The Wizard's Workshop: 1 TB SSD
+    (79,  1000, N'SSD'),
+    -- 80. The Conjurer's Circle: 128 GB SSD
     (80,   128, N'SSD'),
-    -- 81. The Cyclops's Gaze: 1 TB SSD + 2 TB HDD
-    (81,  1000, N'SSD'),
-    (81,  2000, N'HDD'),
-    -- 82. The Drone's Flight: 500 GB HDD
-    (82,   500, N'HDD'),
-    -- 83. The Flux's Current: 256 GB SSD
-    (83,   256, N'SSD'),
-    -- 84. The Ronin's Code: 1 TB SSD
+    -- 81. The Enchanter's Forge: 128 GB SSD
+    (81,   128, N'SSD'),
+    -- 82. The Necromancer's Crypt: 512 GB SSD
+    (82,   512, N'SSD'),
+    -- 83. The Alchemist's Lab: 512 GB SSD
+    (83,   512, N'SSD'),
+    -- 84. The Sage's Tome: 1 TB SSD
     (84,  1000, N'SSD'),
-    -- 85. The Samurai's Blade: 1 TB SSD + 2 TB HDD
-    (85,  1000, N'SSD'),
-    (85,  2000, N'HDD'),
-    -- 86. The Galactic's Surge: 2 TB SSD + 4 TB HDD
-    (86,  2000, N'SSD'),
-    (86,  4000, N'HDD'),
-    -- 87. The Celestial's Arc: 4 TB SSD + 8 TB HDD
+    -- 85. The Scholar's Codex: 256 GB SSD
+    (85,   256, N'SSD'),
+    -- 86. The Archivist's Repository: 8 TB HDD
+    (86,  8000, N'HDD'),
+    -- 87. The Lorekeeper's Vault: 4 TB SSD + 8 TB HDD
     (87,  4000, N'SSD'),
     (87,  8000, N'HDD'),
-    -- 88. The Quark's Spin: 500 GB HDD
-    (88,   500, N'HDD'),
-    -- 89. The Nano's Pulse: 256 GB HDD
-    (89,   256, N'HDD'),
-    -- 90. The Zenith's Apex: 4 TB SSD + 8 TB HDD
-    (90, 4000, N'SSD'),
-    (90, 8000, N'HDD'),
-    -- 91. The Page's Companion
+    -- 88. The Chronicler's Annals: 256 GB HDD
+    (88,   256, N'HDD'),
+    -- 89. The Scribe's Scriptorium: 128 GB SSD
+    (89,   128, N'SSD'),
+    -- 90. The Grand Sovereign's Apex: 4 TB SSD + 8 TB HDD
+    (90,  4000, N'SSD'),
+    (90,  8000, N'HDD'),
+    -- 91. The Page's Companion: 1 TB SSD
     (91,  1000, N'SSD'),
-    -- 92. The Squire's Arsenal
+    -- 92. The Squire's Arsenal: 2 TB HDD
     (92,  2000, N'HDD'),
-    -- 93. The Herald's Tower
+    -- 93. The Herald's Tower: 2 TB HDD
     (93,  2000, N'HDD'),
-    -- 94. The Knight's Fortress
+    -- 94. The Knight's Fortress: 4 TB HDD
     (94,  4000, N'HDD'),
-    -- 95. The Baron's Citadel
+    -- 95. The Baron's Citadel: 512 GB SSD
     (95,   512, N'SSD'),
-    -- 96. The Duke's Sanctum
+    -- 96. The Duke's Sanctum: 2 TB SSD
     (96,  2000, N'SSD'),
-    -- 97. The Prince's Armory
+    -- 97. The Prince's Armory: 2 TB HDD
     (97,  2000, N'HDD'),
-    -- 98. The Viscount's Chamber
+    -- 98. The Viscount's Chamber: 500 GB SSD
     (98,   500, N'SSD'),
-    -- 99. The Sovereign's Throne
+    -- 99. The Sovereign's Throne: 2 TB HDD
     (99,  2000, N'HDD'),
-    -- 100. The Court Jester's Box
+    -- 100. The Court Jester's Box: 128 GB SSD
     (100,  128, N'SSD');
 GO
 
@@ -557,298 +533,298 @@ GO
 -- USB Ports
 -- =============================================================================
 INSERT INTO UsbPorts (ComputerId, Count, UsbType) VALUES
-    -- 1. The Phoenix's Blaze: 4x USB-C + 6x USB 3.0
+    -- 1. The Archduke's Engine: 4x USB-C + 6x USB 3.0
     (1,  4, N'USB-C'),
     (1,  6, N'USB 3.0'),
-    -- 2. The Dragon's Hoard: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    -- 2. The Emperor's Dominion: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
     (2,  6, N'USB-C'),
     (2,  8, N'USB 3.0'),
     (2,  2, N'USB 2.0'),
-    -- 3. The Titan's Resolve: 4x USB-C + 6x USB 3.0
+    -- 3. The Regent's Might: 4x USB-C + 6x USB 3.0
     (3,  4, N'USB-C'),
     (3,  6, N'USB 3.0'),
-    -- 4. The Griffin's Talon: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 4. The Paladin's Core: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (4,  2, N'USB-C'),
     (4,  4, N'USB 3.0'),
     (4,  2, N'USB 2.0'),
-    -- 5. The Pulsar's Drift: 2x USB-C + 4x USB 3.0
+    -- 5. The Warden's Watch: 2x USB-C + 4x USB 3.0
     (5,  2, N'USB-C'),
     (5,  4, N'USB 3.0'),
-    -- 6. The Nebula's Core: 3x USB-C + 5x USB 3.0 + 2x USB 2.0
+    -- 6. The Chancellor's Decree: 3x USB-C + 5x USB 3.0 + 2x USB 2.0
     (6,  3, N'USB-C'),
     (6,  5, N'USB 3.0'),
     (6,  2, N'USB 2.0'),
-    -- 7. The Quasar's Pulse: 2x USB-C + 4x USB 3.0
+    -- 7. The Viceroy's Command: 2x USB-C + 4x USB 3.0
     (7,  2, N'USB-C'),
     (7,  4, N'USB 3.0'),
-    -- 8. The Comet's Trail: 2x USB 3.0 + 4x USB 2.0
+    -- 8. The Marshal's Banner: 2x USB 3.0 + 4x USB 2.0
     (8,  2, N'USB 3.0'),
     (8,  4, N'USB 2.0'),
-    -- 9. The Vortex's Edge: 4x USB 2.0
+    -- 9. The Constable's Keep: 4x USB 2.0
     (9,  4, N'USB 2.0'),
-    -- 10. The Hydra's Strike: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 10. The Chamberlain's Vault: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (10,  2, N'USB-C'),
     (10,  4, N'USB 3.0'),
     (10,  2, N'USB 2.0'),
-    -- 11. The Nova's Burst: 1x USB-C + 3x USB 3.0 + 2x USB 2.0
+    -- 11. The Steward's Watch: 1x USB-C + 3x USB 3.0 + 2x USB 2.0
     (11,  1, N'USB-C'),
     (11,  3, N'USB 3.0'),
     (11,  2, N'USB 2.0'),
-    -- 12. The Turbo's Rush: 2x USB 3.0 + 4x USB 2.0
+    -- 12. The Banneret's Standard: 2x USB 3.0 + 4x USB 2.0
     (12,  2, N'USB 3.0'),
     (12,  4, N'USB 2.0'),
-    -- 13. The Kraken's Depth: 2x USB-C + 6x USB 3.0
+    -- 13. The Thane's Bastion: 2x USB-C + 6x USB 3.0
     (13,  2, N'USB-C'),
     (13,  6, N'USB 3.0'),
-    -- 14. The Pixel's Dream: 2x USB 2.0 + 2x USB 3.0
+    -- 14. The Liegeman's Post: 2x USB 2.0 + 2x USB 3.0
     (14,  2, N'USB 2.0'),
     (14,  2, N'USB 3.0'),
-    -- 15. The Thunderbolt's Path: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    -- 15. The Seneschal's Hall: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
     (15,  4, N'USB-C'),
     (15,  6, N'USB 3.0'),
     (15,  2, N'USB 2.0'),
-    -- 16. The Phantom's Ghost: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 16. The Castellan's Tower: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (16,  2, N'USB-C'),
     (16,  4, N'USB 3.0'),
     (16,  2, N'USB 2.0'),
-    -- 17. The Inferno's Wrath: 6x USB-C + 8x USB 3.0
+    -- 17. The Warlord's Siege: 6x USB-C + 8x USB 3.0
     (17,  6, N'USB-C'),
     (17,  8, N'USB 3.0'),
-    -- 18. The Nitro's Ignition: 1x USB-C + 2x USB 3.0
+    -- 18. The Envoy's Dispatch: 1x USB-C + 2x USB 3.0
     (18,  1, N'USB-C'),
     (18,  2, N'USB 3.0'),
-    -- 19. The Eclipse's Shadow: 2x USB-C + 4x USB 3.0
+    -- 19. The Tribune's Oration: 2x USB-C + 4x USB 3.0
     (19,  2, N'USB-C'),
     (19,  4, N'USB 3.0'),
-    -- 20. The Glacial's Freeze: 2x USB 2.0 + 2x USB 3.0
+    -- 20. The Legate's Decree: 2x USB 2.0 + 2x USB 3.0
     (20,  2, N'USB 2.0'),
     (20,  2, N'USB 3.0'),
-    -- 21. The Sentinel's Vigil: 4x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 21. The Prelate's Sanctum: 4x USB-C + 4x USB 3.0 + 2x USB 2.0
     (21,  4, N'USB-C'),
     (21,  4, N'USB 3.0'),
     (21,  2, N'USB 2.0'),
-    -- 22. The Warlock's Seal: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    -- 22. The Exarch's Domain: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
     (22,  4, N'USB-C'),
     (22,  6, N'USB 3.0'),
     (22,  2, N'USB 2.0'),
-    -- 23. The Cipher's Lock: 4x USB 2.0 + 2x USB 3.0
+    -- 23. The Patriarch's Legacy: 4x USB 2.0 + 2x USB 3.0
     (23,  4, N'USB 2.0'),
     (23,  2, N'USB 3.0'),
-    -- 24. The Respawn's Rise: 2x USB 3.0 + 2x USB 2.0
+    -- 24. The Prefect's Order: 2x USB 3.0 + 2x USB 2.0
     (24,  2, N'USB 3.0'),
     (24,  2, N'USB 2.0'),
-    -- 25. The Storm's Eye: 2x USB-C + 4x USB 3.0
+    -- 25. The Tribune's Voice: 2x USB-C + 4x USB 3.0
     (25,  2, N'USB-C'),
     (25,  4, N'USB 3.0'),
-    -- 26. The Berserker's Fury: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 26. The Praetor's Judgment: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (26,  2, N'USB-C'),
     (26,  4, N'USB 3.0'),
     (26,  2, N'USB 2.0'),
-    -- 27. The Gladiator's Arena: 4x USB-C + 6x USB 3.0
+    -- 27. The Consul's Authority: 4x USB-C + 6x USB 3.0
     (27,  4, N'USB-C'),
     (27,  6, N'USB 3.0'),
-    -- 28. The Overclock's Peak: 4x USB 3.0 + 4x USB 2.0
+    -- 28. The Procurator's Ledger: 4x USB 3.0 + 4x USB 2.0
     (28,  4, N'USB 3.0'),
     (28,  4, N'USB 2.0'),
-    -- 29. The Ranger's Aim: 2x USB-C + 4x USB 3.0
+    -- 29. The Strategos' Gambit: 2x USB-C + 4x USB 3.0
     (29,  2, N'USB-C'),
     (29,  4, N'USB 3.0'),
-    -- 30. The Static's Spark: 4x USB 2.0
+    -- 30. The Eparch's Edict: 4x USB 2.0
     (30,  4, N'USB 2.0'),
-    -- 31. The Paladin's Oath: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 31. The Archon's Seal: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (31,  2, N'USB-C'),
     (31,  4, N'USB 3.0'),
     (31,  2, N'USB 2.0'),
-    -- 32. The Leviathan's Wake: 6x USB-C + 6x USB 3.0
+    -- 32. The Tyrant's Grip: 6x USB-C + 6x USB 3.0
     (32,  6, N'USB-C'),
     (32,  6, N'USB 3.0'),
-    -- 33. The Ember's Glow: 4x USB 2.0 + 2x USB 3.0
+    -- 33. The Oligarch's Reserve: 4x USB 2.0 + 2x USB 3.0
     (33,  4, N'USB 2.0'),
     (33,  2, N'USB 3.0'),
-    -- 34. The Cyclone's Spin: 2x USB-C + 4x USB 3.0
+    -- 34. The Satrap's Province: 2x USB-C + 4x USB 3.0
     (34,  2, N'USB-C'),
     (34,  4, N'USB 3.0'),
-    -- 35. The Wraith's Haunt: 4x USB-C + 4x USB 3.0
+    -- 35. The Vizier's Counsel: 4x USB-C + 4x USB 3.0
     (35,  4, N'USB-C'),
     (35,  4, N'USB 3.0'),
-    -- 36. The Colossus's Might: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    -- 36. The Sultan's Pavilion: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
     (36,  4, N'USB-C'),
     (36,  6, N'USB 3.0'),
     (36,  2, N'USB 2.0'),
-    -- 37. The Supernova's Flash: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    -- 37. The Caliph's Fortress: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
     (37,  6, N'USB-C'),
     (37,  8, N'USB 3.0'),
     (37,  2, N'USB 2.0'),
-    -- 38. The Blizzard's Chill: 2x USB-C + 4x USB 3.0
+    -- 38. The Emir's Outpost: 2x USB-C + 4x USB 3.0
     (38,  2, N'USB-C'),
     (38,  4, N'USB 3.0'),
-    -- 39. The Viper's Bite: 2x USB-C + 4x USB 3.0
+    -- 39. The Pasha's Enclave: 2x USB-C + 4x USB 3.0
     (39,  2, N'USB-C'),
     (39,  4, N'USB 3.0'),
-    -- 40. The Pixel's Flux: 2x USB 2.0 + 2x USB 3.0
+    -- 40. The Bey's Crossing: 2x USB 2.0 + 2x USB 3.0
     (40,  2, N'USB 2.0'),
     (40,  2, N'USB 3.0'),
-    -- 41. The Basilisk's Gaze: 6x USB-C + 8x USB 3.0
+    -- 41. The Shogun's Stronghold: 6x USB-C + 8x USB 3.0
     (41,  6, N'USB-C'),
     (41,  8, N'USB 3.0'),
-    -- 42. The Manticore's Roar: 4x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 42. The Daimyo's Keep: 4x USB-C + 4x USB 3.0 + 2x USB 2.0
     (42,  4, N'USB-C'),
     (42,  4, N'USB 3.0'),
     (42,  2, N'USB 2.0'),
-    -- 43. The Specter's Veil: 2x USB-C + 4x USB 3.0
+    -- 43. The Samurai's Edge: 2x USB-C + 4x USB 3.0
     (43,  2, N'USB-C'),
     (43,  4, N'USB 3.0'),
-    -- 44. The Rogue's Gambit: 2x USB 3.0 + 2x USB 2.0
+    -- 44. The Ronin's Path: 2x USB 3.0 + 2x USB 2.0
     (44,  2, N'USB 3.0'),
     (44,  2, N'USB 2.0'),
-    -- 45. The Cipher's Vault: 4x USB 2.0
+    -- 45. The Ninja's Shadow: 4x USB 2.0
     (45,  4, N'USB 2.0'),
-    -- 46. The Chimera's Form: 4x USB-C + 6x USB 3.0
+    -- 46. The Warlord's Dominion: 4x USB-C + 6x USB 3.0
     (46,  4, N'USB-C'),
     (46,  6, N'USB 3.0'),
-    -- 47. The Warden's Crest: 2x USB-C + 4x USB 3.0
+    -- 47. The Chieftain's Hearth: 2x USB-C + 4x USB 3.0
     (47,  2, N'USB-C'),
     (47,  4, N'USB 3.0'),
-    -- 48. The Valkyrie's Call: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 48. The Jarl's Hall: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (48,  2, N'USB-C'),
     (48,  4, N'USB 3.0'),
     (48,  2, N'USB 2.0'),
-    -- 49. The Vector's Path: 2x USB 2.0 + 2x USB 3.0
+    -- 49. The Thegn's Holding: 2x USB 2.0 + 2x USB 3.0
     (49,  2, N'USB 2.0'),
     (49,  2, N'USB 3.0'),
-    -- 50. The Drifter's Mark: 2x USB 3.0 + 4x USB 2.0
+    -- 50. The Housecarl's Post: 2x USB 3.0 + 4x USB 2.0
     (50,  2, N'USB 3.0'),
     (50,  4, N'USB 2.0'),
-    -- 51. The Olympus's Peak: 6x USB-C + 8x USB 3.0 + 4x USB 2.0
+    -- 51. The Overlord's Citadel: 6x USB-C + 8x USB 3.0 + 4x USB 2.0
     (51,  6, N'USB-C'),
     (51,  8, N'USB 3.0'),
     (51,  4, N'USB 2.0'),
-    -- 52. The Rift's Collapse: 6x USB-C + 6x USB 3.0 + 2x USB 2.0
+    -- 52. The Suzerain's Court: 6x USB-C + 6x USB 3.0 + 2x USB 2.0
     (52,  6, N'USB-C'),
     (52,  6, N'USB 3.0'),
     (52,  2, N'USB 2.0'),
-    -- 53. The Behemoth's Charge: 4x USB-C + 6x USB 3.0
+    -- 53. The Potentate's Chamber: 4x USB-C + 6x USB 3.0
     (53,  4, N'USB-C'),
     (53,  6, N'USB 3.0'),
-    -- 54. The Stryker's Mark: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 54. The Magnate's Study: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (54,  2, N'USB-C'),
     (54,  4, N'USB 3.0'),
     (54,  2, N'USB 2.0'),
-    -- 55. The Lynx's Leap: 2x USB-C + 4x USB 3.0
+    -- 55. The Patrician's Villa: 2x USB-C + 4x USB 3.0
     (55,  2, N'USB-C'),
     (55,  4, N'USB 3.0'),
-    -- 56. The Goblin's Cache: 4x USB 2.0 + 2x USB 3.0
+    -- 56. The Centurion's Camp: 4x USB 2.0 + 2x USB 3.0
     (56,  4, N'USB 2.0'),
     (56,  2, N'USB 3.0'),
-    -- 57. The Frost's Bite: 2x USB-C + 4x USB 3.0
+    -- 57. The Legionnaire's March: 2x USB-C + 4x USB 3.0
     (57,  2, N'USB-C'),
     (57,  4, N'USB 3.0'),
-    -- 58. The Apex's Throne: 2x USB-C + 4x USB 3.0
+    -- 58. The Tribune's Rostrum: 2x USB-C + 4x USB 3.0
     (58,  2, N'USB-C'),
     (58,  4, N'USB 3.0'),
-    -- 59. The Tempest's Fury: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 59. The Prefect's Fortress: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (59,  2, N'USB-C'),
     (59,  4, N'USB 3.0'),
     (59,  2, N'USB 2.0'),
-    -- 60. The Abyss's Call: 4x USB-C + 6x USB 3.0
+    -- 60. The Praetor's Command: 4x USB-C + 6x USB 3.0
     (60,  4, N'USB-C'),
     (60,  6, N'USB 3.0'),
-    -- 61. The Raptor's Dive: 6x USB-C + 8x USB 3.0
+    -- 61. The Dictator's Seat: 6x USB-C + 8x USB 3.0
     (61,  6, N'USB-C'),
     (61,  8, N'USB 3.0'),
-    -- 62. The Wyvern's Wing: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    -- 62. The Imperator's Will: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
     (62,  6, N'USB-C'),
     (62,  8, N'USB 3.0'),
     (62,  2, N'USB 2.0'),
-    -- 63. The Glitch's Echo: 4x USB 2.0 + 2x USB 3.0
+    -- 63. The Triumvir's Alliance: 4x USB 2.0 + 2x USB 3.0
     (63,  4, N'USB 2.0'),
     (63,  2, N'USB 3.0'),
-    -- 64. The Rune's Glyph: 4x USB 2.0 + 2x USB 3.0
+    -- 64. The Aedile's Square: 4x USB 2.0 + 2x USB 3.0
     (64,  4, N'USB 2.0'),
     (64,  2, N'USB 3.0'),
-    -- 65. The Surge's Wave: 2x USB 3.0 + 4x USB 2.0
+    -- 65. The Quaestor's Treasury: 2x USB 3.0 + 4x USB 2.0
     (65,  2, N'USB 3.0'),
     (65,  4, N'USB 2.0'),
-    -- 66. The Mirage's Veil: 2x USB-C + 4x USB 3.0
+    -- 66. The Censor's Ledger: 2x USB-C + 4x USB 3.0
     (66,  2, N'USB-C'),
     (66,  4, N'USB 3.0'),
-    -- 67. The Cerberus's Guard: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 67. The Pontifex's Shrine: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (67,  2, N'USB-C'),
     (67,  4, N'USB 3.0'),
     (67,  2, N'USB 2.0'),
-    -- 68. The Pulsar's Storm: 4x USB-C + 6x USB 3.0
+    -- 68. The Augur's Vision: 4x USB-C + 6x USB 3.0
     (68,  4, N'USB-C'),
     (68,  6, N'USB 3.0'),
-    -- 69. The Byte's Ghost: 4x USB 2.0
+    -- 69. The Haruspex's Oracle: 4x USB 2.0
     (69,  4, N'USB 2.0'),
-    -- 70. The Spark's Ignite: 4x USB 2.0 + 2x USB 3.0
+    -- 70. The Flamen's Altar: 4x USB 2.0 + 2x USB 3.0
     (70,  4, N'USB 2.0'),
     (70,  2, N'USB 3.0'),
-    -- 71. The Neon's Grid: 1x USB-C + 2x USB 3.0
+    -- 71. The Vestal's Hearth: 1x USB-C + 2x USB 3.0
     (71,  1, N'USB-C'),
     (71,  2, N'USB 3.0'),
-    -- 72. The Aurora's Glow: 2x USB-C + 4x USB 3.0
+    -- 72. The Sibyl's Prophecy: 2x USB-C + 4x USB 3.0
     (72,  2, N'USB-C'),
     (72,  4, N'USB 3.0'),
-    -- 73. The Titan's Fist: 4x USB-C + 4x USB 3.0
+    -- 73. The Oracle's Revelation: 4x USB-C + 4x USB 3.0
     (73,  4, N'USB-C'),
     (73,  4, N'USB 3.0'),
-    -- 74. The Andromeda's Light: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    -- 74. The Prophet's Ascent: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
     (74,  4, N'USB-C'),
     (74,  6, N'USB 3.0'),
     (74,  2, N'USB 2.0'),
-    -- 75. The Nano's Drift: 4x USB 2.0 + 2x USB 3.0
+    -- 75. The Hierophant's Mystery: 4x USB 2.0 + 2x USB 3.0
     (75,  4, N'USB 2.0'),
     (75,  2, N'USB 3.0'),
-    -- 76. The Goliath's Stride: 6x USB-C + 8x USB 3.0
+    -- 76. The Archmage's Tower: 6x USB-C + 8x USB 3.0
     (76,  6, N'USB-C'),
     (76,  8, N'USB 3.0'),
-    -- 77. The Photon's Beam: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    -- 77. The Sorcerer's Sanctum: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
     (77,  4, N'USB-C'),
     (77,  6, N'USB 3.0'),
     (77,  2, N'USB 2.0'),
-    -- 78. The Specter's Hunt: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 78. The Warlock's Pact: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (78,  2, N'USB-C'),
     (78,  4, N'USB 3.0'),
     (78,  2, N'USB 2.0'),
-    -- 79. The Nexus's Link: 2x USB-C + 4x USB 3.0
+    -- 79. The Wizard's Workshop: 2x USB-C + 4x USB 3.0
     (79,  2, N'USB-C'),
     (79,  4, N'USB 3.0'),
-    -- 80. The Ion's Charge: 4x USB 2.0
+    -- 80. The Conjurer's Circle: 4x USB 2.0
     (80,  4, N'USB 2.0'),
-    -- 81. The Cyclops's Gaze: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 81. The Enchanter's Forge: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (81,  2, N'USB-C'),
     (81,  4, N'USB 3.0'),
     (81,  2, N'USB 2.0'),
-    -- 82. The Drone's Flight: 4x USB 2.0 + 2x USB 3.0
+    -- 82. The Necromancer's Crypt: 4x USB 2.0 + 2x USB 3.0
     (82,  4, N'USB 2.0'),
     (82,  2, N'USB 3.0'),
-    -- 83. The Flux's Current: 1x USB-C + 2x USB 3.0 + 2x USB 2.0
+    -- 83. The Alchemist's Lab: 1x USB-C + 2x USB 3.0 + 2x USB 2.0
     (83,  1, N'USB-C'),
     (83,  2, N'USB 3.0'),
     (83,  2, N'USB 2.0'),
-    -- 84. The Ronin's Code: 2x USB-C + 4x USB 3.0
+    -- 84. The Sage's Tome: 2x USB-C + 4x USB 3.0
     (84,  2, N'USB-C'),
     (84,  4, N'USB 3.0'),
-    -- 85. The Samurai's Blade: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    -- 85. The Scholar's Codex: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
     (85,  2, N'USB-C'),
     (85,  4, N'USB 3.0'),
     (85,  2, N'USB 2.0'),
-    -- 86. The Galactic's Surge: 4x USB-C + 6x USB 3.0
+    -- 86. The Archivist's Repository: 4x USB-C + 6x USB 3.0
     (86,  4, N'USB-C'),
     (86,  6, N'USB 3.0'),
-    -- 87. The Celestial's Arc: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    -- 87. The Lorekeeper's Vault: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
     (87,  6, N'USB-C'),
     (87,  8, N'USB 3.0'),
     (87,  2, N'USB 2.0'),
-    -- 88. The Quark's Spin: 4x USB 2.0 + 2x USB 3.0
+    -- 88. The Chronicler's Annals: 4x USB 2.0 + 2x USB 3.0
     (88,  4, N'USB 2.0'),
     (88,  2, N'USB 3.0'),
-    -- 89. The Nano's Pulse: 2x USB 2.0 + 2x USB 3.0
+    -- 89. The Scribe's Scriptorium: 2x USB 2.0 + 2x USB 3.0
     (89,  2, N'USB 2.0'),
     (89,  2, N'USB 3.0'),
-    -- 90. The Zenith's Apex: 8x USB-C + 10x USB 3.0 + 4x USB 2.0
-    (90, 8, N'USB-C'),
+    -- 90. The Grand Sovereign's Apex: 8x USB-C + 10x USB 3.0 + 4x USB 2.0
+    (90,  8, N'USB-C'),
     (90, 10, N'USB 3.0'),
     (90,  4, N'USB 2.0'),
     -- 91. The Page's Companion: 2x USB 3.0 + 4x USB 2.0
