@@ -23,4 +23,4 @@ EXPOSE 5000
 ENV ASPNETCORE_ENVIRONMENT=Development
 ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 
-CMD ["dotnet", "watch", "run", "--project", "CompuPalace.Api"]
+CMD ["dotnet", "watch", "run", "--project", "CompuPalace.Api", "--no-launch-profile"]
