@@ -1,5 +1,9 @@
+name: compu-palace
+
 services:
   db:
+    container_name: compu-palace-db
+    image: compu-palace-db
     build:
       context: ./database
       dockerfile: Dockerfile
@@ -19,6 +23,8 @@ services:
       start_period: 30s
 
   backend:
+    container_name: compu-palace-api
+    image: compu-palace-api
     build:
       context: ./backend
       dockerfile: CompuPalace.Api/Dockerfile
@@ -33,6 +39,8 @@ services:
         condition: service_healthy
 
   frontend:
+    container_name: compu-palace-web
+    image: compu-palace-web
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -45,3 +53,4 @@ services:
 
 volumes:
   sqlserver-data:
+    name: compu-palace-data
