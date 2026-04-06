@@ -39,15 +39,27 @@ done
 
 echo "[entrypoint] SQL Server is ready."
 
-# Run all SQL scripts in alphabetical order
+# Run schema and stored procedure scripts (always safe to re-run: IF NOT EXISTS / CREATE OR ALTER)
 for script in ${SCRIPTS_DIR}/*.sql; do
     if [ -f "${script}" ]; then
-        echo "[entrypoint] Executing $(basename ${script})..."
+        BASENAME=$(basename "${script}")
+
+        # Skip seed data if the Computers table already has rows
+        if [ "${BASENAME}" = "03-seed-data.sql" ]; then
+            EXISTING=$(${SQLCMD} -S localhost -U sa -P "${SA_PASSWORD}" -C -d CompuPalace \
+                -Q "SET NOCOUNT ON; SELECT COUNT(*) FROM Computers" -h -1 2>/dev/null | tr -d '[:space:]')
+            if [ "$EXISTING" -gt "0" ] 2>/dev/null; then
+                echo "[entrypoint] Database already seeded (${EXISTING} computers). Skipping ${BASENAME}."
+                continue
+            fi
+        fi
+
+        echo "[entrypoint] Executing ${BASENAME}..."
         ${SQLCMD} -S localhost -U sa -P "${SA_PASSWORD}" -C -i "${script}"
         if [ $? -eq 0 ]; then
-            echo "[entrypoint] $(basename ${script}) completed successfully."
+            echo "[entrypoint] ${BASENAME} completed successfully."
         else
-            echo "[entrypoint] ERROR: $(basename ${script}) failed."
+            echo "[entrypoint] ERROR: ${BASENAME} failed."
             exit 1
         fi
     fi
