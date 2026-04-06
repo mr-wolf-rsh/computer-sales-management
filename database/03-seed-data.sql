@@ -163,14 +163,14 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Tribune''s Voice',            8192,  1099.99, N'https://picsum.photos/seed/knight-6/400/300',     8.90, N'kg',  750, 11, 13, N'Active'),
     -- 26. The Praetor's Judgment — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
     (N'The Praetor''s Judgment',        16384,   999.99, N'https://picsum.photos/seed/baron-3/400/300',      9.30, N'kg',  700, 12, 14, N'Active'),
-    -- 27. The Consul's Authority — Sovereign: RAM=131072,Storage=8000,Price=2699.99,PSU=1000 => score~43.45
-    (N'The Consul''s Authority',        131072,  2699.99, N'https://picsum.photos/seed/sovereign-4/400/300', 11.50, N'kg', 1000, 16, 8,  N'Active'),
+    -- 27. The Consul's Authority — Sovereign: RAM=65536,Storage=8000,Price=2699.99,PSU=1000 => score~23.85
+    (N'The Consul''s Authority',         65536,  2699.99, N'https://picsum.photos/seed/sovereign-4/400/300', 11.50, N'kg', 1000, 16, 8,  N'Active'),
     -- 28. The Procurator's Ledger — Squire: RAM=8192,Storage=500,Price=399.99,PSU=350 => score~3.75
     (N'The Procurator''s Ledger',        8192,   399.99, N'https://picsum.photos/seed/squire-6/400/300',    14.50, N'lb',  350, 4,  5,  N'Active'),
     -- 29. The Strategos' Gambit — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
     (N'The Strategos'' Gambit',          8192,   999.99, N'https://picsum.photos/seed/knight-7/400/300',     8.60, N'kg',  700, 14, 9,  N'Active'),
-    -- 30. The Eparch's Edict — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Eparch''s Edict',             2048,   249.99, N'https://picsum.photos/seed/page-1/400/300',       20.00, N'lb',  300, 1,  3,  N'Active'),
+    -- 30. The Eparch's Edict — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
+    (N'The Eparch''s Edict',             4096,   249.99, N'https://picsum.photos/seed/page-1/400/300',       20.00, N'lb',  300, 1,  3,  N'Active'),
     -- 31. The Archon's Seal — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
     (N'The Archon''s Seal',             16384,  1799.99, N'https://picsum.photos/seed/duke-6/400/300',       7.70, N'kg',  850, 10, 10, N'Active'),
     -- 32. The Tyrant's Grip — Prince: RAM=32768,Storage=512,Price=799.99,PSU=450 => score~11.80
@@ -189,8 +189,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Emir''s Outpost',             8192,  1099.99, N'https://picsum.photos/seed/knight-9/400/300',    15.50, N'lb',  750, 5,  5,  N'Active'),
     -- 39. The Pasha's Enclave — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
     (N'The Pasha''s Enclave',            8192,   999.99, N'https://picsum.photos/seed/knight-10/400/300',    8.30, N'kg',  700, 11, 11, N'Active'),
-    -- 40. The Bey's Crossing — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Bey''s Crossing',             2048,   249.99, N'https://picsum.photos/seed/page-2/400/300',       17.00, N'lb',  300, 1,  6,  N'Active'),
+    -- 40. The Bey's Crossing — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
+    (N'The Bey''s Crossing',             4096,   249.99, N'https://picsum.photos/seed/page-2/400/300',       17.00, N'lb',  300, 1,  6,  N'Active'),
     -- 41. The Shogun's Stronghold — Prince: RAM=32768,Storage=256,Price=999.99,PSU=500 => score~12.15
     (N'The Shogun''s Stronghold',       32768,   999.99, N'https://picsum.photos/seed/prince-6/400/300',     9.90, N'kg',  500, 9,  8,  N'Active'),
     -- 42. The Daimyo's Keep — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
@@ -213,8 +213,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Housecarl''s Post',           2048,   249.99, N'https://picsum.photos/seed/page-3/400/300',       14.00, N'lb',  300, 7,  2,  N'Active'),
     -- 51. The Overlord's Citadel — Sovereign: RAM=131072,Storage=12000,Price=4799.99,PSU=1200 => score~52.05
     (N'The Overlord''s Citadel',        131072,  4799.99, N'https://picsum.photos/seed/sovereign-6/400/300', 13.00, N'kg', 1200, 16, 8,  N'Active'),
-    -- 52. The Suzerain's Court — Sovereign: RAM=131072,Storage=8000,Price=3299.99,PSU=1200 => score~47.35
-    (N'The Suzerain''s Court',          131072,  3299.99, N'https://picsum.photos/seed/sovereign-7/400/300', 11.80, N'kg', 1200, 15, 10, N'Active'),
+    -- 52. The Suzerain's Court — Sovereign: RAM=65536,Storage=8000,Price=3299.99,PSU=1200 => score~27.75
+    (N'The Suzerain''s Court',           65536,  3299.99, N'https://picsum.photos/seed/sovereign-7/400/300', 11.80, N'kg', 1200, 15, 10, N'Active'),
     -- 53. The Potentate's Chamber — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
     (N'The Potentate''s Chamber',       16384,  1799.99, N'https://picsum.photos/seed/duke-10/400/300',      9.10, N'kg',  850, 9,  9,  N'Active'),
     -- 54. The Magnate's Study — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
@@ -231,12 +231,12 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Prefect''s Fortress',        16384,  1999.99, N'https://picsum.photos/seed/duke-12/400/300',      8.80, N'kg',  900, 12, 14, N'Active'),
     -- 60. The Praetor's Command — Prince: RAM=32768,Storage=512,Price=999.99,PSU=550 => score~12.30
     (N'The Praetor''s Command',         32768,   999.99, N'https://picsum.photos/seed/prince-8/400/300',    10.40, N'kg',  550, 16, 15, N'Active'),
-    -- 61. The Dictator's Seat — Sovereign: RAM=131072,Storage=8000,Price=3599.99,PSU=1200 => score~47.80
-    (N'The Dictator''s Seat',           131072,  3599.99, N'https://picsum.photos/seed/sovereign-8/400/300', 12.20, N'kg', 1200, 9,  8,  N'Active'),
+    -- 61. The Dictator's Seat — Sovereign: RAM=65536,Storage=8000,Price=3599.99,PSU=1200 => score~28.20
+    (N'The Dictator''s Seat',            65536,  3599.99, N'https://picsum.photos/seed/sovereign-8/400/300', 12.20, N'kg', 1200, 9,  8,  N'Active'),
     -- 62. The Imperator's Will — Sovereign: RAM=131072,Storage=12000,Price=4299.99,PSU=1200 => score~51.30
     (N'The Imperator''s Will',          131072,  4299.99, N'https://picsum.photos/seed/sovereign-9/400/300', 11.60, N'kg', 1200, 15, 8,  N'Active'),
-    -- 63. The Triumvir's Alliance — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Triumvir''s Alliance',        2048,   249.99, N'https://picsum.photos/seed/page-4/400/300',       19.00, N'lb',  300, 2,  3,  N'Active'),
+    -- 63. The Triumvir's Alliance — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
+    (N'The Triumvir''s Alliance',        4096,   249.99, N'https://picsum.photos/seed/page-4/400/300',       19.00, N'lb',  300, 2,  3,  N'Active'),
     -- 64. The Aedile's Square — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
     (N'The Aedile''s Square',            8192,   299.99, N'https://picsum.photos/seed/squire-11/400/300',   11.00, N'lb',  300, 3,  6,  N'Active'),
     -- 65. The Quaestor's Treasury — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
@@ -245,10 +245,10 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Censor''s Ledger',           16384,   999.99, N'https://picsum.photos/seed/baron-9/400/300',      8.20, N'kg',  700, 11, 11, N'Active'),
     -- 67. The Pontifex's Shrine — Prince: RAM=32768,Storage=256,Price=699.99,PSU=450 => score~11.60
     (N'The Pontifex''s Shrine',         32768,   699.99, N'https://picsum.photos/seed/prince-9/400/300',     9.60, N'kg',  450, 10, 10, N'Active'),
-    -- 68. The Augur's Vision — Sovereign: RAM=131072,Storage=12000,Price=2799.99,PSU=1000 => score~45.80
-    (N'The Augur''s Vision',            131072,  2799.99, N'https://picsum.photos/seed/sovereign-10/400/300',10.70, N'kg', 1000, 16, 15, N'Active'),
-    -- 69. The Haruspex's Oracle — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Haruspex''s Oracle',          2048,   249.99, N'https://picsum.photos/seed/page-5/400/300',       21.00, N'lb',  300, 1,  7,  N'Active'),
+    -- 68. The Augur's Vision — Sovereign: RAM=65536,Storage=12000,Price=2799.99,PSU=1000 => score~26.20
+    (N'The Augur''s Vision',             65536,  2799.99, N'https://picsum.photos/seed/sovereign-10/400/300',10.70, N'kg', 1000, 16, 15, N'Active'),
+    -- 69. The Haruspex's Oracle — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
+    (N'The Haruspex''s Oracle',          4096,   249.99, N'https://picsum.photos/seed/page-5/400/300',       21.00, N'lb',  300, 1,  7,  N'Active'),
     -- 70. The Flamen's Altar — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
     (N'The Flamen''s Altar',             2048,   249.99, N'https://picsum.photos/seed/page-6/400/300',       12.00, N'lb',  300, 2,  6,  N'Active'),
     -- 71. The Vestal's Hearth — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=600 => score~7.40
@@ -269,8 +269,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Warlock''s Pact',            16384,  1999.99, N'https://picsum.photos/seed/duke-13/400/300',      7.50, N'kg',  900, 10, 14, N'Active'),
     -- 79. The Wizard's Workshop — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
     (N'The Wizard''s Workshop',         16384,  1799.99, N'https://picsum.photos/seed/duke-14/400/300',      6.40, N'kg',  850, 11, 13, N'Active'),
-    -- 80. The Conjurer's Circle — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Conjurer''s Circle',          2048,   249.99, N'https://picsum.photos/seed/page-8/400/300',       23.00, N'lb',  300, 1,  7,  N'Active'),
+    -- 80. The Conjurer's Circle — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
+    (N'The Conjurer''s Circle',          4096,   249.99, N'https://picsum.photos/seed/page-8/400/300',       23.00, N'lb',  300, 1,  7,  N'Active'),
     -- 81. The Enchanter's Forge — Prince: RAM=32768,Storage=128,Price=499.99,PSU=350 => score~11.08
     (N'The Enchanter''s Forge',         32768,   499.99, N'https://picsum.photos/seed/prince-13/400/300',    9.00, N'kg',  350, 12, 9,  N'Active'),
     -- 82. The Necromancer's Crypt — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
@@ -281,8 +281,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Sage''s Tome',               16384,  2199.99, N'https://picsum.photos/seed/duke-15/400/300',      8.10, N'kg', 1000, 14, 12, N'Active'),
     -- 85. The Scholar's Codex — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
     (N'The Scholar''s Codex',           32768,   799.99, N'https://picsum.photos/seed/prince-14/400/300',    8.50, N'kg',  450, 10, 15, N'Active'),
-    -- 86. The Archivist's Repository — Sovereign: RAM=131072,Storage=8000,Price=2499.99,PSU=1000 => score~44.75
-    (N'The Archivist''s Repository',    131072,  2499.99, N'https://picsum.photos/seed/sovereign-12/400/300',10.30, N'kg', 1000, 15, 8,  N'Active'),
+    -- 86. The Archivist's Repository — Sovereign: RAM=65536,Storage=8000,Price=2499.99,PSU=1000 => score~25.15
+    (N'The Archivist''s Repository',     65536,  2499.99, N'https://picsum.photos/seed/sovereign-12/400/300',10.30, N'kg', 1000, 15, 8,  N'Active'),
     -- 87. The Lorekeeper's Vault — Sovereign: RAM=131072,Storage=12000,Price=4199.99,PSU=1200 => score~51.20
     (N'The Lorekeeper''s Vault',        131072,  4199.99, N'https://picsum.photos/seed/sovereign-13/400/300',12.80, N'kg', 1200, 16, 8,  N'Active'),
     -- 88. The Chronicler's Annals — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
