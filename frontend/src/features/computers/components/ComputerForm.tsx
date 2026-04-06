@@ -162,7 +162,7 @@ export default function ComputerForm(): JSX.Element {
 
     if (!selectedProcessor || !selectedGpu) return;
 
-    const { processorId: _pId, gpuId: _gId, ...rest } = data;
+    const { processorId: _pId, gpuId: _gId, ...rest }: FormValues = data;
     const payload = {
       ...rest,
       imageUrl: data.imageUrl || null,

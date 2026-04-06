@@ -1,20 +1,25 @@
 {
-  "name": "Compu Palace Frontend",
-  "dockerComposeFile": "../docker-compose.yml",
+  "name": "Compu Palace",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.extend.yml"
+  ],
   "service": "frontend",
-  "workspaceFolder": "/app",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "ms-vscode.vscode-typescript-next"
+        "ms-vscode.vscode-typescript-next",
+        "ms-dotnettools.csharp",
+        "ms-mssql.mssql"
       ],
       "settings": {
-        "typescript.tsdk": "/app/node_modules/typescript/lib",
+        "typescript.tsdk": "/workspace/frontend/node_modules/typescript/lib",
         "editor.formatOnSave": true
       }
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000, 5000, 1433]
 }
