@@ -16,7 +16,7 @@ const mockComputer: Computer = {
   price: 1299.99,
   imageUrl: null,
   weight: 3.5,
-  weightUnit: 'kg',
+  weightUnit: 'Kg',
   psuWattage: 750,
   processorId: 1,
   processorName: 'Core i7-13700K',

@@ -575,96 +575,96 @@ INSERT INTO UsbPorts (ComputerId, Count, UsbType) VALUES
     -- 4. The Knight's Fortress: 5x USB 2.0 + 4x USB 3.0
     (4,  5, N'USB 2.0'),
     (4,  4, N'USB 3.0'),
-    -- 5. The Baron's Citadel: 2x USB 3.0 + 2x USB 2.0 + 1x USB C
+    -- 5. The Baron's Citadel: 2x USB 3.0 + 2x USB 2.0 + 1x USB-C
     (5,  2, N'USB 3.0'),
     (5,  2, N'USB 2.0'),
-    (5,  1, N'USB C'),
-    -- 6. The Duke's Sanctum: 2x USB C + 4x USB 3.0
-    (6,  2, N'USB C'),
+    (5,  1, N'USB-C'),
+    -- 6. The Duke's Sanctum: 2x USB-C + 4x USB 3.0
+    (6,  2, N'USB-C'),
     (6,  4, N'USB 3.0'),
     -- 7. The Prince's Armory: 8x USB 3.0
     (7,  8, N'USB 3.0'),
     -- 8. The Viscount's Chamber: 4x USB 2.0
     (8,  4, N'USB 2.0'),
-    -- 9. The Sovereign's Throne: 10x USB 3.0 + 10x USB 2.0 + 10x USB C
+    -- 9. The Sovereign's Throne: 10x USB 3.0 + 10x USB 2.0 + 10x USB-C
     (9,  10, N'USB 3.0'),
     (9,  10, N'USB 2.0'),
-    (9,  10, N'USB C'),
+    (9,  10, N'USB-C'),
     -- 10. The Court Jester's Box: 19x USB 3.0 + 4x USB 2.0
     (10, 19, N'USB 3.0'),
     (10,  4, N'USB 2.0'),
-    -- 11. The Archduke's Engine: 4x USB C + 6x USB 3.0
-    (11,  4, N'USB C'),
+    -- 11. The Archduke's Engine: 4x USB-C + 6x USB 3.0
+    (11,  4, N'USB-C'),
     (11,  6, N'USB 3.0'),
-    -- 12. The Emperor's Dominion: 6x USB C + 8x USB 3.0 + 2x USB 2.0
-    (12,  6, N'USB C'),
+    -- 12. The Emperor's Dominion: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    (12,  6, N'USB-C'),
     (12,  8, N'USB 3.0'),
     (12,  2, N'USB 2.0'),
-    -- 13. The Regent's Might: 4x USB C + 6x USB 3.0
-    (13,  4, N'USB C'),
+    -- 13. The Regent's Might: 4x USB-C + 6x USB 3.0
+    (13,  4, N'USB-C'),
     (13,  6, N'USB 3.0'),
-    -- 14. The Paladin's Core: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (14,  2, N'USB C'),
+    -- 14. The Paladin's Core: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (14,  2, N'USB-C'),
     (14,  4, N'USB 3.0'),
     (14,  2, N'USB 2.0'),
-    -- 15. The Warden's Watch: 2x USB C + 4x USB 3.0
-    (15,  2, N'USB C'),
+    -- 15. The Warden's Watch: 2x USB-C + 4x USB 3.0
+    (15,  2, N'USB-C'),
     (15,  4, N'USB 3.0'),
-    -- 16. The Chancellor's Decree: 3x USB C + 5x USB 3.0 + 2x USB 2.0
-    (16,  3, N'USB C'),
+    -- 16. The Chancellor's Decree: 3x USB-C + 5x USB 3.0 + 2x USB 2.0
+    (16,  3, N'USB-C'),
     (16,  5, N'USB 3.0'),
     (16,  2, N'USB 2.0'),
-    -- 17. The Viceroy's Command: 2x USB C + 4x USB 3.0
-    (17,  2, N'USB C'),
+    -- 17. The Viceroy's Command: 2x USB-C + 4x USB 3.0
+    (17,  2, N'USB-C'),
     (17,  4, N'USB 3.0'),
     -- 18. The Marshal's Banner: 2x USB 3.0 + 4x USB 2.0
     (18,  2, N'USB 3.0'),
     (18,  4, N'USB 2.0'),
     -- 19. The Constable's Keep: 4x USB 2.0
     (19,  4, N'USB 2.0'),
-    -- 20. The Chamberlain's Vault: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (20,  2, N'USB C'),
+    -- 20. The Chamberlain's Vault: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (20,  2, N'USB-C'),
     (20,  4, N'USB 3.0'),
     (20,  2, N'USB 2.0'),
-    -- 21. The Steward's Watch: 1x USB C + 3x USB 3.0 + 2x USB 2.0
-    (21,  1, N'USB C'),
+    -- 21. The Steward's Watch: 1x USB-C + 3x USB 3.0 + 2x USB 2.0
+    (21,  1, N'USB-C'),
     (21,  3, N'USB 3.0'),
     (21,  2, N'USB 2.0'),
     -- 22. The Banneret's Standard: 2x USB 3.0 + 4x USB 2.0
     (22,  2, N'USB 3.0'),
     (22,  4, N'USB 2.0'),
-    -- 23. The Thane's Bastion: 2x USB C + 6x USB 3.0
-    (23,  2, N'USB C'),
+    -- 23. The Thane's Bastion: 2x USB-C + 6x USB 3.0
+    (23,  2, N'USB-C'),
     (23,  6, N'USB 3.0'),
     -- 24. The Liegeman's Post: 2x USB 2.0 + 2x USB 3.0
     (24,  2, N'USB 2.0'),
     (24,  2, N'USB 3.0'),
-    -- 25. The Seneschal's Hall: 4x USB C + 6x USB 3.0 + 2x USB 2.0
-    (25,  4, N'USB C'),
+    -- 25. The Seneschal's Hall: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    (25,  4, N'USB-C'),
     (25,  6, N'USB 3.0'),
     (25,  2, N'USB 2.0'),
-    -- 26. The Castellan's Tower: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (26,  2, N'USB C'),
+    -- 26. The Castellan's Tower: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (26,  2, N'USB-C'),
     (26,  4, N'USB 3.0'),
     (26,  2, N'USB 2.0'),
-    -- 27. The Warlord's Siege: 6x USB C + 8x USB 3.0
-    (27,  6, N'USB C'),
+    -- 27. The Warlord's Siege: 6x USB-C + 8x USB 3.0
+    (27,  6, N'USB-C'),
     (27,  8, N'USB 3.0'),
-    -- 28. The Envoy's Dispatch: 1x USB C + 2x USB 3.0
-    (28,  1, N'USB C'),
+    -- 28. The Envoy's Dispatch: 1x USB-C + 2x USB 3.0
+    (28,  1, N'USB-C'),
     (28,  2, N'USB 3.0'),
-    -- 29. The Tribune's Oration: 2x USB C + 4x USB 3.0
-    (29,  2, N'USB C'),
+    -- 29. The Tribune's Oration: 2x USB-C + 4x USB 3.0
+    (29,  2, N'USB-C'),
     (29,  4, N'USB 3.0'),
     -- 30. The Legate's Decree: 2x USB 2.0 + 2x USB 3.0
     (30,  2, N'USB 2.0'),
     (30,  2, N'USB 3.0'),
-    -- 31. The Prelate's Sanctum: 4x USB C + 4x USB 3.0 + 2x USB 2.0
-    (31,  4, N'USB C'),
+    -- 31. The Prelate's Sanctum: 4x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (31,  4, N'USB-C'),
     (31,  4, N'USB 3.0'),
     (31,  2, N'USB 2.0'),
-    -- 32. The Exarch's Domain: 4x USB C + 6x USB 3.0 + 2x USB 2.0
-    (32,  4, N'USB C'),
+    -- 32. The Exarch's Domain: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    (32,  4, N'USB-C'),
     (32,  6, N'USB 3.0'),
     (32,  2, N'USB 2.0'),
     -- 33. The Patriarch's Legacy: 4x USB 2.0 + 2x USB 3.0
@@ -673,80 +673,80 @@ INSERT INTO UsbPorts (ComputerId, Count, UsbType) VALUES
     -- 34. The Prefect's Order: 2x USB 3.0 + 2x USB 2.0
     (34,  2, N'USB 3.0'),
     (34,  2, N'USB 2.0'),
-    -- 35. The Tribune's Voice: 2x USB C + 4x USB 3.0
-    (35,  2, N'USB C'),
+    -- 35. The Tribune's Voice: 2x USB-C + 4x USB 3.0
+    (35,  2, N'USB-C'),
     (35,  4, N'USB 3.0'),
-    -- 36. The Praetor's Judgment: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (36,  2, N'USB C'),
+    -- 36. The Praetor's Judgment: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (36,  2, N'USB-C'),
     (36,  4, N'USB 3.0'),
     (36,  2, N'USB 2.0'),
-    -- 37. The Consul's Authority: 4x USB C + 6x USB 3.0
-    (37,  4, N'USB C'),
+    -- 37. The Consul's Authority: 4x USB-C + 6x USB 3.0
+    (37,  4, N'USB-C'),
     (37,  6, N'USB 3.0'),
     -- 38. The Procurator's Ledger: 4x USB 3.0 + 4x USB 2.0
     (38,  4, N'USB 3.0'),
     (38,  4, N'USB 2.0'),
-    -- 39. The Strategos' Gambit: 2x USB C + 4x USB 3.0
-    (39,  2, N'USB C'),
+    -- 39. The Strategos' Gambit: 2x USB-C + 4x USB 3.0
+    (39,  2, N'USB-C'),
     (39,  4, N'USB 3.0'),
     -- 40. The Eparch's Edict: 4x USB 2.0
     (40,  4, N'USB 2.0'),
-    -- 41. The Archon's Seal: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (41,  2, N'USB C'),
+    -- 41. The Archon's Seal: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (41,  2, N'USB-C'),
     (41,  4, N'USB 3.0'),
     (41,  2, N'USB 2.0'),
-    -- 42. The Tyrant's Grip: 6x USB C + 6x USB 3.0
-    (42,  6, N'USB C'),
+    -- 42. The Tyrant's Grip: 6x USB-C + 6x USB 3.0
+    (42,  6, N'USB-C'),
     (42,  6, N'USB 3.0'),
     -- 43. The Oligarch's Reserve: 4x USB 2.0 + 2x USB 3.0
     (43,  4, N'USB 2.0'),
     (43,  2, N'USB 3.0'),
-    -- 44. The Satrap's Province: 2x USB C + 4x USB 3.0
-    (44,  2, N'USB C'),
+    -- 44. The Satrap's Province: 2x USB-C + 4x USB 3.0
+    (44,  2, N'USB-C'),
     (44,  4, N'USB 3.0'),
-    -- 45. The Vizier's Counsel: 4x USB C + 4x USB 3.0
-    (45,  4, N'USB C'),
+    -- 45. The Vizier's Counsel: 4x USB-C + 4x USB 3.0
+    (45,  4, N'USB-C'),
     (45,  4, N'USB 3.0'),
-    -- 46. The Sultan's Pavilion: 4x USB C + 6x USB 3.0 + 2x USB 2.0
-    (46,  4, N'USB C'),
+    -- 46. The Sultan's Pavilion: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    (46,  4, N'USB-C'),
     (46,  6, N'USB 3.0'),
     (46,  2, N'USB 2.0'),
-    -- 47. The Caliph's Fortress: 6x USB C + 8x USB 3.0 + 2x USB 2.0
-    (47,  6, N'USB C'),
+    -- 47. The Caliph's Fortress: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    (47,  6, N'USB-C'),
     (47,  8, N'USB 3.0'),
     (47,  2, N'USB 2.0'),
-    -- 48. The Emir's Outpost: 2x USB C + 4x USB 3.0
-    (48,  2, N'USB C'),
+    -- 48. The Emir's Outpost: 2x USB-C + 4x USB 3.0
+    (48,  2, N'USB-C'),
     (48,  4, N'USB 3.0'),
-    -- 49. The Pasha's Enclave: 2x USB C + 4x USB 3.0
-    (49,  2, N'USB C'),
+    -- 49. The Pasha's Enclave: 2x USB-C + 4x USB 3.0
+    (49,  2, N'USB-C'),
     (49,  4, N'USB 3.0'),
     -- 50. The Bey's Crossing: 2x USB 2.0 + 2x USB 3.0
     (50,  2, N'USB 2.0'),
     (50,  2, N'USB 3.0'),
-    -- 51. The Shogun's Stronghold: 6x USB C + 8x USB 3.0
-    (51,  6, N'USB C'),
+    -- 51. The Shogun's Stronghold: 6x USB-C + 8x USB 3.0
+    (51,  6, N'USB-C'),
     (51,  8, N'USB 3.0'),
-    -- 52. The Daimyo's Keep: 4x USB C + 4x USB 3.0 + 2x USB 2.0
-    (52,  4, N'USB C'),
+    -- 52. The Daimyo's Keep: 4x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (52,  4, N'USB-C'),
     (52,  4, N'USB 3.0'),
     (52,  2, N'USB 2.0'),
-    -- 53. The Samurai's Edge: 2x USB C + 4x USB 3.0
-    (53,  2, N'USB C'),
+    -- 53. The Samurai's Edge: 2x USB-C + 4x USB 3.0
+    (53,  2, N'USB-C'),
     (53,  4, N'USB 3.0'),
     -- 54. The Ronin's Path: 2x USB 3.0 + 2x USB 2.0
     (54,  2, N'USB 3.0'),
     (54,  2, N'USB 2.0'),
     -- 55. The Ninja's Shadow: 4x USB 2.0
     (55,  4, N'USB 2.0'),
-    -- 56. The Warlord's Dominion: 4x USB C + 6x USB 3.0
-    (56,  4, N'USB C'),
+    -- 56. The Warlord's Dominion: 4x USB-C + 6x USB 3.0
+    (56,  4, N'USB-C'),
     (56,  6, N'USB 3.0'),
-    -- 57. The Chieftain's Hearth: 2x USB C + 4x USB 3.0
-    (57,  2, N'USB C'),
+    -- 57. The Chieftain's Hearth: 2x USB-C + 4x USB 3.0
+    (57,  2, N'USB-C'),
     (57,  4, N'USB 3.0'),
-    -- 58. The Jarl's Hall: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (58,  2, N'USB C'),
+    -- 58. The Jarl's Hall: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (58,  2, N'USB-C'),
     (58,  4, N'USB 3.0'),
     (58,  2, N'USB 2.0'),
     -- 59. The Thegn's Holding: 2x USB 2.0 + 2x USB 3.0
@@ -755,45 +755,45 @@ INSERT INTO UsbPorts (ComputerId, Count, UsbType) VALUES
     -- 60. The Housecarl's Post: 2x USB 3.0 + 4x USB 2.0
     (60,  2, N'USB 3.0'),
     (60,  4, N'USB 2.0'),
-    -- 61. The Overlord's Citadel: 6x USB C + 8x USB 3.0 + 4x USB 2.0
-    (61,  6, N'USB C'),
+    -- 61. The Overlord's Citadel: 6x USB-C + 8x USB 3.0 + 4x USB 2.0
+    (61,  6, N'USB-C'),
     (61,  8, N'USB 3.0'),
     (61,  4, N'USB 2.0'),
-    -- 62. The Suzerain's Court: 6x USB C + 6x USB 3.0 + 2x USB 2.0
-    (62,  6, N'USB C'),
+    -- 62. The Suzerain's Court: 6x USB-C + 6x USB 3.0 + 2x USB 2.0
+    (62,  6, N'USB-C'),
     (62,  6, N'USB 3.0'),
     (62,  2, N'USB 2.0'),
-    -- 63. The Potentate's Chamber: 4x USB C + 6x USB 3.0
-    (63,  4, N'USB C'),
+    -- 63. The Potentate's Chamber: 4x USB-C + 6x USB 3.0
+    (63,  4, N'USB-C'),
     (63,  6, N'USB 3.0'),
-    -- 64. The Magnate's Study: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (64,  2, N'USB C'),
+    -- 64. The Magnate's Study: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (64,  2, N'USB-C'),
     (64,  4, N'USB 3.0'),
     (64,  2, N'USB 2.0'),
-    -- 65. The Patrician's Villa: 2x USB C + 4x USB 3.0
-    (65,  2, N'USB C'),
+    -- 65. The Patrician's Villa: 2x USB-C + 4x USB 3.0
+    (65,  2, N'USB-C'),
     (65,  4, N'USB 3.0'),
     -- 66. The Centurion's Camp: 4x USB 2.0 + 2x USB 3.0
     (66,  4, N'USB 2.0'),
     (66,  2, N'USB 3.0'),
-    -- 67. The Legionnaire's March: 2x USB C + 4x USB 3.0
-    (67,  2, N'USB C'),
+    -- 67. The Legionnaire's March: 2x USB-C + 4x USB 3.0
+    (67,  2, N'USB-C'),
     (67,  4, N'USB 3.0'),
-    -- 68. The Tribune's Rostrum: 2x USB C + 4x USB 3.0
-    (68,  2, N'USB C'),
+    -- 68. The Tribune's Rostrum: 2x USB-C + 4x USB 3.0
+    (68,  2, N'USB-C'),
     (68,  4, N'USB 3.0'),
-    -- 69. The Prefect's Fortress: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (69,  2, N'USB C'),
+    -- 69. The Prefect's Fortress: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (69,  2, N'USB-C'),
     (69,  4, N'USB 3.0'),
     (69,  2, N'USB 2.0'),
-    -- 70. The Praetor's Command: 4x USB C + 6x USB 3.0
-    (70,  4, N'USB C'),
+    -- 70. The Praetor's Command: 4x USB-C + 6x USB 3.0
+    (70,  4, N'USB-C'),
     (70,  6, N'USB 3.0'),
-    -- 71. The Dictator's Seat: 6x USB C + 8x USB 3.0
-    (71,  6, N'USB C'),
+    -- 71. The Dictator's Seat: 6x USB-C + 8x USB 3.0
+    (71,  6, N'USB-C'),
     (71,  8, N'USB 3.0'),
-    -- 72. The Imperator's Will: 6x USB C + 8x USB 3.0 + 2x USB 2.0
-    (72,  6, N'USB C'),
+    -- 72. The Imperator's Will: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    (72,  6, N'USB-C'),
     (72,  8, N'USB 3.0'),
     (72,  2, N'USB 2.0'),
     -- 73. The Triumvir's Alliance: 4x USB 2.0 + 2x USB 3.0
@@ -805,76 +805,76 @@ INSERT INTO UsbPorts (ComputerId, Count, UsbType) VALUES
     -- 75. The Quaestor's Treasury: 2x USB 3.0 + 4x USB 2.0
     (75,  2, N'USB 3.0'),
     (75,  4, N'USB 2.0'),
-    -- 76. The Censor's Ledger: 2x USB C + 4x USB 3.0
-    (76,  2, N'USB C'),
+    -- 76. The Censor's Ledger: 2x USB-C + 4x USB 3.0
+    (76,  2, N'USB-C'),
     (76,  4, N'USB 3.0'),
-    -- 77. The Pontifex's Shrine: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (77,  2, N'USB C'),
+    -- 77. The Pontifex's Shrine: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (77,  2, N'USB-C'),
     (77,  4, N'USB 3.0'),
     (77,  2, N'USB 2.0'),
-    -- 78. The Augur's Vision: 4x USB C + 6x USB 3.0
-    (78,  4, N'USB C'),
+    -- 78. The Augur's Vision: 4x USB-C + 6x USB 3.0
+    (78,  4, N'USB-C'),
     (78,  6, N'USB 3.0'),
     -- 79. The Haruspex's Oracle: 4x USB 2.0
     (79,  4, N'USB 2.0'),
     -- 80. The Flamen's Altar: 4x USB 2.0 + 2x USB 3.0
     (80,  4, N'USB 2.0'),
     (80,  2, N'USB 3.0'),
-    -- 81. The Vestal's Hearth: 1x USB C + 2x USB 3.0
-    (81,  1, N'USB C'),
+    -- 81. The Vestal's Hearth: 1x USB-C + 2x USB 3.0
+    (81,  1, N'USB-C'),
     (81,  2, N'USB 3.0'),
-    -- 82. The Sibyl's Prophecy: 2x USB C + 4x USB 3.0
-    (82,  2, N'USB C'),
+    -- 82. The Sibyl's Prophecy: 2x USB-C + 4x USB 3.0
+    (82,  2, N'USB-C'),
     (82,  4, N'USB 3.0'),
-    -- 83. The Oracle's Revelation: 4x USB C + 4x USB 3.0
-    (83,  4, N'USB C'),
+    -- 83. The Oracle's Revelation: 4x USB-C + 4x USB 3.0
+    (83,  4, N'USB-C'),
     (83,  4, N'USB 3.0'),
-    -- 84. The Prophet's Ascent: 4x USB C + 6x USB 3.0 + 2x USB 2.0
-    (84,  4, N'USB C'),
+    -- 84. The Prophet's Ascent: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    (84,  4, N'USB-C'),
     (84,  6, N'USB 3.0'),
     (84,  2, N'USB 2.0'),
     -- 85. The Hierophant's Mystery: 4x USB 2.0 + 2x USB 3.0
     (85,  4, N'USB 2.0'),
     (85,  2, N'USB 3.0'),
-    -- 86. The Archmage's Tower: 6x USB C + 8x USB 3.0
-    (86,  6, N'USB C'),
+    -- 86. The Archmage's Tower: 6x USB-C + 8x USB 3.0
+    (86,  6, N'USB-C'),
     (86,  8, N'USB 3.0'),
-    -- 87. The Sorcerer's Sanctum: 4x USB C + 6x USB 3.0 + 2x USB 2.0
-    (87,  4, N'USB C'),
+    -- 87. The Sorcerer's Sanctum: 4x USB-C + 6x USB 3.0 + 2x USB 2.0
+    (87,  4, N'USB-C'),
     (87,  6, N'USB 3.0'),
     (87,  2, N'USB 2.0'),
-    -- 88. The Warlock's Pact: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (88,  2, N'USB C'),
+    -- 88. The Warlock's Pact: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (88,  2, N'USB-C'),
     (88,  4, N'USB 3.0'),
     (88,  2, N'USB 2.0'),
-    -- 89. The Wizard's Workshop: 2x USB C + 4x USB 3.0
-    (89,  2, N'USB C'),
+    -- 89. The Wizard's Workshop: 2x USB-C + 4x USB 3.0
+    (89,  2, N'USB-C'),
     (89,  4, N'USB 3.0'),
     -- 90. The Conjurer's Circle: 4x USB 2.0
     (90,  4, N'USB 2.0'),
-    -- 91. The Enchanter's Forge: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (91,  2, N'USB C'),
+    -- 91. The Enchanter's Forge: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (91,  2, N'USB-C'),
     (91,  4, N'USB 3.0'),
     (91,  2, N'USB 2.0'),
     -- 92. The Necromancer's Crypt: 4x USB 2.0 + 2x USB 3.0
     (92,  4, N'USB 2.0'),
     (92,  2, N'USB 3.0'),
-    -- 93. The Alchemist's Lab: 1x USB C + 2x USB 3.0 + 2x USB 2.0
-    (93,  1, N'USB C'),
+    -- 93. The Alchemist's Lab: 1x USB-C + 2x USB 3.0 + 2x USB 2.0
+    (93,  1, N'USB-C'),
     (93,  2, N'USB 3.0'),
     (93,  2, N'USB 2.0'),
-    -- 94. The Sage's Tome: 2x USB C + 4x USB 3.0
-    (94,  2, N'USB C'),
+    -- 94. The Sage's Tome: 2x USB-C + 4x USB 3.0
+    (94,  2, N'USB-C'),
     (94,  4, N'USB 3.0'),
-    -- 95. The Scholar's Codex: 2x USB C + 4x USB 3.0 + 2x USB 2.0
-    (95,  2, N'USB C'),
+    -- 95. The Scholar's Codex: 2x USB-C + 4x USB 3.0 + 2x USB 2.0
+    (95,  2, N'USB-C'),
     (95,  4, N'USB 3.0'),
     (95,  2, N'USB 2.0'),
-    -- 96. The Archivist's Repository: 4x USB C + 6x USB 3.0
-    (96,  4, N'USB C'),
+    -- 96. The Archivist's Repository: 4x USB-C + 6x USB 3.0
+    (96,  4, N'USB-C'),
     (96,  6, N'USB 3.0'),
-    -- 97. The Lorekeeper's Vault: 6x USB C + 8x USB 3.0 + 2x USB 2.0
-    (97,  6, N'USB C'),
+    -- 97. The Lorekeeper's Vault: 6x USB-C + 8x USB 3.0 + 2x USB 2.0
+    (97,  6, N'USB-C'),
     (97,  8, N'USB 3.0'),
     (97,  2, N'USB 2.0'),
     -- 98. The Chronicler's Annals: 4x USB 2.0 + 2x USB 3.0
@@ -883,8 +883,8 @@ INSERT INTO UsbPorts (ComputerId, Count, UsbType) VALUES
     -- 99. The Scribe's Scriptorium: 2x USB 2.0 + 2x USB 3.0
     (99,  2, N'USB 2.0'),
     (99,  2, N'USB 3.0'),
-    -- 100. The Grand Sovereign's Apex: 8x USB C + 10x USB 3.0 + 4x USB 2.0
-    (100, 8, N'USB C'),
+    -- 100. The Grand Sovereign's Apex: 8x USB-C + 10x USB 3.0 + 4x USB 2.0
+    (100, 8, N'USB-C'),
     (100, 10, N'USB 3.0'),
     (100,  4, N'USB 2.0');
 GO

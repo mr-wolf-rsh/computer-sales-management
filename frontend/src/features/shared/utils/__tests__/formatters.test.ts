@@ -61,11 +61,11 @@ describe('formatStorage', () => {
 });
 
 describe('formatWeight', () => {
-  it('formats weight with kg unit', () => {
-    expect(formatWeight(3.5, 'kg')).toBe('3.5 kg');
+  it('formats weight with Kg unit', () => {
+    expect(formatWeight(3.5, 'Kg')).toBe('3.5 Kg');
   });
 
-  it('formats weight with lb unit', () => {
-    expect(formatWeight(8.1, 'lb')).toBe('8.1 lb');
+  it('formats weight with Lb unit', () => {
+    expect(formatWeight(8.1, 'Lb')).toBe('8.1 Lb');
   });
 });

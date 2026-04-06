@@ -45,7 +45,7 @@ const computerSchema = z.object({
   price: z.coerce.number().min(0.01, 'Price must be greater than 0'),
   imageUrl: z.string().url('Must be a valid URL').nullable().or(z.literal('')),
   weight: z.coerce.number().min(0.1, 'Weight must be greater than 0'),
-  weightUnit: z.enum(['kg', 'lb']),
+  weightUnit: z.enum(['Kg', 'Lb']),
   psuWattage: z.coerce.number().min(1, 'PSU wattage must be at least 1W'),
   processorId: z.coerce.number().min(1, 'Processor is required'),
   gpuId: z.coerce.number().min(1, 'GPU is required'),
@@ -88,7 +88,7 @@ export default function ComputerForm() {
       price: 0,
       imageUrl: '',
       weight: 0,
-      weightUnit: 'kg',
+      weightUnit: 'Kg',
       psuWattage: 500,
       processorId: 0,
       gpuId: 0,
@@ -278,8 +278,8 @@ export default function ComputerForm() {
                         error={!!errors.weightUnit}
                         helperText={errors.weightUnit?.message}
                       >
-                        <MenuItem value="kg">Kilograms (kg)</MenuItem>
-                        <MenuItem value="lb">Pounds (lb)</MenuItem>
+                        <MenuItem value="Kg">Kilograms (Kg)</MenuItem>
+                        <MenuItem value="Lb">Pounds (Lb)</MenuItem>
                       </TextField>
                     )}
                   />

@@ -95,12 +95,12 @@ CREATE TABLE UsbPorts (
     Id          INT IDENTITY(1,1) PRIMARY KEY,
     ComputerId  INT             NOT NULL,
     Count       INT             NOT NULL,
-    UsbType     NVARCHAR(10)    NOT NULL,   -- 'USB 2.0', 'USB 3.0', 'USB C'
+    UsbType     NVARCHAR(10)    NOT NULL,   -- 'USB 2.0', 'USB 3.0', 'USB-C'
     CreatedAt   DATETIME2       DEFAULT SYSUTCDATETIME(),
 
     CONSTRAINT FK_UsbPorts_Computers FOREIGN KEY (ComputerId)
         REFERENCES Computers(Id) ON DELETE CASCADE,
-    CONSTRAINT CK_UsbPorts_UsbType CHECK (UsbType IN ('USB 2.0', 'USB 3.0', 'USB C')),
+    CONSTRAINT CK_UsbPorts_UsbType CHECK (UsbType IN ('USB 2.0', 'USB 3.0', 'USB-C')),
     CONSTRAINT CK_UsbPorts_Count CHECK (Count > 0)
 );
 GO
