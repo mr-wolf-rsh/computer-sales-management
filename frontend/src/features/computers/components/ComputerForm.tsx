@@ -56,7 +56,7 @@ const computerSchema = z.object({
 type FormValues = z.infer<typeof computerSchema>;
 
 const STORAGE_TYPES = ['SSD', 'HDD'];
-const USB_TYPES = ['USB 2.0', 'USB 3.0', 'USB C'];
+const USB_TYPES = ['USB 2.0', 'USB 3.0', 'USB-C'];
 
 export default function ComputerForm() {
   const { id } = useParams<{ id: string }>();
