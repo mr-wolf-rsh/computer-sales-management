@@ -16,7 +16,7 @@ export default function Pagination({
   pageSize,
   onPageChange,
   onPageSizeChange,
-}: PaginationProps) {
+}: PaginationProps): JSX.Element {
   return (
     <Box
       sx={{

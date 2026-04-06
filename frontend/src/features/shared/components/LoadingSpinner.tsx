@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Typography } from '@mui/material';
 
-export default function LoadingSpinner() {
+export default function LoadingSpinner(): JSX.Element {
   return (
     <Box
       sx={{

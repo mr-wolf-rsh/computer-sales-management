@@ -12,7 +12,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import { Link as RouterLink, Outlet } from 'react-router-dom';
 import { useThemeMode } from '@/theme/ThemeContext';
 
-export default function Layout() {
+export default function Layout(): JSX.Element {
   const { mode, toggleMode } = useThemeMode();
 
   return (

@@ -27,6 +27,8 @@ const mockComputer: Computer = {
   storageDrives: [{ id: 1, capacityGB: 1000, type: 'NVMe' }],
   usbPorts: [{ id: 1, count: 4, usbType: 'USB 3.0' }],
   tierBadge: 'Knight',
+  status: 'New',
+  isNew: true,
   createdAt: '2024-01-01T00:00:00Z',
   updatedAt: null,
 };

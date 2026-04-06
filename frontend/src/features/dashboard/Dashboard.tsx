@@ -41,7 +41,7 @@ const PIE_COLORS = [
   '#F39C12',
 ];
 
-export default function Dashboard() {
+export default function Dashboard(): JSX.Element {
   const { data: stats, isLoading, isError } = useGetDashboardQuery();
   const { data: allComputers } = useGetComputersQuery({ page: 1, size: 9999 });
 
@@ -127,7 +127,7 @@ export default function Dashboard() {
                       cx="50%"
                       cy="50%"
                       labelLine
-                      label={({ name, percent }) =>
+                      label={({ name, percent }: { name: string; percent: number }) =>
                         `${name} (${(percent * 100).toFixed(0)}%)`
                       }
                       outerRadius={100}
@@ -198,7 +198,7 @@ function SummaryCard({
   label: string;
   value: string;
   color: string;
-}) {
+}): JSX.Element {
   return (
     <Card>
       <CardContent>

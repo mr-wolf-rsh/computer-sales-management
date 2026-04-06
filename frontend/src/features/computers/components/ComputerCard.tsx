@@ -9,8 +9,10 @@ import {
   alpha,
 } from '@mui/material';
 import MemoryIcon from '@mui/icons-material/Memory';
+import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import StorageIcon from '@mui/icons-material/Storage';
-import StarIcon from '@mui/icons-material/Star';
+
 import { useNavigate } from 'react-router-dom';
 import type { Computer } from '../types/computer.types';
 import { getTierInfo } from '../utils/tierBadge';
@@ -26,7 +28,7 @@ export default function ComputerCard({
   computer,
   selected = false,
   onToggleSelect,
-}: ComputerCardProps) {
+}: ComputerCardProps): JSX.Element {
   const navigate = useNavigate();
   const tier = getTierInfo(computer.tierBadge);
 
@@ -68,23 +70,34 @@ export default function ComputerCard({
           sx={{ objectFit: 'cover', bgcolor: 'background.default' }}
         />
         {computer.isNew && (
-          <Chip
-            icon={<StarIcon sx={{ fontSize: '0.9rem', color: 'inherit' }} />}
-            label="NEW"
-            size="small"
+          <Box
             sx={{
               position: 'absolute',
               top: 8,
               left: 8,
+              width: 48,
+              height: 48,
               bgcolor: 'success.main',
-              color: '#fff',
-              fontWeight: 700,
-              fontSize: '0.7rem',
-              letterSpacing: '0.05em',
+              clipPath:
+                'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               boxShadow: (theme) => `0 2px 8px ${alpha(theme.palette.common.black, 0.3)}`,
-              '& .MuiChip-icon': { color: '#fff', ml: 0.5 },
             }}
-          />
+          >
+            <Typography
+              sx={{
+                color: '#fff',
+                fontWeight: 700,
+                fontSize: '0.6rem',
+                lineHeight: 1,
+                letterSpacing: '0.05em',
+              }}
+            >
+              NEW
+            </Typography>
+          </Box>
         )}
       </Box>
 
@@ -116,8 +129,19 @@ export default function ComputerCard({
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
             <MemoryIcon fontSize="small" color="action" />
             <Typography variant="body2" color="text.secondary">
-              {formatRam(computer.ramAmountMB)} &bull; {computer.processorBrand}{' '}
+              {formatRam(computer.ramAmountMB)} RAM
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <DeveloperBoardIcon fontSize="small" color="action" />
+            <Typography variant="body2" color="text.secondary" noWrap>
               {computer.processorName}
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <SportsEsportsIcon fontSize="small" color="action" />
+            <Typography variant="body2" color="text.secondary" noWrap>
+              {computer.gpuName}
             </Typography>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -126,7 +150,7 @@ export default function ComputerCard({
               {totalStorageGB >= 1000
                 ? `${(totalStorageGB / 1000).toFixed(1)} TB`
                 : `${totalStorageGB} GB`}{' '}
-              &bull; {computer.gpuBrand} {computer.gpuName}
+              Storage
             </Typography>
           </Box>
         </Box>

@@ -26,7 +26,7 @@ import {
 import LoadingSpinner from '../shared/components/LoadingSpinner';
 import type { Computer } from '../computers/types/computer.types';
 
-export default function CompareView() {
+export default function CompareView(): JSX.Element {
   const navigate = useNavigate();
   const selectedIds = useAppSelector((s) => s.computers.selectedIds);
 
@@ -89,11 +89,11 @@ export default function CompareView() {
     },
     {
       label: 'Processor',
-      getValue: (c) => `${c.processorBrand} ${c.processorName}`,
+      getValue: (c) => c.processorName,
     },
     {
       label: 'GPU',
-      getValue: (c) => `${c.gpuBrand} ${c.gpuName}`,
+      getValue: (c) => c.gpuName,
     },
     {
       label: 'Storage',

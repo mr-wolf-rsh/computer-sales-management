@@ -8,14 +8,14 @@ interface SearchBarProps {
   onChange: (value: string) => void;
 }
 
-export default function SearchBar({ value, onChange }: SearchBarProps) {
+export default function SearchBar({ value, onChange }: SearchBarProps): JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleFocus = useCallback(() => {
+  const handleFocus = useCallback((): void => {
     inputRef.current?.focus();
   }, []);
 
-  const handleClear = useCallback(() => {
+  const handleClear = useCallback((): void => {
     onChange('');
     inputRef.current?.blur();
   }, [onChange]);

@@ -38,12 +38,14 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
   const debouncedSearch = useDebounce(searchTerm, 300);
 
   const setPage = useCallback(
-    (p: number) => dispatch(setPageAction(p)),
+    (p: number): void => {
+      dispatch(setPageAction(p));
+    },
     [dispatch],
   );
 
   const setSearchTerm = useCallback(
-    (term: string) => {
+    (term: string): void => {
       setSearchTermLocal(term);
       dispatch(setPageAction(1));
     },
@@ -51,11 +53,13 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
   );
 
   const handleSetPageSize = useCallback(
-    (size: number) => dispatch(setPageSizeAction(size)),
+    (size: number): void => {
+      dispatch(setPageSizeAction(size));
+    },
     [dispatch],
   );
 
-  const toggleSortOrder = useCallback(() => {
+  const toggleSortOrder = useCallback((): void => {
     setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
   }, []);
 

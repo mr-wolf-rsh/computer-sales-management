@@ -1,0 +1,20 @@
+{
+  "name": "Compu Palace Frontend",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "frontend",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "typescript.tsdk": "/app/node_modules/typescript/lib",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "forwardPorts": [3000]
+}

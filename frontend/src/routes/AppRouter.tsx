@@ -76,6 +76,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default function AppRouter() {
+export default function AppRouter(): JSX.Element {
   return <RouterProvider router={router} />;
 }

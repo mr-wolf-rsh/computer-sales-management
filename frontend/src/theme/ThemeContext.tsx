@@ -28,7 +28,7 @@ function getInitialMode(): ThemeMode {
   return 'light';
 }
 
-export function ThemeModeProvider({ children }: { children: ReactNode }) {
+export function ThemeModeProvider({ children }: { children: ReactNode }): JSX.Element {
   const [mode, setMode] = useState<ThemeMode>(getInitialMode);
 
   useEffect(() => {

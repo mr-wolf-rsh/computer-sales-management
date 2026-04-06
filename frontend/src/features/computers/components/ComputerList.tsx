@@ -25,7 +25,6 @@ import AddIcon from '@mui/icons-material/Add';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
-import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import {
@@ -46,7 +45,7 @@ import ComputerCard from './ComputerCard';
 import Pagination from '@/features/shared/components/Pagination';
 import LoadingSpinner from '@/features/shared/components/LoadingSpinner';
 
-export default function ComputerList() {
+export default function ComputerList(): JSX.Element {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { viewMode, selectedIds } = useAppSelector((s) => s.computers);
@@ -91,7 +90,7 @@ export default function ComputerList() {
   const totalPages = data?.totalPages ?? 0;
 
   const handleSort = useCallback(
-    (field: string) => {
+    (field: string): void => {
       if (sortBy === field) {
         toggleSortOrder();
       } else {
@@ -135,7 +134,7 @@ export default function ComputerList() {
           mb: 3,
         }}
       >
-        {/* Left: Search + Tier Filter + Compare */}
+        {/* Left: Tier Filter + Compare */}
         <Box
           sx={{
             flex: 1,
@@ -145,8 +144,6 @@ export default function ComputerList() {
             flexWrap: 'wrap',
           }}
         >
-          <SearchBar value={searchTerm} onChange={setSearchTerm} />
-
           <TextField
             select
             size="small"
@@ -186,22 +183,51 @@ export default function ComputerList() {
           >
             Compare ({selectedIds.length})
           </Button>
+          {selectedIds.length > 0 && (
+            <Button
+              variant="text"
+              size="small"
+              onClick={() => dispatch(clearSelected())}
+              sx={{ color: 'text.secondary', textTransform: 'none' }}
+            >
+              Clear selection
+            </Button>
+          )}
+        </Box>
+
+        {/* Center: Search */}
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <SearchBar value={searchTerm} onChange={setSearchTerm} />
         </Box>
 
         {/* Right: View toggle */}
-        <ToggleButtonGroup
-          value={viewMode}
-          exclusive
-          onChange={(_, v) => v && dispatch(setViewMode(v))}
-          size="small"
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
         >
-          <ToggleButton value="grid">
-            <ViewModuleIcon />
-          </ToggleButton>
-          <ToggleButton value="list">
-            <ViewListIcon />
-          </ToggleButton>
-        </ToggleButtonGroup>
+          <ToggleButtonGroup
+            value={viewMode}
+            exclusive
+            onChange={(_, v) => v && dispatch(setViewMode(v))}
+            size="small"
+          >
+            <ToggleButton value="grid">
+              <ViewModuleIcon />
+            </ToggleButton>
+            <ToggleButton value="list">
+              <ViewListIcon />
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
       </Box>
 
       {isLoading ? (
@@ -303,19 +329,31 @@ export default function ComputerList() {
                           {computer.name}
                         </Typography>
                         {computer.isNew && (
-                          <Chip
-                            icon={<StarIcon sx={{ fontSize: '0.85rem', color: 'inherit' }} />}
-                            label="NEW"
-                            size="small"
+                          <Box
                             sx={{
+                              width: 36,
+                              height: 36,
                               bgcolor: 'success.main',
-                              color: '#fff',
-                              fontWeight: 700,
-                              fontSize: '0.65rem',
-                              height: 22,
-                              '& .MuiChip-icon': { color: '#fff', ml: 0.5 },
+                              clipPath:
+                                'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              flexShrink: 0,
                             }}
-                          />
+                          >
+                            <Typography
+                              sx={{
+                                color: '#fff',
+                                fontWeight: 700,
+                                fontSize: '0.5rem',
+                                lineHeight: 1,
+                                letterSpacing: '0.03em',
+                              }}
+                            >
+                              NEW
+                            </Typography>
+                          </Box>
                         )}
                       </Box>
                     </TableCell>
@@ -335,10 +373,10 @@ export default function ComputerList() {
                     </TableCell>
                     <TableCell>{formatRam(computer.ramAmountMB)}</TableCell>
                     <TableCell>
-                      {computer.processorBrand} {computer.processorName}
+                      {computer.processorName}
                     </TableCell>
                     <TableCell>
-                      {computer.gpuBrand} {computer.gpuName}
+                      {computer.gpuName}
                     </TableCell>
                   </TableRow>
                 );

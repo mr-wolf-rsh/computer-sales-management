@@ -29,7 +29,7 @@ export default function ConfirmDialog({
   isLoading = false,
   onConfirm,
   onCancel,
-}: ConfirmDialogProps) {
+}: ConfirmDialogProps): JSX.Element {
   return (
     <Dialog open={open} onClose={onCancel} maxWidth="xs" fullWidth>
       <DialogTitle>

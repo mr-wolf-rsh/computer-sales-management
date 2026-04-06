@@ -59,13 +59,19 @@ Key patterns:
 
 - Full CRUD for computer inventory management
 - Paginated data grid with search and filtering
+- Server-side ordering — sortable by name, price, RAM, and date
+- Tier filtering in the catalog (filter computers by royal tier)
+- "New" star badge for recently added computers (15-day window)
+- Status column — New, Active, and Discontinued states
 - Royal tier badge system (Page, Squire, Knight, Baron, Duke, Prince, Sovereign)
 - Product images with Unsplash URLs and live preview
+- RAM and storage capacity use standard size selects
 - Price management and filtering
 - Dashboard with charts and statistics (Recharts)
 - Toggle between Royal Court (light) and Night Court (dark) themes
 - CSV data export (file-saver)
-- Side-by-side computer comparison with gold-highlighted best values per spec
+- Side-by-side computer comparison with gold-highlighted best values per spec and a clear selection button
+- Hardware cards display each component on its own line (RAM, CPU, GPU, Storage) with dedicated icons
 - Keyboard shortcuts (`/` search, `n` new, `Esc` clear)
 - Form validation with Zod + React Hook Form
 
@@ -95,6 +101,8 @@ computer-sales-management/
 ├── rebuild.bat
 ├── run-tests.bat
 ├── .env.example
+├── .devcontainer/
+│   └── devcontainer.json
 ├── .dockerignore
 ├── .gitattributes
 ├── .gitignore
@@ -193,6 +201,10 @@ docker compose up --build
 ```
 
 All three services start with proper dependency ordering. The frontend and backend containers support hot reload — file changes are detected automatically. The database initializes itself with schema, stored procedures, and seed data on first run.
+
+### VS Code Dev Container
+
+The project includes a `.devcontainer` configuration for VS Code. Open the project and select **"Reopen in Container"** to get full IntelliSense, ESLint, and Prettier support running inside the Docker container — no local `npm install` needed.
 
 ### Running services individually
 

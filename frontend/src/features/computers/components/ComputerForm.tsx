@@ -58,7 +58,28 @@ type FormValues = z.infer<typeof computerSchema>;
 const STORAGE_TYPES = ['SSD', 'HDD'];
 const USB_TYPES = ['USB 2.0', 'USB 3.0', 'USB-C'];
 
-export default function ComputerForm() {
+const RAM_OPTIONS = [
+  { value: 2048, label: '2 GB (2048 MB)' },
+  { value: 4096, label: '4 GB (4096 MB)' },
+  { value: 8192, label: '8 GB (8192 MB)' },
+  { value: 16384, label: '16 GB (16384 MB)' },
+  { value: 32768, label: '32 GB (32768 MB)' },
+  { value: 65536, label: '64 GB (65536 MB)' },
+  { value: 131072, label: '128 GB (131072 MB)' },
+];
+
+const STORAGE_CAPACITY_OPTIONS = [
+  { value: 128, label: '128 GB' },
+  { value: 256, label: '256 GB' },
+  { value: 500, label: '500 GB' },
+  { value: 512, label: '512 GB' },
+  { value: 1000, label: '1 TB (1000 GB)' },
+  { value: 2000, label: '2 TB (2000 GB)' },
+  { value: 4000, label: '4 TB (4000 GB)' },
+  { value: 8000, label: '8 TB (8000 GB)' },
+];
+
+export default function ComputerForm(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const isEditing = Boolean(id);
@@ -135,7 +156,7 @@ export default function ComputerForm() {
     }
   }, [computer, isEditing, reset]);
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: FormValues): Promise<void> => {
     const selectedProcessor = processors.find((p) => p.id === data.processorId);
     const selectedGpu = gpus.find((g) => g.id === data.gpuId);
 
@@ -217,12 +238,18 @@ export default function ComputerForm() {
                     render={({ field }) => (
                       <TextField
                         {...field}
-                        label="RAM (MB)"
-                        type="number"
+                        label="RAM"
+                        select
                         fullWidth
                         error={!!errors.ramAmountMB}
                         helperText={errors.ramAmountMB?.message}
-                      />
+                      >
+                        {RAM_OPTIONS.map((opt) => (
+                          <MenuItem key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
                     )}
                   />
                 </Grid>
@@ -428,12 +455,18 @@ export default function ComputerForm() {
                     render={({ field: f }) => (
                       <TextField
                         {...f}
-                        label="Capacity (GB)"
-                        type="number"
+                        label="Capacity"
+                        select
                         size="small"
                         sx={{ flex: 1 }}
                         error={!!errors.storageDrives?.[index]?.capacityGB}
-                      />
+                      >
+                        {STORAGE_CAPACITY_OPTIONS.map((opt) => (
+                          <MenuItem key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
                     )}
                   />
                   <Controller

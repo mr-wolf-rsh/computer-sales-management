@@ -37,7 +37,7 @@ import {
 import ConfirmDialog from '@/features/shared/components/ConfirmDialog';
 import LoadingSpinner from '@/features/shared/components/LoadingSpinner';
 
-export default function ComputerDetail() {
+export default function ComputerDetail(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [showDelete, setShowDelete] = useState(false);
@@ -52,7 +52,7 @@ export default function ComputerDetail() {
 
   const tier = getTierInfo(computer.tierBadge);
 
-  const handleDelete = async () => {
+  const handleDelete = async (): Promise<void> => {
     try {
       await deleteComputer(computer.id).unwrap();
       navigate('/');
@@ -126,14 +126,14 @@ export default function ComputerDetail() {
               <SpecCard
                 icon={<MemoryIcon />}
                 label="Processor"
-                value={`${computer.processorBrand} ${computer.processorName}`}
+                value={computer.processorName}
               />
             </Grid>
             <Grid item xs={6}>
               <SpecCard
                 icon={<MemoryIcon />}
                 label="GPU"
-                value={`${computer.gpuBrand} ${computer.gpuName}`}
+                value={computer.gpuName}
               />
             </Grid>
             <Grid item xs={6}>
@@ -266,7 +266,7 @@ function SpecCard({
   icon: React.ReactNode;
   label: string;
   value: string;
-}) {
+}): JSX.Element {
   return (
     <Card variant="outlined" sx={{ borderColor: 'secondary.main', borderWidth: 1 }}>
       <CardContent sx={{ py: 1.5, '&:last-child': { pb: 1.5 } }}>
