@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import MemoryIcon from '@mui/icons-material/Memory';
 import StorageIcon from '@mui/icons-material/Storage';
+import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom';
 import type { Computer } from '../types/computer.types';
 import { getTierInfo } from '../utils/tierBadge';
@@ -54,7 +55,7 @@ export default function ComputerCard({
             onToggleSelect(computer.id);
           }}
           onClick={(e) => e.stopPropagation()}
-          sx={{ position: 'absolute', top: 4, right: 4, zIndex: 1 }}
+          sx={{ position: 'absolute', top: 4, right: 4, zIndex: 1, color: 'secondary.main', '&.Mui-checked': { color: 'secondary.main' } }}
         />
       )}
 
@@ -68,18 +69,20 @@ export default function ComputerCard({
         />
         {computer.isNew && (
           <Chip
+            icon={<StarIcon sx={{ fontSize: '0.9rem', color: 'inherit' }} />}
             label="NEW"
             size="small"
             sx={{
               position: 'absolute',
               top: 8,
               left: 8,
-              bgcolor: '#4caf50',
+              bgcolor: 'secondary.main',
               color: '#fff',
               fontWeight: 700,
               fontSize: '0.7rem',
               letterSpacing: '0.05em',
               boxShadow: (theme) => `0 2px 8px ${alpha(theme.palette.common.black, 0.3)}`,
+              '& .MuiChip-icon': { color: '#fff', ml: 0.5 },
             }}
           />
         )}

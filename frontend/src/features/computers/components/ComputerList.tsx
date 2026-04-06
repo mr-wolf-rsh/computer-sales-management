@@ -25,6 +25,7 @@ import AddIcon from '@mui/icons-material/Add';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import {
@@ -119,6 +120,12 @@ export default function ComputerList() {
 
   return (
     <Box>
+      {/* Row 1: Title */}
+      <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
+        Royal Catalog
+      </Typography>
+
+      {/* Row 2: Toolbar */}
       <Box
         sx={{
           display: 'flex',
@@ -128,17 +135,11 @@ export default function ComputerList() {
           mb: 3,
         }}
       >
-        {/* Left: Title */}
-        <Typography variant="h4" component="h1" sx={{ whiteSpace: 'nowrap' }}>
-          Royal Catalog
-        </Typography>
-
-        {/* Center: Search + Tier Filter + Compare */}
+        {/* Left: Search + Tier Filter + Compare */}
         <Box
           sx={{
             flex: 1,
             display: 'flex',
-            justifyContent: 'center',
             alignItems: 'center',
             gap: 1,
             flexWrap: 'wrap',
@@ -168,13 +169,13 @@ export default function ComputerList() {
             }}
           >
             <MenuItem value="">All Tiers</MenuItem>
-            <MenuItem value="Page">Page</MenuItem>
-            <MenuItem value="Squire">Squire</MenuItem>
-            <MenuItem value="Knight">Knight</MenuItem>
-            <MenuItem value="Baron">Baron</MenuItem>
-            <MenuItem value="Duke">Duke</MenuItem>
-            <MenuItem value="Prince">Prince</MenuItem>
-            <MenuItem value="Sovereign">Sovereign</MenuItem>
+            <MenuItem value="Page">🛡️ Page</MenuItem>
+            <MenuItem value="Squire">🛡️ Squire</MenuItem>
+            <MenuItem value="Knight">⚔️ Knight</MenuItem>
+            <MenuItem value="Baron">🏰 Baron</MenuItem>
+            <MenuItem value="Duke">👑 Duke</MenuItem>
+            <MenuItem value="Prince">🤴 Prince</MenuItem>
+            <MenuItem value="Sovereign">👑 Sovereign</MenuItem>
           </TextField>
 
           <Button
@@ -243,6 +244,7 @@ export default function ComputerList() {
                         });
                       }
                     }}
+                    sx={{ color: 'secondary.main', '&.Mui-checked': { color: 'secondary.main' }, '&.MuiCheckbox-indeterminate': { color: 'secondary.main' } }}
                   />
                 </TableCell>
                 <TableCell>
@@ -292,6 +294,7 @@ export default function ComputerList() {
                         checked={selectedIds.includes(computer.id)}
                         onClick={(e) => e.stopPropagation()}
                         onChange={() => dispatch(toggleSelected(computer.id))}
+                        sx={{ color: 'secondary.main', '&.Mui-checked': { color: 'secondary.main' } }}
                       />
                     </TableCell>
                     <TableCell>
@@ -301,14 +304,16 @@ export default function ComputerList() {
                         </Typography>
                         {computer.isNew && (
                           <Chip
+                            icon={<StarIcon sx={{ fontSize: '0.85rem', color: 'inherit' }} />}
                             label="NEW"
                             size="small"
                             sx={{
-                              bgcolor: '#4caf50',
+                              bgcolor: 'secondary.main',
                               color: '#fff',
                               fontWeight: 700,
                               fontSize: '0.65rem',
-                              height: 20,
+                              height: 22,
+                              '& .MuiChip-icon': { color: '#fff', ml: 0.5 },
                             }}
                           />
                         )}
@@ -352,15 +357,17 @@ export default function ComputerList() {
         </TableContainer>
       )}
 
-      <Box sx={{ mt: 3 }}>
-        <Pagination
-          page={page}
-          totalPages={totalPages}
-          pageSize={pageSize}
-          onPageChange={setPage}
-          onPageSizeChange={setPageSize}
-        />
-      </Box>
+      {!isLoading && !isError && data && (
+        <Box sx={{ mt: 3 }}>
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            pageSize={pageSize}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
+        </Box>
+      )}
 
       <Fab
         color="secondary"

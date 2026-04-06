@@ -31,8 +31,8 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
   const pageSize = useAppSelector((s) => s.computers.pageSize);
 
   const [searchTerm, setSearchTermLocal] = useState('');
-  const [sortBy, setSortBy] = useState('name');
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [sortBy, setSortBy] = useState('createdAt');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [tierFilter, setTierFilter] = useState('');
 
   const debouncedSearch = useDebounce(searchTerm, 300);
