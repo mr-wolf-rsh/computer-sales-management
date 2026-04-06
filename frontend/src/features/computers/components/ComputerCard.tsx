@@ -76,7 +76,7 @@ export default function ComputerCard({
               position: 'absolute',
               top: 8,
               left: 8,
-              bgcolor: 'secondary.main',
+              bgcolor: 'success.main',
               color: '#fff',
               fontWeight: 700,
               fontSize: '0.7rem',

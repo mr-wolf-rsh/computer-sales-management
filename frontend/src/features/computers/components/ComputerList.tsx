@@ -308,7 +308,7 @@ export default function ComputerList() {
                             label="NEW"
                             size="small"
                             sx={{
-                              bgcolor: 'secondary.main',
+                              bgcolor: 'success.main',
                               color: '#fff',
                               fontWeight: 700,
                               fontSize: '0.65rem',
