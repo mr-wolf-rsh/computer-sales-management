@@ -18,7 +18,7 @@ public class GpuConfiguration : IEntityTypeConfiguration<Gpu>
 
         builder.Property(g => g.Brand)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(50);
 
         builder.Property(g => g.CreatedAt)
             .IsRequired();

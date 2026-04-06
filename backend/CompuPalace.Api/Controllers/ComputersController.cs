@@ -39,10 +39,10 @@ public class ComputersController : ControllerBase
     public async Task<ActionResult<PaginatedResult<ComputerDto>>> Search(
         [FromQuery] string q = "",
         [FromQuery] int page = 1,
-        [FromQuery] int size = 10,
+        [FromQuery] int pageSize = 10,
         CancellationToken cancellationToken = default)
     {
-        var result = await _computerService.SearchAsync(q, page, size, cancellationToken);
+        var result = await _computerService.SearchAsync(q, page, pageSize, cancellationToken);
         return Ok(result);
     }
 

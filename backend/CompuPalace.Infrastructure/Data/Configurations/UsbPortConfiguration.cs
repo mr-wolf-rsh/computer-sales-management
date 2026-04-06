@@ -17,7 +17,7 @@ public class UsbPortConfiguration : IEntityTypeConfiguration<UsbPort>
 
         builder.Property(up => up.UsbType)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(10);
 
         builder.Property(up => up.CreatedAt)
             .IsRequired();

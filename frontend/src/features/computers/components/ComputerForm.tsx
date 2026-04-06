@@ -49,14 +49,14 @@ const computerSchema = z.object({
   psuWattage: z.coerce.number().min(1, 'PSU wattage must be at least 1W'),
   processorId: z.coerce.number().min(1, 'Processor is required'),
   gpuId: z.coerce.number().min(1, 'GPU is required'),
-  storageDrives: z.array(storageDriveSchema).min(0),
+  storageDrives: z.array(storageDriveSchema).min(1, { message: 'At least one storage drive is required' }),
   usbPorts: z.array(usbPortSchema).min(0),
 });
 
 type FormValues = z.infer<typeof computerSchema>;
 
-const STORAGE_TYPES = ['SSD', 'HDD', 'NVMe', 'M.2'];
-const USB_TYPES = ['USB 2.0', 'USB 3.0', 'USB 3.1', 'USB-C', 'Thunderbolt'];
+const STORAGE_TYPES = ['SSD', 'HDD'];
+const USB_TYPES = ['USB 2.0', 'USB 3.0', 'USB C'];
 
 export default function ComputerForm() {
   const { id } = useParams<{ id: string }>();
@@ -136,9 +136,19 @@ export default function ComputerForm() {
   }, [computer, isEditing, reset]);
 
   const onSubmit = async (data: FormValues) => {
+    const selectedProcessor = processors.find((p) => p.id === data.processorId);
+    const selectedGpu = gpus.find((g) => g.id === data.gpuId);
+
+    if (!selectedProcessor || !selectedGpu) return;
+
+    const { processorId: _pId, gpuId: _gId, ...rest } = data;
     const payload = {
-      ...data,
+      ...rest,
       imageUrl: data.imageUrl || null,
+      processorName: selectedProcessor.name,
+      processorBrand: selectedProcessor.brand,
+      gpuName: selectedGpu.name,
+      gpuBrand: selectedGpu.brand,
     };
 
     try {

@@ -24,7 +24,7 @@ export const computersApi = createApi({
   endpoints: (builder) => ({
     getComputers: builder.query<PaginatedResult<Computer>, ListParams>({
       query: ({ page = 1, size = 10 } = {}) =>
-        `computers?page=${page}&size=${size}`,
+        `computers?page=${page}&pageSize=${size}`,
       providesTags: (result) =>
         result
           ? [
@@ -44,7 +44,7 @@ export const computersApi = createApi({
 
     searchComputers: builder.query<PaginatedResult<Computer>, SearchParams>({
       query: ({ q, page = 1, size = 10 }) =>
-        `computers/search?q=${encodeURIComponent(q)}&page=${page}&size=${size}`,
+        `computers/search?q=${encodeURIComponent(q)}&page=${page}&pageSize=${size}`,
       providesTags: [{ type: 'ComputerList' }],
     }),
 

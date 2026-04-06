@@ -318,17 +318,15 @@ export default function ComputerList() {
         </TableContainer>
       )}
 
-      {totalPages > 1 && (
-        <Box sx={{ mt: 3 }}>
-          <Pagination
-            page={page}
-            totalPages={totalPages}
-            pageSize={pageSize}
-            onPageChange={setPage}
-            onPageSizeChange={setPageSize}
-          />
-        </Box>
-      )}
+      <Box sx={{ mt: 3 }}>
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          pageSize={pageSize}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
+      </Box>
 
       <Fab
         color="secondary"

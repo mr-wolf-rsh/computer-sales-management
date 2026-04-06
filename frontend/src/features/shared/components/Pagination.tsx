@@ -27,13 +27,15 @@ export default function Pagination({
         flexWrap: 'wrap',
       }}
     >
-      <MuiPagination
-        count={totalPages}
-        page={page}
-        onChange={(_, value) => onPageChange(value)}
-        color="primary"
-        shape="rounded"
-      />
+      {totalPages > 1 && (
+        <MuiPagination
+          count={totalPages}
+          page={page}
+          onChange={(_, value) => onPageChange(value)}
+          color="primary"
+          shape="rounded"
+        />
+      )}
       <TextField
         select
         size="small"

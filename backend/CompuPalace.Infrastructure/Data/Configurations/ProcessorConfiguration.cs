@@ -18,7 +18,7 @@ public class ProcessorConfiguration : IEntityTypeConfiguration<Processor>
 
         builder.Property(p => p.Brand)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(50);
 
         builder.Property(p => p.CreatedAt)
             .IsRequired();

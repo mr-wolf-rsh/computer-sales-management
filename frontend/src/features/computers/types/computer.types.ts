@@ -70,8 +70,10 @@ export interface ComputerFormData {
   weight: number;
   weightUnit: 'Kg' | 'Lb';
   psuWattage: number;
-  processorId: number;
-  gpuId: number;
+  processorName: string;
+  processorBrand: string;
+  gpuName: string;
+  gpuBrand: string;
   storageDrives: Omit<StorageDrive, 'id'>[];
   usbPorts: Omit<UsbPort, 'id'>[];
 }

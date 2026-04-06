@@ -32,8 +32,10 @@ public class ComputerConfiguration : IEntityTypeConfiguration<Computer>
 
         builder.Property(c => c.WeightUnit)
             .IsRequired()
-            .HasConversion<string>()
-            .HasMaxLength(10);
+            .HasConversion(
+                v => v.ToString().ToLower(),
+                v => Enum.Parse<CompuPalace.Domain.Enums.WeightUnit>(v, true))
+            .HasMaxLength(5);
 
         builder.Property(c => c.PsuWattage)
             .IsRequired();

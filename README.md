@@ -35,7 +35,7 @@ Or run **`rebuild.bat`** for a full clean rebuild.
 | API      | http://localhost:5000/swagger     |
 | Database | localhost:1433 (SA credentials)  |
 
-Both frontend and backend containers run in **dev mode with hot reload** — edit code and see changes instantly without rebuilding. The database is pre-seeded with 100 computers, 16 processors, and 15 GPUs.
+Both frontend and backend containers run in **dev mode with hot reload** — edit code and see changes instantly without rebuilding. Source code is bind-mounted into containers, so file changes on the host are picked up automatically by the dev servers. The database is pre-seeded with 100 computers, 16 processors, and 15 GPUs.
 
 Environment variables are defined in `.env` (copied from `.env.example`).
 
@@ -50,7 +50,7 @@ The backend follows **Clean Architecture** with four layers:
 
 Key patterns:
 - **Repository + Unit of Work** for data access
-- **Stored procedures** for all CRUD operations, paginated search, and dashboard aggregation (7 total)
+- **Stored procedures** — 7 stored procedures exist in the database for search, pagination, CRUD, and dashboard stats (available for direct SQL access)
 - **RTK Query** for frontend data fetching and caching
 - **Vite dev proxy** forwards `/api` requests to the backend container, eliminating CORS in development
 - **Container-Presentational** component pattern
@@ -209,8 +209,9 @@ Copy `.env.example` to `.env` before running. All variables are documented there
 | Variable                   | Description                          |
 | -------------------------- | ------------------------------------ |
 | `SA_PASSWORD`              | SQL Server SA password               |
-| `ASPNETCORE_ENVIRONMENT`   | .NET environment                     |
 | `MSSQL_PID`               | SQL Server edition (Developer)       |
+| `ASPNETCORE_ENVIRONMENT`   | .NET environment                     |
+| `ASPNETCORE_URLS`          | Backend listen URL                   |
 
 ## Acknowledgments
 
