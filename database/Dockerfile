@@ -10,8 +10,7 @@ FROM mcr.microsoft.com/mssql/server:2022-latest
 # Accept the EULA (required for SQL Server)
 ENV ACCEPT_EULA=Y
 
-# SA password - set via docker-compose MSSQL_SA_PASSWORD
-ENV MSSQL_SA_PASSWORD=CompuPalace2026!
+# SA password - provided by docker-compose via .env file
 
 # SQL Server configuration
 ENV MSSQL_PID=Developer

@@ -10,7 +10,7 @@ set -e
 
 SCRIPTS_DIR="/docker-entrypoint-initdb"
 SQLCMD="/opt/mssql-tools18/bin/sqlcmd"
-SA_PASSWORD="${MSSQL_SA_PASSWORD:-CompuPalace2026!}"
+SA_PASSWORD="${MSSQL_SA_PASSWORD}"
 
 echo "[entrypoint] Starting SQL Server..."
 /opt/mssql/bin/sqlservr &

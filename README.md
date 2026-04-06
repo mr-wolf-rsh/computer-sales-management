@@ -14,7 +14,12 @@ A full-stack web application for managing a computer inventory with royal-themed
 
 ## Quick Start
 
-`docker compose up --build` or run **`rebuild.bat`** for a full clean rebuild.
+```
+cp .env.example .env
+docker compose up --build
+```
+
+Or run **`rebuild.bat`** for a full clean rebuild.
 
 | Service  | URL                              |
 | -------- | -------------------------------- |
@@ -22,7 +27,7 @@ A full-stack web application for managing a computer inventory with royal-themed
 | API      | http://localhost:5000/swagger     |
 | Database | localhost:1433 (SA credentials)  |
 
-Default SA password: `CompuPalace2026!` (override via `.env` file).
+Environment variables are defined in `.env` (copied from `.env.example`).
 
 ## Architecture
 
@@ -60,7 +65,7 @@ computer-sales-management/
 ├── docker-compose.yml
 ├── rebuild.bat
 ├── run-tests.bat
-├── .env
+├── .env.example
 ├── .dockerignore
 ├── .gitignore
 ├── README.md
@@ -162,9 +167,11 @@ Frontend: `cd frontend && npm install && npm run dev`
 
 ### Environment Variables
 
-| Variable                                | Default                  | Description                   |
-| --------------------------------------- | ------------------------ | ----------------------------- |
-| `SA_PASSWORD`                           | `CompuPalace2026!`       | SQL Server SA password        |
+Copy `.env.example` to `.env` before running. All variables are documented there.
+
+| Variable                                | Description                   |
+| --------------------------------------- | ----------------------------- |
+| `SA_PASSWORD`                           | SQL Server SA password        |
 | `ASPNETCORE_ENVIRONMENT`                | `Development`            | .NET environment              |
 | `ASPNETCORE_URLS`                       | `http://+:5000`          | Backend listen URL            |
 | `ConnectionStrings__DefaultConnection`  | *(set in compose)*       | SQL Server connection string  |
