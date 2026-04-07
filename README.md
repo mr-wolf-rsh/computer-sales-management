@@ -129,7 +129,7 @@ computer-sales-management/
 │   │   ├── Interfaces/        (IComputerRepository, IUnitOfWork, etc.)
 │   │   ├── Services/          (ComputerService with tier badge logic)
 │   │   ├── Validators/        (FluentValidation rules)
-│   │   └── Mappings/          (AutoMapper profiles)
+│   │   └── Mappings/          (Mapperly mapper interfaces + implementations)
 │   ├── CompuPalace.Infrastructure/
 │   │   ├── Data/              (AppDbContext, EF Core configurations)
 │   │   └── Repositories/      (ComputerRepository, UnitOfWork, etc.)
