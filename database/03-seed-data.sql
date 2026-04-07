@@ -100,210 +100,210 @@ GO
 --   Prince   : score 11-13
 --   Sovereign: score >= 13
 --
--- Images: Each computer has a unique Pexels gaming/tech photo URL.
+-- Images: Each computer has a unique Unsplash gaming/tech photo URL.
 -- =============================================================================
 
 INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, PsuWattage, ProcessorId, GpuId, Status) VALUES
     -- 1. The Archduke's Engine — Sovereign: RAM=131072,Storage=12000,Price=3499.99,PSU=1200 => score~48.45
-    (N'The Archduke''s Engine',        131072,  3499.99, N'https://images.pexels.com/photos/3728099/pexels-photo-3728099.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',  9.50, N'kg', 1200, 9,  8,  N'Active'),
+    (N'The Archduke''s Engine',        131072,  3499.99, N'https://images.unsplash.com/photo-1626218174358-7769486c4b79?w=400&h=300&fit=crop&auto=format',  9.50, N'kg', 1200, 9,  8,  N'Active'),
     -- 2. The Emperor's Dominion — Sovereign: RAM=131072,Storage=12000,Price=4999.99,PSU=1200 => score~50.70
-    (N'The Emperor''s Dominion',       131072,  4999.99, N'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 11.00, N'kg', 1200, 16, 8,  N'Active'),
+    (N'The Emperor''s Dominion',       131072,  4999.99, N'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format', 11.00, N'kg', 1200, 16, 8,  N'Active'),
     -- 3. The Regent's Might — Sovereign: RAM=131072,Storage=12000,Price=3999.99,PSU=1200 => score~49.20
-    (N'The Regent''s Might',           131072,  3999.99, N'https://images.pexels.com/photos/7858743/pexels-photo-7858743.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 10.20, N'kg', 1200, 15, 15, N'Active'),
+    (N'The Regent''s Might',           131072,  3999.99, N'https://images.unsplash.com/photo-1651012998667-2c779fee76f8?w=400&h=300&fit=crop&auto=format', 10.20, N'kg', 1200, 15, 15, N'Active'),
     -- 4. The Paladin's Core — Duke: RAM=16384,Storage=3000,Price=2199.99,PSU=950 => score~10.60
-    (N'The Paladin''s Core',            16384,  2199.99, N'https://images.pexels.com/photos/1038916/pexels-photo-1038916.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       8.80, N'kg',  950, 9,  9,  N'Active'),
+    (N'The Paladin''s Core',            16384,  2199.99, N'https://images.unsplash.com/photo-1632749042303-7f7a18ed6ff0?w=400&h=300&fit=crop&auto=format',       8.80, N'kg',  950, 9,  9,  N'Active'),
     -- 5. The Warden's Watch — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Warden''s Watch',             8192,   999.99, N'https://images.pexels.com/photos/12786602/pexels-photo-12786602.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     7.50, N'kg',  700, 11, 11, N'Active'),
+    (N'The Warden''s Watch',             8192,   999.99, N'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop&auto=format',     7.50, N'kg',  700, 11, 11, N'Active'),
     -- 6. The Chancellor's Decree — Prince: RAM=32768,Storage=256,Price=699.99,PSU=450 => score~11.60
-    (N'The Chancellor''s Decree',       32768,   699.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     9.00, N'kg',  450, 10, 10, N'Active'),
+    (N'The Chancellor''s Decree',       32768,   699.99, N'https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format',     9.00, N'kg',  450, 10, 10, N'Active'),
     -- 7. The Viceroy's Command — Baron: RAM=16384,Storage=512,Price=699.99,PSU=600 => score~7.15
-    (N'The Viceroy''s Command',         16384,   699.99, N'https://images.pexels.com/photos/3528500/pexels-photo-3528500.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.30, N'kg',  600, 12, 13, N'Active'),
+    (N'The Viceroy''s Command',         16384,   699.99, N'https://images.unsplash.com/photo-1724476894449-7e11eb6b2204?w=400&h=300&fit=crop&auto=format',      8.30, N'kg',  600, 12, 13, N'Active'),
     -- 8. The Marshal's Banner — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Marshal''s Banner',           8192,   999.99, N'https://images.pexels.com/photos/8099640/pexels-photo-8099640.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    14.00, N'lb',  700, 13, 12, N'Active'),
+    (N'The Marshal''s Banner',           8192,   999.99, N'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=400&h=300&fit=crop&auto=format',    14.00, N'lb',  700, 13, 12, N'Active'),
     -- 9. The Constable's Keep — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Constable''s Keep',           8192,   299.99, N'https://images.pexels.com/photos/2878465/pexels-photo-2878465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    11.00, N'lb',  300, 1,  3,  N'Active'),
+    (N'The Constable''s Keep',           8192,   299.99, N'https://images.unsplash.com/photo-1608403890614-ec62cb35b46e?w=400&h=300&fit=crop&auto=format',    11.00, N'lb',  300, 1,  3,  N'Active'),
     -- 10. The Chamberlain's Vault — Duke: RAM=16384,Storage=2000,Price=1999.99,PSU=900 => score~10.00
-    (N'The Chamberlain''s Vault',       16384,  1999.99, N'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       7.20, N'kg',  900, 14, 14, N'Active'),
+    (N'The Chamberlain''s Vault',       16384,  1999.99, N'https://images.unsplash.com/photo-1622013378145-e8d89cfbd990?w=400&h=300&fit=crop&auto=format',       7.20, N'kg',  900, 14, 14, N'Active'),
     -- 11. The Steward's Watch — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Steward''s Watch',            8192,   999.99, N'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     6.80, N'kg',  700, 11, 9,  N'Active'),
+    (N'The Steward''s Watch',            8192,   999.99, N'https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?w=400&h=300&fit=crop&auto=format',     6.80, N'kg',  700, 11, 9,  N'Active'),
     -- 12. The Banneret's Standard — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
-    (N'The Banneret''s Standard',        8192,  1099.99, N'https://images.pexels.com/photos/30469971/pexels-photo-30469971.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    13.50, N'lb',  750, 7,  2,  N'Active'),
+    (N'The Banneret''s Standard',        8192,  1099.99, N'https://images.unsplash.com/photo-1603983732011-caaf6ca67a3e?w=400&h=300&fit=crop&auto=format',    13.50, N'lb',  750, 7,  2,  N'Active'),
     -- 13. The Thane's Bastion — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
-    (N'The Thane''s Bastion',           16384,  1799.99, N'https://images.pexels.com/photos/34301930/pexels-photo-34301930.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       8.50, N'kg',  850, 12, 15, N'Active'),
+    (N'The Thane''s Bastion',           16384,  1799.99, N'https://images.unsplash.com/photo-1603481546238-487240415921?w=400&h=300&fit=crop&auto=format',       8.50, N'kg',  850, 12, 15, N'Active'),
     -- 14. The Liegeman's Post — Squire: RAM=8192,Storage=128,Price=199.99,PSU=250 => score~3.23
-    (N'The Liegeman''s Post',            8192,   199.99, N'https://images.pexels.com/photos/30469967/pexels-photo-30469967.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    10.00, N'lb',  250, 3,  3,  N'Active'),
+    (N'The Liegeman''s Post',            8192,   199.99, N'https://images.unsplash.com/photo-1660855551740-4474188debdb?w=400&h=300&fit=crop&auto=format',    10.00, N'lb',  250, 3,  3,  N'Active'),
     -- 15. The Seneschal's Hall — Prince: RAM=32768,Storage=500,Price=899.99,PSU=500 => score~12.05
-    (N'The Seneschal''s Hall',          32768,   899.99, N'https://images.pexels.com/photos/33693785/pexels-photo-33693785.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     9.80, N'kg',  500, 15, 8,  N'Active'),
+    (N'The Seneschal''s Hall',          32768,   899.99, N'https://images.unsplash.com/photo-1696710257827-75e2e5954059?w=400&h=300&fit=crop&auto=format',     9.80, N'kg',  500, 15, 8,  N'Active'),
     -- 16. The Castellan's Tower — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
-    (N'The Castellan''s Tower',         16384,  2199.99, N'https://images.pexels.com/photos/30469972/pexels-photo-30469972.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       8.00, N'kg', 1000, 10, 9,  N'Active'),
+    (N'The Castellan''s Tower',         16384,  2199.99, N'https://images.unsplash.com/photo-1614179924047-e1ab49a0a0cf?w=400&h=300&fit=crop&auto=format',       8.00, N'kg', 1000, 10, 9,  N'Active'),
     -- 17. The Warlord's Siege — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
-    (N'The Warlord''s Siege',           32768,   799.99, N'https://images.pexels.com/photos/18966455/pexels-photo-18966455.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    12.00, N'kg',  450, 9,  8,  N'Active'),
+    (N'The Warlord''s Siege',           32768,   799.99, N'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=400&h=300&fit=crop&auto=format',    12.00, N'kg',  450, 9,  8,  N'Active'),
     -- 18. The Envoy's Dispatch — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Envoy''s Dispatch',           8192,   299.99, N'https://images.pexels.com/photos/10684919/pexels-photo-10684919.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     5.50, N'kg',  300, 13, 12, N'Active'),
+    (N'The Envoy''s Dispatch',           8192,   299.99, N'https://images.unsplash.com/photo-1630201129622-a8e8ef3f7245?w=400&h=300&fit=crop&auto=format',     5.50, N'kg',  300, 13, 12, N'Active'),
     -- 19. The Tribune's Oration — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Tribune''s Oration',          8192,   999.99, N'https://images.pexels.com/photos/34697345/pexels-photo-34697345.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     7.80, N'kg',  700, 14, 11, N'Active'),
+    (N'The Tribune''s Oration',          8192,   999.99, N'https://images.unsplash.com/photo-1708481480603-b47ea65c80b6?w=400&h=300&fit=crop&auto=format',     7.80, N'kg',  700, 14, 11, N'Active'),
     -- 20. The Legate's Decree — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=650 => score~7.50
-    (N'The Legate''s Decree',           16384,   799.99, N'https://images.pexels.com/photos/33050961/pexels-photo-33050961.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     18.00, N'lb',  650, 2,  6,  N'Active'),
+    (N'The Legate''s Decree',           16384,   799.99, N'https://images.unsplash.com/photo-1617507171089-6cb9aa5add36?w=400&h=300&fit=crop&auto=format',     18.00, N'lb',  650, 2,  6,  N'Active'),
     -- 21. The Prelate's Sanctum — Duke: RAM=16384,Storage=1000,Price=1999.99,PSU=900 => score~10.00
-    (N'The Prelate''s Sanctum',         16384,  1999.99, N'https://images.pexels.com/photos/13071304/pexels-photo-13071304.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       8.20, N'kg',  900, 16, 10, N'Active'),
+    (N'The Prelate''s Sanctum',         16384,  1999.99, N'https://images.unsplash.com/photo-1675049626914-b2e051e92f23?w=400&h=300&fit=crop&auto=format',       8.20, N'kg',  900, 16, 10, N'Active'),
     -- 22. The Exarch's Domain — Prince: RAM=32768,Storage=500,Price=999.99,PSU=550 => score~12.30
-    (N'The Exarch''s Domain',           32768,   999.99, N'https://images.pexels.com/photos/30469968/pexels-photo-30469968.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    10.50, N'kg',  550, 15, 15, N'Active'),
+    (N'The Exarch''s Domain',           32768,   999.99, N'https://images.unsplash.com/photo-1616440347437-b1c73416efc2?w=400&h=300&fit=crop&auto=format',    10.50, N'kg',  550, 15, 15, N'Active'),
     -- 23. The Patriarch's Legacy — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Patriarch''s Legacy',         8192,   299.99, N'https://images.pexels.com/photos/33644890/pexels-photo-33644890.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    12.00, N'lb',  300, 3,  6,  N'Active'),
+    (N'The Patriarch''s Legacy',         8192,   299.99, N'https://images.unsplash.com/photo-1632064824547-e77c36851495?w=400&h=300&fit=crop&auto=format',    12.00, N'lb',  300, 3,  6,  N'Active'),
     -- 24. The Prefect's Order — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Prefect''s Order',            8192,   299.99, N'https://images.pexels.com/photos/18966444/pexels-photo-18966444.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     6.20, N'kg',  300, 7,  2,  N'Active'),
+    (N'The Prefect''s Order',            8192,   299.99, N'https://images.unsplash.com/photo-1626968361222-291e74711449?w=400&h=300&fit=crop&auto=format',     6.20, N'kg',  300, 7,  2,  N'Active'),
     -- 25. The Tribune's Voice — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
-    (N'The Tribune''s Voice',            8192,  1099.99, N'https://images.pexels.com/photos/9072394/pexels-photo-9072394.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     8.90, N'kg',  750, 11, 13, N'Active'),
+    (N'The Tribune''s Voice',            8192,  1099.99, N'https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=400&h=300&fit=crop&auto=format',     8.90, N'kg',  750, 11, 13, N'Active'),
     -- 26. The Praetor's Judgment — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
-    (N'The Praetor''s Judgment',        16384,   999.99, N'https://images.pexels.com/photos/30265373/pexels-photo-30265373.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      9.30, N'kg',  700, 12, 14, N'Active'),
+    (N'The Praetor''s Judgment',        16384,   999.99, N'https://images.unsplash.com/photo-1624749076747-79f933b8b671?w=400&h=300&fit=crop&auto=format',      9.30, N'kg',  700, 12, 14, N'Active'),
     -- 27. The Consul's Authority — Sovereign: RAM=65536,Storage=8000,Price=2699.99,PSU=1000 => score~23.85
-    (N'The Consul''s Authority',         65536,  2699.99, N'https://images.pexels.com/photos/20213726/pexels-photo-20213726.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 11.50, N'kg', 1000, 16, 8,  N'Active'),
+    (N'The Consul''s Authority',         65536,  2699.99, N'https://images.unsplash.com/photo-1616440537338-1d04df3987f7?w=400&h=300&fit=crop&auto=format', 11.50, N'kg', 1000, 16, 8,  N'Active'),
     -- 28. The Procurator's Ledger — Squire: RAM=8192,Storage=500,Price=399.99,PSU=350 => score~3.75
-    (N'The Procurator''s Ledger',        8192,   399.99, N'https://images.pexels.com/photos/33888380/pexels-photo-33888380.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    14.50, N'lb',  350, 4,  5,  N'Active'),
+    (N'The Procurator''s Ledger',        8192,   399.99, N'https://images.unsplash.com/photo-1701281941392-fd6c2d8d652b?w=400&h=300&fit=crop&auto=format',    14.50, N'lb',  350, 4,  5,  N'Active'),
     -- 29. The Strategos' Gambit — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Strategos'' Gambit',          8192,   999.99, N'https://images.pexels.com/photos/4316/pexels-photo-4316.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     8.60, N'kg',  700, 14, 9,  N'Active'),
+    (N'The Strategos'' Gambit',          8192,   999.99, N'https://images.unsplash.com/photo-1495954222046-2c427ecb546d?w=400&h=300&fit=crop&auto=format',     8.60, N'kg',  700, 14, 9,  N'Active'),
     -- 30. The Eparch's Edict — Page: RAM=512,Storage=128,Price=249.99,PSU=300 => score~1.15
-    (N'The Eparch''s Edict',              512,   249.99, N'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       20.00, N'lb',  300, 1,  3,  N'Active'),
+    (N'The Eparch''s Edict',              512,   249.99, N'https://images.unsplash.com/photo-1636488363495-a06805603784?w=400&h=300&fit=crop&auto=format',       20.00, N'lb',  300, 1,  3,  N'Active'),
     -- 31. The Archon's Seal — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
-    (N'The Archon''s Seal',             16384,  1799.99, N'https://images.pexels.com/photos/4584613/pexels-photo-4584613.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       7.70, N'kg',  850, 10, 10, N'Active'),
+    (N'The Archon''s Seal',             16384,  1799.99, N'https://images.unsplash.com/photo-1610366398516-46da9dec5931?w=400&h=300&fit=crop&auto=format',       7.70, N'kg',  850, 10, 10, N'Active'),
     -- 32. The Tyrant's Grip — Prince: RAM=32768,Storage=512,Price=799.99,PSU=450 => score~11.80
-    (N'The Tyrant''s Grip',             32768,   799.99, N'https://images.pexels.com/photos/3520694/pexels-photo-3520694.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    10.80, N'kg',  450, 9,  15, N'Active'),
+    (N'The Tyrant''s Grip',             32768,   799.99, N'https://images.unsplash.com/photo-1633545505446-586bf83717f0?w=400&h=300&fit=crop&auto=format',    10.80, N'kg',  450, 9,  15, N'Active'),
     -- 33. The Oligarch's Reserve — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Oligarch''s Reserve',         8192,   299.99, N'https://images.pexels.com/photos/1432673/pexels-photo-1432673.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    11.00, N'lb',  300, 2,  6,  N'Active'),
+    (N'The Oligarch''s Reserve',         8192,   299.99, N'https://images.unsplash.com/photo-1616668010115-8f8ce69a4d04?w=400&h=300&fit=crop&auto=format',    11.00, N'lb',  300, 2,  6,  N'Active'),
     -- 34. The Satrap's Province — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Satrap''s Province',          8192,   999.99, N'https://images.pexels.com/photos/8622911/pexels-photo-8622911.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     7.40, N'kg',  700, 6,  4,  N'Active'),
+    (N'The Satrap''s Province',          8192,   999.99, N'https://images.unsplash.com/photo-1598550473359-433795503a0f?w=400&h=300&fit=crop&auto=format',     7.40, N'kg',  700, 6,  4,  N'Active'),
     -- 35. The Vizier's Counsel — Baron: RAM=16384,Storage=1000,Price=1099.99,PSU=750 => score~8.20
-    (N'The Vizier''s Counsel',          16384,  1099.99, N'https://images.pexels.com/photos/34027172/pexels-photo-34027172.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.10, N'kg',  750, 12, 15, N'Active'),
+    (N'The Vizier''s Counsel',          16384,  1099.99, N'https://images.unsplash.com/photo-1723792306904-c417c0da40e3?w=400&h=300&fit=crop&auto=format',      8.10, N'kg',  750, 12, 15, N'Active'),
     -- 36. The Sultan's Pavilion — Duke: RAM=16384,Storage=2000,Price=1999.99,PSU=900 => score~10.00
-    (N'The Sultan''s Pavilion',         16384,  1999.99, N'https://images.pexels.com/photos/23941163/pexels-photo-23941163.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      11.20, N'kg',  900, 15, 8,  N'Active'),
+    (N'The Sultan''s Pavilion',         16384,  1999.99, N'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop&auto=format',      11.20, N'kg',  900, 15, 8,  N'Active'),
     -- 37. The Caliph's Fortress — Sovereign: RAM=131072,Storage=12000,Price=4599.99,PSU=1200 => score~51.80
-    (N'The Caliph''s Fortress',         131072,  4599.99, N'https://images.pexels.com/photos/34006659/pexels-photo-34006659.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 12.50, N'kg', 1200, 16, 8,  N'Active'),
+    (N'The Caliph''s Fortress',         131072,  4599.99, N'https://images.unsplash.com/photo-1649977107006-b769969c9725?w=400&h=300&fit=crop&auto=format', 12.50, N'kg', 1200, 16, 8,  N'Active'),
     -- 38. The Emir's Outpost — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
-    (N'The Emir''s Outpost',             8192,  1099.99, N'https://images.pexels.com/photos/7360388/pexels-photo-7360388.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    15.50, N'lb',  750, 5,  5,  N'Active'),
+    (N'The Emir''s Outpost',             8192,  1099.99, N'https://images.unsplash.com/photo-1598057076865-c67fefd248d3?w=400&h=300&fit=crop&auto=format',    15.50, N'lb',  750, 5,  5,  N'Active'),
     -- 39. The Pasha's Enclave — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Pasha''s Enclave',            8192,   999.99, N'https://images.pexels.com/photos/7720712/pexels-photo-7720712.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    8.30, N'kg',  700, 11, 11, N'Active'),
+    (N'The Pasha''s Enclave',            8192,   999.99, N'https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format',    8.30, N'kg',  700, 11, 11, N'Active'),
     -- 40. The Bey's Crossing — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
-    (N'The Bey''s Crossing',             4096,   249.99, N'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       17.00, N'lb',  300, 1,  6,  N'Active'),
+    (N'The Bey''s Crossing',             4096,   249.99, N'https://images.unsplash.com/photo-1612535500858-06e800115812?w=400&h=300&fit=crop&auto=format',       17.00, N'lb',  300, 1,  6,  N'Active'),
     -- 41. The Shogun's Stronghold — Prince: RAM=32768,Storage=256,Price=999.99,PSU=500 => score~12.15
-    (N'The Shogun''s Stronghold',       32768,   999.99, N'https://images.pexels.com/photos/28779688/pexels-photo-28779688.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     9.90, N'kg',  500, 9,  8,  N'Active'),
+    (N'The Shogun''s Stronghold',       32768,   999.99, N'https://images.unsplash.com/photo-1673984588759-832acd1fc3ed?w=400&h=300&fit=crop&auto=format',     9.90, N'kg',  500, 9,  8,  N'Active'),
     -- 42. The Daimyo's Keep — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
-    (N'The Daimyo''s Keep',             16384,  2199.99, N'https://images.pexels.com/photos/29073142/pexels-photo-29073142.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       8.70, N'kg', 1000, 10, 10, N'Active'),
+    (N'The Daimyo''s Keep',             16384,  2199.99, N'https://images.unsplash.com/photo-1663091635973-dd5b3bb9f442?w=400&h=300&fit=crop&auto=format',       8.70, N'kg', 1000, 10, 10, N'Active'),
     -- 43. The Samurai's Edge — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Samurai''s Edge',             8192,   999.99, N'https://images.pexels.com/photos/7562377/pexels-photo-7562377.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    7.10, N'kg',  700, 14, 14, N'Active'),
+    (N'The Samurai''s Edge',             8192,   999.99, N'https://images.unsplash.com/photo-1682141882061-c7676602e111?w=400&h=300&fit=crop&auto=format',    7.10, N'kg',  700, 14, 14, N'Active'),
     -- 44. The Ronin's Path — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Ronin''s Path',               8192,   299.99, N'https://images.pexels.com/photos/2007647/pexels-photo-2007647.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     5.80, N'kg',  300, 13, 11, N'Active'),
+    (N'The Ronin''s Path',               8192,   299.99, N'https://images.unsplash.com/photo-1691580438246-a6e5cb35ca05?w=400&h=300&fit=crop&auto=format',     5.80, N'kg',  300, 13, 11, N'Active'),
     -- 45. The Ninja's Shadow — Squire: RAM=8192,Storage=500,Price=399.99,PSU=350 => score~3.75
-    (N'The Ninja''s Shadow',             8192,   399.99, N'https://images.pexels.com/photos/7562001/pexels-photo-7562001.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    10.00, N'lb',  350, 3,  3,  N'Active'),
+    (N'The Ninja''s Shadow',             8192,   399.99, N'https://images.unsplash.com/photo-1682141878168-5dace8e1785d?w=400&h=300&fit=crop&auto=format',    10.00, N'lb',  350, 3,  3,  N'Active'),
     -- 46. The Warlord's Dominion — Duke: RAM=16384,Storage=2000,Price=2099.99,PSU=950 => score~10.45
-    (N'The Warlord''s Dominion',        16384,  2099.99, N'https://images.pexels.com/photos/8098277/pexels-photo-8098277.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      10.00, N'kg',  950, 15, 15, N'Active'),
+    (N'The Warlord''s Dominion',        16384,  2099.99, N'https://images.unsplash.com/photo-1621743018966-29194999d736?w=400&h=300&fit=crop&auto=format',      10.00, N'kg',  950, 15, 15, N'Active'),
     -- 47. The Chieftain's Hearth — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
-    (N'The Chieftain''s Hearth',        16384,   999.99, N'https://images.pexels.com/photos/7562114/pexels-photo-7562114.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.00, N'kg',  700, 12, 13, N'Active'),
+    (N'The Chieftain''s Hearth',        16384,   999.99, N'https://images.unsplash.com/photo-1646771032500-27b440b2d947?w=400&h=300&fit=crop&auto=format',      8.00, N'kg',  700, 12, 13, N'Active'),
     -- 48. The Jarl's Hall — Baron: RAM=16384,Storage=1000,Price=899.99,PSU=650 => score~7.65
-    (N'The Jarl''s Hall',               16384,   899.99, N'https://images.pexels.com/photos/9069002/pexels-photo-9069002.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      9.40, N'kg',  650, 10, 9,  N'Active'),
+    (N'The Jarl''s Hall',               16384,   899.99, N'https://images.unsplash.com/photo-1724167806203-aeb3eb21bc1c?w=400&h=300&fit=crop&auto=format',      9.40, N'kg',  650, 10, 9,  N'Active'),
     -- 49. The Thegn's Holding — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=600 => score~7.40
-    (N'The Thegn''s Holding',           16384,   799.99, N'https://images.pexels.com/photos/30640873/pexels-photo-30640873.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     12.50, N'lb',  600, 2,  5,  N'Active'),
+    (N'The Thegn''s Holding',           16384,   799.99, N'https://images.unsplash.com/photo-1622086674545-1346776dfef5?w=400&h=300&fit=crop&auto=format',     12.50, N'lb',  600, 2,  5,  N'Active'),
     -- 50. The Housecarl's Post — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Housecarl''s Post',           2048,   249.99, N'https://images.pexels.com/photos/305829/pexels-photo-305829.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       14.00, N'lb',  300, 7,  2,  N'Active'),
+    (N'The Housecarl''s Post',           2048,   249.99, N'https://images.unsplash.com/photo-1610458131353-1f3f843bb0d6?w=400&h=300&fit=crop&auto=format',       14.00, N'lb',  300, 7,  2,  N'Active'),
     -- 51. The Overlord's Citadel — Sovereign: RAM=131072,Storage=12000,Price=4799.99,PSU=1200 => score~52.05
-    (N'The Overlord''s Citadel',        131072,  4799.99, N'https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 13.00, N'kg', 1200, 16, 8,  N'Active'),
+    (N'The Overlord''s Citadel',        131072,  4799.99, N'https://images.unsplash.com/photo-1612099019599-96c03ab3dc91?w=400&h=300&fit=crop&auto=format', 13.00, N'kg', 1200, 16, 8,  N'Active'),
     -- 52. The Suzerain's Court — Sovereign: RAM=65536,Storage=8000,Price=3299.99,PSU=1200 => score~27.75
-    (N'The Suzerain''s Court',           65536,  3299.99, N'https://images.pexels.com/photos/33402741/pexels-photo-33402741.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 11.80, N'kg', 1200, 15, 10, N'Active'),
+    (N'The Suzerain''s Court',           65536,  3299.99, N'https://images.unsplash.com/photo-1658262530868-f7460e2f071f?w=400&h=300&fit=crop&auto=format', 11.80, N'kg', 1200, 15, 10, N'Active'),
     -- 53. The Potentate's Chamber — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
-    (N'The Potentate''s Chamber',       16384,  1799.99, N'https://images.pexels.com/photos/10816120/pexels-photo-10816120.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      9.10, N'kg',  850, 9,  9,  N'Active'),
+    (N'The Potentate''s Chamber',       16384,  1799.99, N'https://images.unsplash.com/photo-1622127921785-d1742dee7d27?w=400&h=300&fit=crop&auto=format',      9.10, N'kg',  850, 9,  9,  N'Active'),
     -- 54. The Magnate's Study — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
-    (N'The Magnate''s Study',           16384,  1799.99, N'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.40, N'kg',  850, 11, 13, N'Active'),
+    (N'The Magnate''s Study',           16384,  1799.99, N'https://images.unsplash.com/photo-1724167806287-5a9978cb77cb?w=400&h=300&fit=crop&auto=format',      8.40, N'kg',  850, 11, 13, N'Active'),
     -- 55. The Patrician's Villa — Prince: RAM=32768,Storage=128,Price=499.99,PSU=350 => score~11.08
-    (N'The Patrician''s Villa',         32768,   499.99, N'https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     7.20, N'kg',  350, 6,  4,  N'Active'),
+    (N'The Patrician''s Villa',         32768,   499.99, N'https://images.unsplash.com/photo-1675049612426-ea9d7019617f?w=400&h=300&fit=crop&auto=format',     7.20, N'kg',  350, 6,  4,  N'Active'),
     -- 56. The Centurion's Camp — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Centurion''s Camp',           8192,   299.99, N'https://images.pexels.com/photos/965345/pexels-photo-965345.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   11.50, N'lb',  300, 4,  6,  N'Active'),
+    (N'The Centurion''s Camp',           8192,   299.99, N'https://images.unsplash.com/photo-1675049603723-37dfc5eed92f?w=400&h=300&fit=crop&auto=format',   11.50, N'lb',  300, 4,  6,  N'Active'),
     -- 57. The Legionnaire's March — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Legionnaire''s March',        8192,   999.99, N'https://images.pexels.com/photos/6424590/pexels-photo-6424590.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    6.50, N'kg',  700, 5,  5,  N'Active'),
+    (N'The Legionnaire''s March',        8192,   999.99, N'https://images.unsplash.com/photo-1675049651776-7b895d48916b?w=400&h=300&fit=crop&auto=format',    6.50, N'kg',  700, 5,  5,  N'Active'),
     -- 58. The Tribune's Rostrum — Baron: RAM=16384,Storage=1000,Price=1099.99,PSU=750 => score~8.20
-    (N'The Tribune''s Rostrum',         16384,  1099.99, N'https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      9.20, N'kg',  750, 14, 12, N'Active'),
+    (N'The Tribune''s Rostrum',         16384,  1099.99, N'https://images.unsplash.com/photo-1682145737198-26f57317429d?w=400&h=300&fit=crop&auto=format',      9.20, N'kg',  750, 14, 12, N'Active'),
     -- 59. The Prefect's Fortress — Duke: RAM=16384,Storage=2000,Price=1999.99,PSU=900 => score~10.00
-    (N'The Prefect''s Fortress',        16384,  1999.99, N'https://images.pexels.com/photos/31840612/pexels-photo-31840612.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.80, N'kg',  900, 12, 14, N'Active'),
+    (N'The Prefect''s Fortress',        16384,  1999.99, N'https://images.unsplash.com/photo-1613442986373-af81e5c618d3?w=400&h=300&fit=crop&auto=format',      8.80, N'kg',  900, 12, 14, N'Active'),
     -- 60. The Praetor's Command — Prince: RAM=32768,Storage=512,Price=999.99,PSU=550 => score~12.30
-    (N'The Praetor''s Command',         32768,   999.99, N'https://images.pexels.com/photos/12380741/pexels-photo-12380741.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    10.40, N'kg',  550, 16, 15, N'Active'),
+    (N'The Praetor''s Command',         32768,   999.99, N'https://images.unsplash.com/photo-1658673934023-6005e1ff7ec2?w=400&h=300&fit=crop&auto=format',    10.40, N'kg',  550, 16, 15, N'Active'),
     -- 61. The Dictator's Seat — Sovereign: RAM=65536,Storage=8000,Price=3599.99,PSU=1200 => score~28.20
-    (N'The Dictator''s Seat',            65536,  3599.99, N'https://images.pexels.com/photos/4219883/pexels-photo-4219883.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 12.20, N'kg', 1200, 9,  8,  N'Active'),
+    (N'The Dictator''s Seat',            65536,  3599.99, N'https://images.unsplash.com/photo-1658673934021-cb0ba771f8ea?w=400&h=300&fit=crop&auto=format', 12.20, N'kg', 1200, 9,  8,  N'Active'),
     -- 62. The Imperator's Will — Sovereign: RAM=131072,Storage=12000,Price=4299.99,PSU=1200 => score~51.30
-    (N'The Imperator''s Will',          131072,  4299.99, N'https://images.pexels.com/photos/1365795/pexels-photo-1365795.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop', 11.60, N'kg', 1200, 15, 8,  N'Active'),
+    (N'The Imperator''s Will',          131072,  4299.99, N'https://images.unsplash.com/photo-1646505262769-db0b272acb7d?w=400&h=300&fit=crop&auto=format', 11.60, N'kg', 1200, 15, 8,  N'Active'),
     -- 63. The Triumvir's Alliance — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
-    (N'The Triumvir''s Alliance',        4096,   249.99, N'https://images.pexels.com/photos/12660514/pexels-photo-12660514.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       19.00, N'lb',  300, 2,  3,  N'Active'),
+    (N'The Triumvir''s Alliance',        4096,   249.99, N'https://images.unsplash.com/photo-1658671141384-c4317684a1a3?w=400&h=300&fit=crop&auto=format',       19.00, N'lb',  300, 2,  3,  N'Active'),
     -- 64. The Aedile's Square — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Aedile''s Square',            8192,   299.99, N'https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   11.00, N'lb',  300, 3,  6,  N'Active'),
+    (N'The Aedile''s Square',            8192,   299.99, N'https://images.unsplash.com/photo-1658673934021-5a1704d23449?w=400&h=300&fit=crop&auto=format',   11.00, N'lb',  300, 3,  6,  N'Active'),
     -- 65. The Quaestor's Treasury — Knight: RAM=8192,Storage=512,Price=1099.99,PSU=750 => score~5.65
-    (N'The Quaestor''s Treasury',        8192,  1099.99, N'https://images.pexels.com/photos/5951759/pexels-photo-5951759.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    7.00, N'kg',  750, 7,  2,  N'Active'),
+    (N'The Quaestor''s Treasury',        8192,  1099.99, N'https://images.unsplash.com/photo-1658673934022-945726cb89c4?w=400&h=300&fit=crop&auto=format',    7.00, N'kg',  750, 7,  2,  N'Active'),
     -- 66. The Censor's Ledger — Baron: RAM=16384,Storage=1000,Price=999.99,PSU=700 => score~7.90
-    (N'The Censor''s Ledger',           16384,   999.99, N'https://images.pexels.com/photos/2942361/pexels-photo-2942361.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.20, N'kg',  700, 11, 11, N'Active'),
+    (N'The Censor''s Ledger',           16384,   999.99, N'https://images.unsplash.com/photo-1650526569688-4a655df65834?w=400&h=300&fit=crop&auto=format',      8.20, N'kg',  700, 11, 11, N'Active'),
     -- 67. The Pontifex's Shrine — Prince: RAM=32768,Storage=256,Price=699.99,PSU=450 => score~11.60
-    (N'The Pontifex''s Shrine',         32768,   699.99, N'https://images.pexels.com/photos/10782398/pexels-photo-10782398.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     9.60, N'kg',  450, 10, 10, N'Active'),
+    (N'The Pontifex''s Shrine',         32768,   699.99, N'https://images.unsplash.com/photo-1627480005155-2232ac835ff2?w=400&h=300&fit=crop&auto=format',     9.60, N'kg',  450, 10, 10, N'Active'),
     -- 68. The Augur's Vision — Sovereign: RAM=65536,Storage=12000,Price=2799.99,PSU=1000 => score~26.20
-    (N'The Augur''s Vision',             65536,  2799.99, N'https://images.pexels.com/photos/17196832/pexels-photo-17196832.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',10.70, N'kg', 1000, 16, 15, N'Active'),
+    (N'The Augur''s Vision',             65536,  2799.99, N'https://images.unsplash.com/photo-1559775013-79311d53f0e0?w=400&h=300&fit=crop&auto=format',10.70, N'kg', 1000, 16, 15, N'Active'),
     -- 69. The Haruspex's Oracle — Page: RAM=512,Storage=128,Price=249.99,PSU=300 => score~1.15
-    (N'The Haruspex''s Oracle',           512,   249.99, N'https://images.pexels.com/photos/6804098/pexels-photo-6804098.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       21.00, N'lb',  300, 1,  7,  N'Active'),
+    (N'The Haruspex''s Oracle',           512,   249.99, N'https://images.unsplash.com/photo-1648241776507-7e3ae32698e6?w=400&h=300&fit=crop&auto=format',       21.00, N'lb',  300, 1,  7,  N'Active'),
     -- 70. The Flamen's Altar — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Flamen''s Altar',             2048,   249.99, N'https://images.pexels.com/photos/34552794/pexels-photo-34552794.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       12.00, N'lb',  300, 2,  6,  N'Active'),
+    (N'The Flamen''s Altar',             2048,   249.99, N'https://images.unsplash.com/photo-1557599443-2071a2df9c19?w=400&h=300&fit=crop&auto=format',       12.00, N'lb',  300, 2,  6,  N'Active'),
     -- 71. The Vestal's Hearth — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=600 => score~7.40
-    (N'The Vestal''s Hearth',           16384,   799.99, N'https://images.pexels.com/photos/6913135/pexels-photo-6913135.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     5.90, N'kg',  600, 13, 12, N'Active'),
+    (N'The Vestal''s Hearth',           16384,   799.99, N'https://images.unsplash.com/photo-1607732667154-ff11e81e5665?w=400&h=300&fit=crop&auto=format',     5.90, N'kg',  600, 13, 12, N'Active'),
     -- 72. The Sibyl's Prophecy — Baron: RAM=16384,Storage=1000,Price=899.99,PSU=650 => score~7.65
-    (N'The Sibyl''s Prophecy',          16384,   899.99, N'https://images.pexels.com/photos/31857028/pexels-photo-31857028.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     7.60, N'kg',  650, 14, 9,  N'Active'),
+    (N'The Sibyl''s Prophecy',          16384,   899.99, N'https://images.unsplash.com/photo-1655560378366-21e3e330ea08?w=400&h=300&fit=crop&auto=format',     7.60, N'kg',  650, 14, 9,  N'Active'),
     -- 73. The Oracle's Revelation — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
-    (N'The Oracle''s Revelation',       32768,   799.99, N'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    8.30, N'kg',  450, 12, 15, N'Active'),
+    (N'The Oracle''s Revelation',       32768,   799.99, N'https://images.unsplash.com/photo-1588616384450-e88f4b774099?w=400&h=300&fit=crop&auto=format',    8.30, N'kg',  450, 12, 15, N'Active'),
     -- 74. The Prophet's Ascent — Prince: RAM=32768,Storage=256,Price=999.99,PSU=500 => score~12.15
-    (N'The Prophet''s Ascent',          32768,   999.99, N'https://images.pexels.com/photos/7046979/pexels-photo-7046979.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   11.40, N'kg',  500, 9,  8,  N'Active'),
+    (N'The Prophet''s Ascent',          32768,   999.99, N'https://images.unsplash.com/photo-1691030924747-0f72ea899871?w=400&h=300&fit=crop&auto=format',   11.40, N'kg',  500, 9,  8,  N'Active'),
     -- 75. The Hierophant's Mystery — Page: RAM=2048,Storage=128,Price=299.99,PSU=350 => score~1.78
-    (N'The Hierophant''s Mystery',       2048,   299.99, N'https://images.pexels.com/photos/18966448/pexels-photo-18966448.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       18.50, N'lb',  350, 3,  7,  N'Active'),
+    (N'The Hierophant''s Mystery',       2048,   299.99, N'https://images.unsplash.com/photo-1694857807827-cd901ede9ba4?w=400&h=300&fit=crop&auto=format',       18.50, N'lb',  350, 3,  7,  N'Active'),
     -- 76. The Archmage's Tower — Sovereign: RAM=131072,Storage=8000,Price=3749.99,PSU=1200 => score~48.00
-    (N'The Archmage''s Tower',          131072,  3749.99, N'https://images.pexels.com/photos/18956505/pexels-photo-18956505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',10.10, N'kg', 1200, 15, 8,  N'Active'),
+    (N'The Archmage''s Tower',          131072,  3749.99, N'https://images.unsplash.com/photo-1744532827484-1f660b8c96cb?w=400&h=300&fit=crop&auto=format',10.10, N'kg', 1200, 15, 8,  N'Active'),
     -- 77. The Sorcerer's Sanctum — Prince: RAM=32768,Storage=500,Price=1199.99,PSU=600 => score~12.70
-    (N'The Sorcerer''s Sanctum',        32768,  1199.99, N'https://images.pexels.com/photos/671629/pexels-photo-671629.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    8.90, N'kg',  600, 16, 10, N'Active'),
+    (N'The Sorcerer''s Sanctum',        32768,  1199.99, N'https://images.unsplash.com/photo-1596697938289-68e8d0c6e8f4?w=400&h=300&fit=crop&auto=format',    8.90, N'kg',  600, 16, 10, N'Active'),
     -- 78. The Warlock's Pact — Duke: RAM=16384,Storage=1000,Price=1999.99,PSU=900 => score~10.00
-    (N'The Warlock''s Pact',            16384,  1999.99, N'https://images.pexels.com/photos/920631/pexels-photo-920631.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      7.50, N'kg',  900, 10, 14, N'Active'),
+    (N'The Warlock''s Pact',            16384,  1999.99, N'https://images.unsplash.com/photo-1660855552442-1bae49431379?w=400&h=300&fit=crop&auto=format',      7.50, N'kg',  900, 10, 14, N'Active'),
     -- 79. The Wizard's Workshop — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
-    (N'The Wizard''s Workshop',         16384,  1799.99, N'https://images.pexels.com/photos/7858753/pexels-photo-7858753.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      6.40, N'kg',  850, 11, 13, N'Active'),
+    (N'The Wizard''s Workshop',         16384,  1799.99, N'https://images.unsplash.com/photo-1692049065982-fc40fa2d4403?w=400&h=300&fit=crop&auto=format',      6.40, N'kg',  850, 11, 13, N'Active'),
     -- 80. The Conjurer's Circle — Page: RAM=512,Storage=128,Price=249.99,PSU=300 => score~1.15
-    (N'The Conjurer''s Circle',           512,   249.99, N'https://images.pexels.com/photos/30469973/pexels-photo-30469973.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       23.00, N'lb',  300, 1,  7,  N'Active'),
+    (N'The Conjurer''s Circle',           512,   249.99, N'https://images.unsplash.com/photo-1681816189679-fa02d1acd1de?w=400&h=300&fit=crop&auto=format',       23.00, N'lb',  300, 1,  7,  N'Active'),
     -- 81. The Enchanter's Forge — Prince: RAM=32768,Storage=128,Price=499.99,PSU=350 => score~11.08
-    (N'The Enchanter''s Forge',         32768,   499.99, N'https://images.pexels.com/photos/6489045/pexels-photo-6489045.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    9.00, N'kg',  350, 12, 9,  N'Active'),
+    (N'The Enchanter''s Forge',         32768,   499.99, N'https://images.unsplash.com/photo-1591238372338-22d30c883a86?w=400&h=300&fit=crop&auto=format',    9.00, N'kg',  350, 12, 9,  N'Active'),
     -- 82. The Necromancer's Crypt — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
-    (N'The Necromancer''s Crypt',        8192,   999.99, N'https://images.pexels.com/photos/6125337/pexels-photo-6125337.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   13.00, N'lb',  700, 4,  5,  N'Active'),
+    (N'The Necromancer''s Crypt',        8192,   999.99, N'https://images.unsplash.com/photo-1721332154191-ba5f1534266e?w=400&h=300&fit=crop&auto=format',   13.00, N'lb',  700, 4,  5,  N'Active'),
     -- 83. The Alchemist's Lab — Baron: RAM=16384,Storage=512,Price=699.99,PSU=600 => score~7.15
-    (N'The Alchemist''s Lab',           16384,   699.99, N'https://images.pexels.com/photos/30469974/pexels-photo-30469974.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     6.10, N'kg',  600, 7,  11, N'Active'),
+    (N'The Alchemist''s Lab',           16384,   699.99, N'https://images.unsplash.com/photo-1671439543718-9e4d009827e8?w=400&h=300&fit=crop&auto=format',     6.10, N'kg',  600, 7,  11, N'Active'),
     -- 84. The Sage's Tome — Duke: RAM=16384,Storage=1000,Price=2199.99,PSU=1000 => score~10.80
-    (N'The Sage''s Tome',               16384,  2199.99, N'https://images.pexels.com/photos/31945005/pexels-photo-31945005.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      8.10, N'kg', 1000, 14, 12, N'Active'),
+    (N'The Sage''s Tome',               16384,  2199.99, N'https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=400&h=300&fit=crop&auto=format',      8.10, N'kg', 1000, 14, 12, N'Active'),
     -- 85. The Scholar's Codex — Prince: RAM=32768,Storage=256,Price=799.99,PSU=450 => score~11.75
-    (N'The Scholar''s Codex',           32768,   799.99, N'https://images.pexels.com/photos/159220/pexels-photo-159220.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    8.50, N'kg',  450, 10, 15, N'Active'),
+    (N'The Scholar''s Codex',           32768,   799.99, N'https://images.unsplash.com/photo-1738245494097-9b1e3971c3eb?w=400&h=300&fit=crop&auto=format',    8.50, N'kg',  450, 10, 15, N'Active'),
     -- 86. The Archivist's Repository — Sovereign: RAM=65536,Storage=8000,Price=2499.99,PSU=1000 => score~25.15
-    (N'The Archivist''s Repository',     65536,  2499.99, N'https://images.pexels.com/photos/1105379/pexels-photo-1105379.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',10.30, N'kg', 1000, 15, 8,  N'Active'),
+    (N'The Archivist''s Repository',     65536,  2499.99, N'https://images.unsplash.com/photo-1721332150382-d4114ee27eff?w=400&h=300&fit=crop&auto=format',10.30, N'kg', 1000, 15, 8,  N'Active'),
     -- 87. The Lorekeeper's Vault — Sovereign: RAM=131072,Storage=12000,Price=4199.99,PSU=1200 => score~51.20
-    (N'The Lorekeeper''s Vault',        131072,  4199.99, N'https://images.pexels.com/photos/459411/pexels-photo-459411.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',12.80, N'kg', 1200, 16, 8,  N'Active'),
+    (N'The Lorekeeper''s Vault',        131072,  4199.99, N'https://images.unsplash.com/photo-1678565546470-e94fb3e9501e?w=400&h=300&fit=crop&auto=format',12.80, N'kg', 1200, 16, 8,  N'Active'),
     -- 88. The Chronicler's Annals — Squire: RAM=8192,Storage=256,Price=299.99,PSU=300 => score~3.50
-    (N'The Chronicler''s Annals',        8192,   299.99, N'https://images.pexels.com/photos/57007/pexels-photo-57007.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   10.50, N'lb',  300, 3,  6,  N'Active'),
+    (N'The Chronicler''s Annals',        8192,   299.99, N'https://images.unsplash.com/photo-1551033541-2075d8363c66?w=400&h=300&fit=crop&auto=format',   10.50, N'lb',  300, 3,  6,  N'Active'),
     -- 89. The Scribe's Scriptorium — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
-    (N'The Scribe''s Scriptorium',       2048,   249.99, N'https://images.pexels.com/photos/6636476/pexels-photo-6636476.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       16.00, N'lb',  300, 2,  3,  N'Active'),
+    (N'The Scribe''s Scriptorium',       2048,   249.99, N'https://images.unsplash.com/photo-1624705013726-8cb4f9415f40?w=400&h=300&fit=crop&auto=format',       16.00, N'lb',  300, 2,  3,  N'Active'),
     -- 90. The Grand Sovereign's Apex — Sovereign: RAM=131072,Storage=12000,Price=4999.99,PSU=1200 => score~52.10
-    (N'The Grand Sovereign''s Apex',    131072,  4999.99, N'https://images.pexels.com/photos/1432672/pexels-photo-1432672.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',13.50, N'kg', 1200, 16, 8,  N'Active'),
+    (N'The Grand Sovereign''s Apex',    131072,  4999.99, N'https://images.unsplash.com/photo-1694857887769-6ff4c0ef9372?w=400&h=300&fit=crop&auto=format',13.50, N'kg', 1200, 16, 8,  N'Active'),
     -- 91. The Page's Companion (New) — Squire: score~4.35
-    (N'The Page''s Companion',           8192,   499.99, N'https://images.pexels.com/photos/28712460/pexels-photo-28712460.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    8.10, N'kg',  500, 1,  1,  N'New'),
+    (N'The Page''s Companion',           8192,   499.99, N'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=300&fit=crop&auto=format',    8.10, N'kg',  500, 1,  1,  N'New'),
     -- 92. The Squire's Arsenal (New) — Baron: score~7.17
-    (N'The Squire''s Arsenal',          16384,   649.99, N'https://images.pexels.com/photos/34976564/pexels-photo-34976564.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    12.00, N'kg',  500, 2,  2,  N'New'),
+    (N'The Squire''s Arsenal',          16384,   649.99, N'https://images.unsplash.com/photo-1626958390943-a70309376444?w=400&h=300&fit=crop&auto=format',    12.00, N'kg',  500, 2,  2,  N'New'),
     -- 93. The Herald's Tower (New) — Squire: score~4.52
-    (N'The Herald''s Tower',             8192,   549.99, N'https://images.pexels.com/photos/24449078/pexels-photo-24449078.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   16.00, N'lb',  450, 3,  3,  N'New'),
+    (N'The Herald''s Tower',             8192,   549.99, N'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop&auto=format',   16.00, N'lb',  450, 3,  3,  N'New'),
     -- 94. The Knight's Fortress (New) — Baron: score~7.95
-    (N'The Knight''s Fortress',         16384,   899.99, N'https://images.pexels.com/photos/10699352/pexels-photo-10699352.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    13.80, N'lb',  500, 4,  4,  N'New'),
+    (N'The Knight''s Fortress',         16384,   899.99, N'https://images.unsplash.com/photo-1637243218672-d338945efdf7?w=400&h=300&fit=crop&auto=format',    13.80, N'lb',  500, 4,  4,  N'New'),
     -- 95. The Baron's Citadel (New) — Sovereign: score~13.40
-    (N'The Baron''s Citadel',           32768,  1099.99, N'https://images.pexels.com/photos/31718639/pexels-photo-31718639.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',  7.00, N'kg', 1000, 5,  5,  N'New'),
+    (N'The Baron''s Citadel',           32768,  1099.99, N'https://images.unsplash.com/photo-1612600840881-8aba94904ab9?w=400&h=300&fit=crop&auto=format',  7.00, N'kg', 1000, 5,  5,  N'New'),
     -- 96. The Duke's Sanctum (New) — Prince: score~12.77
-    (N'The Duke''s Sanctum',            32768,  1249.99, N'https://images.pexels.com/photos/19895718/pexels-photo-19895718.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    6.00, N'kg',  450, 6,  6,  N'New'),
+    (N'The Duke''s Sanctum',            32768,  1249.99, N'https://images.unsplash.com/photo-1520092352425-9699926a9b0b?w=400&h=300&fit=crop&auto=format',    6.00, N'kg',  450, 6,  6,  N'New'),
     -- 97. The Prince's Armory (New) — Knight: score~5.92
-    (N'The Prince''s Armory',            8192,   749.99, N'https://images.pexels.com/photos/30111694/pexels-photo-30111694.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   15.00, N'lb', 1000, 7,  4,  N'New'),
+    (N'The Prince''s Armory',            8192,   749.99, N'https://images.unsplash.com/photo-1544652478-6653e09f18a2?w=400&h=300&fit=crop&auto=format',   15.00, N'lb', 1000, 7,  4,  N'New'),
     -- 98. The Viscount's Chamber (New) — Baron: score~7.30
-    (N'The Viscount''s Chamber',        16384,   599.99, N'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     8.00, N'lb',  750, 7,  1,  N'New'),
+    (N'The Viscount''s Chamber',        16384,   599.99, N'https://images.unsplash.com/photo-1600035919823-fb13e3a9f085?w=400&h=300&fit=crop&auto=format',     8.00, N'lb',  750, 7,  1,  N'New'),
     -- 99. The Sovereign's Throne (New) — Squire: score~4.27
-    (N'The Sovereign''s Throne',         2048,  1499.99, N'https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    9.00, N'kg',  508, 8,  7,  N'New'),
+    (N'The Sovereign''s Throne',         2048,  1499.99, N'https://images.unsplash.com/photo-1581351123004-757df051db8e?w=400&h=300&fit=crop&auto=format',    9.00, N'kg',  508, 8,  7,  N'New'),
     -- 100. The Court Jester's Box (New) — Page: score~2.10
-    (N'The Court Jester''s Box',          512,   349.99, N'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     22.00, N'lb',  700, 7,  5,  N'New');
+    (N'The Court Jester''s Box',          512,   349.99, N'https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=400&h=300&fit=crop&auto=format',     22.00, N'lb',  700, 7,  5,  N'New');
 GO
 
 -- =============================================================================
