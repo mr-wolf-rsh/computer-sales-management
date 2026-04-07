@@ -1,4 +1,3 @@
-using AutoMapper;
 using CompuPalace.Application.DTOs;
 using CompuPalace.Application.Interfaces;
 using CompuPalace.Application.Mappings;
@@ -18,7 +17,7 @@ public class ComputerServiceTests
     private readonly Mock<IComputerRepository> _computerRepoMock;
     private readonly Mock<IProcessorRepository> _processorRepoMock;
     private readonly Mock<IGpuRepository> _gpuRepoMock;
-    private readonly IMapper _mapper;
+    private readonly IComputerMapper _mapper;
     private readonly IValidator<ComputerCreateDto> _createValidator;
     private readonly IValidator<ComputerUpdateDto> _updateValidator;
     private readonly ComputerService _service;
@@ -34,8 +33,7 @@ public class ComputerServiceTests
         _unitOfWorkMock.Setup(u => u.Processors).Returns(_processorRepoMock.Object);
         _unitOfWorkMock.Setup(u => u.Gpus).Returns(_gpuRepoMock.Object);
 
-        var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile<MappingProfile>());
-        _mapper = mapperConfig.CreateMapper();
+        _mapper = new ComputerMapper();
 
         _createValidator = new ComputerCreateValidator();
         _updateValidator = new ComputerUpdateValidator();

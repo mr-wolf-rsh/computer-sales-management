@@ -1,6 +1,6 @@
-using AutoMapper;
 using CompuPalace.Application.DTOs;
 using CompuPalace.Application.Interfaces;
+using CompuPalace.Application.Mappings;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompuPalace.Api.Controllers;
@@ -10,9 +10,9 @@ namespace CompuPalace.Api.Controllers;
 public class ProcessorsController : ControllerBase
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
+    private readonly IComputerMapper _mapper;
 
-    public ProcessorsController(IUnitOfWork unitOfWork, IMapper mapper)
+    public ProcessorsController(IUnitOfWork unitOfWork, IComputerMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
@@ -22,7 +22,7 @@ public class ProcessorsController : ControllerBase
     public async Task<ActionResult<List<ProcessorDto>>> GetAll(CancellationToken cancellationToken = default)
     {
         var processors = await _unitOfWork.Processors.GetAllAsync(cancellationToken);
-        var dtos = _mapper.Map<List<ProcessorDto>>(processors);
+        var dtos = _mapper.ProcessorsToDto(processors);
         return Ok(dtos);
     }
 }

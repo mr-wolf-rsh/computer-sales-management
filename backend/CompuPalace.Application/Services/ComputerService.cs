@@ -1,6 +1,6 @@
-using AutoMapper;
 using CompuPalace.Application.DTOs;
 using CompuPalace.Application.Interfaces;
+using CompuPalace.Application.Mappings;
 using CompuPalace.Domain.Entities;
 using CompuPalace.Domain.Enums;
 using FluentValidation;
@@ -10,13 +10,13 @@ namespace CompuPalace.Application.Services;
 public class ComputerService : IComputerService
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
+    private readonly IComputerMapper _mapper;
     private readonly IValidator<ComputerCreateDto> _createValidator;
     private readonly IValidator<ComputerUpdateDto> _updateValidator;
 
     public ComputerService(
         IUnitOfWork unitOfWork,
-        IMapper mapper,
+        IComputerMapper mapper,
         IValidator<ComputerCreateDto> createValidator,
         IValidator<ComputerUpdateDto> updateValidator)
     {
@@ -29,7 +29,7 @@ public class ComputerService : IComputerService
     public async Task<PaginatedResult<ComputerDto>> GetPagedAsync(int page, int pageSize, string sortBy = "createdAt", string sortOrder = "desc", CancellationToken cancellationToken = default)
     {
         var result = await _unitOfWork.Computers.GetPagedAsync(page, pageSize, sortBy, sortOrder, cancellationToken);
-        var dtos = _mapper.Map<List<ComputerDto>>(result.Items);
+        var dtos = _mapper.ComputersToDto(result.Items);
 
         foreach (var dto in dtos)
         {
@@ -50,7 +50,7 @@ public class ComputerService : IComputerService
         var computer = await _unitOfWork.Computers.GetByIdAsync(id, cancellationToken);
         if (computer is null) return null;
 
-        var dto = _mapper.Map<ComputerDto>(computer);
+        var dto = _mapper.ComputerToDto(computer);
         dto.TierBadge = CalculateTierBadge(dto);
         return dto;
     }
@@ -58,7 +58,7 @@ public class ComputerService : IComputerService
     public async Task<PaginatedResult<ComputerDto>> SearchAsync(string query, int page, int pageSize, string sortBy = "createdAt", string sortOrder = "desc", CancellationToken cancellationToken = default)
     {
         var result = await _unitOfWork.Computers.SearchAsync(query, page, pageSize, sortBy, sortOrder, cancellationToken);
-        var dtos = _mapper.Map<List<ComputerDto>>(result.Items);
+        var dtos = _mapper.ComputersToDto(result.Items);
 
         foreach (var dto in dtos)
         {
@@ -114,7 +114,7 @@ public class ComputerService : IComputerService
         var created = await _unitOfWork.Computers.CreateAsync(computer, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        var result = _mapper.Map<ComputerDto>(created);
+        var result = _mapper.ComputerToDto(created);
         result.TierBadge = CalculateTierBadge(result);
         return result;
     }
@@ -169,7 +169,7 @@ public class ComputerService : IComputerService
         var updated = await _unitOfWork.Computers.UpdateAsync(existing, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        var result = _mapper.Map<ComputerDto>(updated);
+        var result = _mapper.ComputerToDto(updated);
         result.TierBadge = CalculateTierBadge(result);
         return result;
     }

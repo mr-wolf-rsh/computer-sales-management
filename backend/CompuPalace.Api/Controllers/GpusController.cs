@@ -1,6 +1,6 @@
-using AutoMapper;
 using CompuPalace.Application.DTOs;
 using CompuPalace.Application.Interfaces;
+using CompuPalace.Application.Mappings;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompuPalace.Api.Controllers;
@@ -10,9 +10,9 @@ namespace CompuPalace.Api.Controllers;
 public class GpusController : ControllerBase
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
+    private readonly IComputerMapper _mapper;
 
-    public GpusController(IUnitOfWork unitOfWork, IMapper mapper)
+    public GpusController(IUnitOfWork unitOfWork, IComputerMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
@@ -22,7 +22,7 @@ public class GpusController : ControllerBase
     public async Task<ActionResult<List<GpuDto>>> GetAll(CancellationToken cancellationToken = default)
     {
         var gpus = await _unitOfWork.Gpus.GetAllAsync(cancellationToken);
-        var dtos = _mapper.Map<List<GpuDto>>(gpus);
+        var dtos = _mapper.GpusToDto(gpus);
         return Ok(dtos);
     }
 }

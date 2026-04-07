@@ -1,28 +1,41 @@
-using AutoMapper;
 using CompuPalace.Application.DTOs;
 using CompuPalace.Domain.Entities;
+using Riok.Mapperly.Abstractions;
 
 namespace CompuPalace.Application.Mappings;
 
-public class MappingProfile : Profile
+[Mapper]
+public partial class ComputerMapper : IComputerMapper
 {
-    public MappingProfile()
+    [MapProperty(nameof(Computer.Processor) + "." + nameof(Processor.Name), nameof(ComputerDto.ProcessorName))]
+    [MapProperty(nameof(Computer.Processor) + "." + nameof(Processor.Brand), nameof(ComputerDto.ProcessorBrand))]
+    [MapProperty(nameof(Computer.Gpu) + "." + nameof(Gpu.Name), nameof(ComputerDto.GpuName))]
+    [MapProperty(nameof(Computer.Gpu) + "." + nameof(Gpu.Brand), nameof(ComputerDto.GpuBrand))]
+    [MapperIgnoreTarget(nameof(ComputerDto.TierBadge))]
+    [MapperIgnoreTarget(nameof(ComputerDto.IsNew))]
+    public partial ComputerDto ComputerToDto(Computer computer);
+
+    public partial List<ComputerDto> ComputersToDto(List<Computer> computers);
+
+    public partial StorageDriveDto StorageDriveToDto(StorageDrive storageDrive);
+
+    public partial UsbPortDto UsbPortToDto(UsbPort usbPort);
+
+    public partial ProcessorDto ProcessorToDto(Processor processor);
+
+    public partial List<ProcessorDto> ProcessorsToDto(List<Processor> processors);
+
+    public partial GpuDto GpuToDto(Gpu gpu);
+
+    public partial List<GpuDto> GpusToDto(List<Gpu> gpus);
+
+    private string WeightUnitToString(Domain.Enums.WeightUnit weightUnit) => weightUnit.ToString();
+
+    private string StorageDriveTypeToString(Domain.Enums.StorageDriveType type) => type.ToString();
+
+    [AfterMap]
+    private static void AfterMapComputer(Computer source, ComputerDto target)
     {
-        CreateMap<Computer, ComputerDto>()
-            .ForMember(dest => dest.WeightUnit, opt => opt.MapFrom(src => src.WeightUnit.ToString()))
-            .ForMember(dest => dest.ProcessorName, opt => opt.MapFrom(src => src.Processor.Name))
-            .ForMember(dest => dest.ProcessorBrand, opt => opt.MapFrom(src => src.Processor.Brand))
-            .ForMember(dest => dest.GpuName, opt => opt.MapFrom(src => src.Gpu.Name))
-            .ForMember(dest => dest.GpuBrand, opt => opt.MapFrom(src => src.Gpu.Brand))
-            .ForMember(dest => dest.IsNew, opt => opt.MapFrom(src =>
-                src.Status == "New" && src.CreatedAt >= DateTime.UtcNow.AddDays(-15)));
-
-        CreateMap<StorageDrive, StorageDriveDto>()
-            .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.ToString()));
-
-        CreateMap<UsbPort, UsbPortDto>();
-
-        CreateMap<Processor, ProcessorDto>();
-        CreateMap<Gpu, GpuDto>();
+        target.IsNew = source.Status == "New" && source.CreatedAt >= DateTime.UtcNow.AddDays(-15);
     }
 }
