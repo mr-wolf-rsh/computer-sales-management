@@ -33,7 +33,7 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
   const [searchTerm, setSearchTermLocal] = useState('');
   const [sortBy, setSortBy] = useState('createdAt');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-  const [tierFilter, setTierFilter] = useState('');
+  const [tierFilter, setTierFilterLocal] = useState('');
 
   const debouncedSearch = useDebounce(searchTerm, 300);
 
@@ -55,6 +55,14 @@ export function useComputerFilters(): ComputerFiltersState & ComputerFiltersActi
   const handleSetPageSize = useCallback(
     (size: number): void => {
       dispatch(setPageSizeAction(size));
+    },
+    [dispatch],
+  );
+
+  const setTierFilter = useCallback(
+    (tier: string): void => {
+      setTierFilterLocal(tier);
+      dispatch(setPageAction(1));
     },
     [dispatch],
   );

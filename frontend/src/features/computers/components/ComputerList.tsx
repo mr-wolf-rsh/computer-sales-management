@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import {
   Box,
   Button,
@@ -68,14 +68,18 @@ export default function ComputerList(): JSX.Element {
   } = useComputerFilters();
 
   const isSearching = debouncedSearch.length > 0;
+  const isTierFiltering = tierFilter.length > 0;
+
+  // When tier filtering, fetch all items so client-side pagination is accurate
+  const effectiveSize = isTierFiltering ? 1000 : pageSize;
 
   const listQuery = useGetComputersQuery(
-    { page, size: pageSize, sortBy, sortOrder },
+    { page: isTierFiltering ? 1 : page, size: effectiveSize, sortBy, sortOrder },
     { skip: isSearching },
   );
 
   const searchQuery = useSearchComputersQuery(
-    { q: debouncedSearch, page, size: pageSize, sortBy, sortOrder },
+    { q: debouncedSearch, page: isTierFiltering ? 1 : page, size: effectiveSize, sortBy, sortOrder },
     { skip: !isSearching },
   );
 
@@ -83,11 +87,22 @@ export default function ComputerList(): JSX.Element {
     ? searchQuery
     : listQuery;
 
-  const computers = data?.items ?? [];
-  const filteredComputers = tierFilter
-    ? computers.filter((c) => c.tierBadge === tierFilter)
-    : computers;
-  const totalPages = data?.totalPages ?? 0;
+  const allItems = data?.items ?? [];
+  const tierFiltered = useMemo(
+    () => isTierFiltering ? allItems.filter((c) => c.tierBadge === tierFilter) : allItems,
+    [allItems, tierFilter, isTierFiltering],
+  );
+
+  // Client-side pagination when tier filtering, server-side otherwise
+  const filteredComputers = useMemo(() => {
+    if (!isTierFiltering) return tierFiltered;
+    const start = (page - 1) * pageSize;
+    return tierFiltered.slice(start, start + pageSize);
+  }, [tierFiltered, isTierFiltering, page, pageSize]);
+
+  const totalPages = isTierFiltering
+    ? Math.ceil(tierFiltered.length / pageSize)
+    : (data?.totalPages ?? 0);
 
   const handleSort = useCallback(
     (field: string): void => {
@@ -166,11 +181,11 @@ export default function ComputerList(): JSX.Element {
             }}
           >
             <MenuItem value="">All Tiers</MenuItem>
-            <MenuItem value="Page">🛡️ Page</MenuItem>
+            <MenuItem value="Page">📜 Page</MenuItem>
             <MenuItem value="Squire">🛡️ Squire</MenuItem>
             <MenuItem value="Knight">⚔️ Knight</MenuItem>
             <MenuItem value="Baron">🏰 Baron</MenuItem>
-            <MenuItem value="Duke">👑 Duke</MenuItem>
+            <MenuItem value="Duke">🎖️ Duke</MenuItem>
             <MenuItem value="Prince">🤴 Prince</MenuItem>
             <MenuItem value="Sovereign">👑 Sovereign</MenuItem>
           </TextField>
