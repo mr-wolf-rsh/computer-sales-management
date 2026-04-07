@@ -70,6 +70,8 @@ const RAM_OPTIONS = [
 ];
 
 const STORAGE_CAPACITY_OPTIONS = [
+  { value: 16, label: '16 GB' },
+  { value: 64, label: '64 GB' },
   { value: 128, label: '128 GB' },
   { value: 256, label: '256 GB' },
   { value: 500, label: '500 GB' },

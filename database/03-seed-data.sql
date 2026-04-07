@@ -307,8 +307,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Prince''s Armory',            8192,   749.99, N'https://images.pexels.com/photos/2878465/pexels-photo-2878465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   15.00, N'lb', 1000, 7,  4,  N'New'),
     -- 98. The Viscount's Chamber (New) — Baron: score~7.30
     (N'The Viscount''s Chamber',        16384,   599.99, N'https://images.pexels.com/photos/8099640/pexels-photo-8099640.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     8.00, N'lb',  750, 7,  1,  N'New'),
-    -- 99. The Sovereign's Throne (New) — Squire: score~4.25
-    (N'The Sovereign''s Throne',         2048,  1499.99, N'https://images.pexels.com/photos/12786602/pexels-photo-12786602.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    9.00, N'kg',  500, 8,  7,  N'New'),
+    -- 99. The Sovereign's Throne (New) — Squire: score~4.27
+    (N'The Sovereign''s Throne',         2048,  1499.99, N'https://images.pexels.com/photos/12786602/pexels-photo-12786602.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    9.00, N'kg',  508, 8,  7,  N'New'),
     -- 100. The Court Jester's Box (New) — Page: score~2.10
     (N'The Court Jester''s Box',          512,   349.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     22.00, N'lb',  700, 7,  5,  N'New');
 GO
@@ -379,8 +379,9 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (28,   500, N'HDD'),
     -- 29. The Strategos' Gambit: 512 GB SSD
     (29,   512, N'SSD'),
-    -- 30. The Eparch's Edict: 128 GB SSD
-    (30,   128, N'SSD'),
+    -- 30. The Eparch's Edict: 64 GB SSD + 16 GB SSD (originally 80 GB)
+    (30,    64, N'SSD'),
+    (30,    16, N'SSD'),
     -- 31. The Archon's Seal: 2 TB SSD
     (31,  2000, N'SSD'),
     -- 32. The Tyrant's Grip: 512 GB SSD
@@ -400,7 +401,8 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (38,   512, N'SSD'),
     -- 39. The Pasha's Enclave: 512 GB SSD
     (39,   512, N'SSD'),
-    -- 40. The Bey's Crossing: 128 GB SSD
+    -- 40. The Bey's Crossing: 128 GB SSD + 128 GB SSD (originally 250 GB)
+    (40,   128, N'SSD'),
     (40,   128, N'SSD'),
     -- 41. The Shogun's Stronghold: 256 GB SSD
     (41,   256, N'SSD'),
@@ -448,7 +450,8 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     -- 62. The Imperator's Will: 4 TB SSD + 8 TB HDD
     (62,  4000, N'SSD'),
     (62,  8000, N'HDD'),
-    -- 63. The Triumvir's Alliance: 128 GB SSD
+    -- 63. The Triumvir's Alliance: 128 GB SSD + 128 GB SSD (originally 250 GB)
+    (63,   128, N'SSD'),
     (63,   128, N'SSD'),
     -- 64. The Aedile's Square: 256 GB HDD
     (64,   256, N'HDD'),
@@ -461,8 +464,9 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     -- 68. The Augur's Vision: 4 TB SSD + 8 TB HDD
     (68,  4000, N'SSD'),
     (68,  8000, N'HDD'),
-    -- 69. The Haruspex's Oracle: 128 GB SSD
-    (69,   128, N'SSD'),
+    -- 69. The Haruspex's Oracle: 64 GB SSD + 16 GB SSD (originally 80 GB)
+    (69,    64, N'SSD'),
+    (69,    16, N'SSD'),
     -- 70. The Flamen's Altar: 128 GB SSD
     (70,   128, N'SSD'),
     -- 71. The Vestal's Hearth: 1 TB SSD
@@ -473,7 +477,8 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (73,   256, N'SSD'),
     -- 74. The Prophet's Ascent: 256 GB SSD
     (74,   256, N'SSD'),
-    -- 75. The Hierophant's Mystery: 128 GB HDD
+    -- 75. The Hierophant's Mystery: 128 GB HDD + 128 GB HDD (originally 250 GB)
+    (75,   128, N'HDD'),
     (75,   128, N'HDD'),
     -- 76. The Archmage's Tower: 8 TB HDD
     (76,  8000, N'HDD'),
@@ -483,8 +488,9 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (78,  1000, N'SSD'),
     -- 79. The Wizard's Workshop: 1 TB SSD
     (79,  1000, N'SSD'),
-    -- 80. The Conjurer's Circle: 128 GB SSD
-    (80,   128, N'SSD'),
+    -- 80. The Conjurer's Circle: 64 GB SSD + 16 GB SSD (originally 80 GB)
+    (80,    64, N'SSD'),
+    (80,    16, N'SSD'),
     -- 81. The Enchanter's Forge: 128 GB SSD
     (81,   128, N'SSD'),
     -- 82. The Necromancer's Crypt: 512 GB SSD
@@ -502,7 +508,8 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (87,  8000, N'HDD'),
     -- 88. The Chronicler's Annals: 256 GB HDD
     (88,   256, N'HDD'),
-    -- 89. The Scribe's Scriptorium: 128 GB SSD
+    -- 89. The Scribe's Scriptorium: 128 GB SSD + 128 GB SSD (originally 250 GB)
+    (89,   128, N'SSD'),
     (89,   128, N'SSD'),
     -- 90. The Grand Sovereign's Apex: 4 TB SSD + 8 TB HDD
     (90,  4000, N'SSD'),
@@ -526,8 +533,9 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (98,   500, N'SSD'),
     -- 99. The Sovereign's Throne: 2 TB HDD
     (99,  2000, N'HDD'),
-    -- 100. The Court Jester's Box: 128 GB SSD
-    (100,  128, N'SSD');
+    -- 100. The Court Jester's Box: 64 GB SSD + 16 GB SSD (originally 80 GB)
+    (100,   64, N'SSD'),
+    (100,   16, N'SSD');
 GO
 
 -- =============================================================================

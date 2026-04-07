@@ -75,8 +75,8 @@ export default function ComputerCard({
               position: 'absolute',
               top: 8,
               left: 8,
-              width: 48,
-              height: 48,
+              width: 60,
+              height: 60,
               bgcolor: 'success.main',
               clipPath:
                 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
@@ -90,7 +90,7 @@ export default function ComputerCard({
               sx={{
                 color: '#fff',
                 fontWeight: 700,
-                fontSize: '0.6rem',
+                fontSize: '0.75rem',
                 lineHeight: 1,
                 letterSpacing: '0.05em',
               }}
