@@ -1,0 +1,32 @@
+{
+  "name": "Compu Palace",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.extend.yml"
+  ],
+  "service": "frontend",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "8.0"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "ms-dotnettools.csharp",
+        "ms-mssql.mssql"
+      ],
+      "settings": {
+        "typescript.tsdk": "/app/node_modules/typescript/lib",
+        "editor.formatOnSave": true,
+        "omnisharp.projectLoadTimeout": 120
+      }
+    }
+  },
+  "postCreateCommand": "cd /workspace/frontend && npm install && cd /workspace/backend && dotnet restore",
+  "forwardPorts": [3000, 5000, 1433]
+}
