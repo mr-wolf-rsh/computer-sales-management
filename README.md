@@ -64,7 +64,7 @@ Key patterns:
 - "New" star badge for recently added computers (15-day window)
 - Status column — New, Active, and Discontinued states
 - Royal tier badge system (Page, Squire, Knight, Baron, Duke, Prince, Sovereign)
-- Product images with Unsplash URLs and live preview
+- Product images with Vecteezy URLs and live preview
 - RAM and storage capacity use standard size selects
 - Price management and filtering
 - Dashboard with charts and statistics (Recharts)
@@ -74,6 +74,12 @@ Key patterns:
 - Hardware cards display each component on its own line (RAM, CPU, GPU, Storage) with dedicated icons
 - Keyboard shortcuts (`/` search, `n` new, `Esc` clear)
 - Form validation with Zod + React Hook Form
+- Weight unit conversion display (e.g., "22 Lb (9.9 Kg)") in computer detail view
+- Unique tier icons per level (📜 Page, 🛡️ Squire, ⚔️ Knight, 🏰 Baron, 🎖️ Duke, 🤴 Prince, 👑 Sovereign)
+- Client-side tier filtering with smart pagination (fetches all when filtering by tier, paginates client-side)
+- 100 royal-themed seed computers with balanced tier distribution (Page:10, Squire:15, Knight:15, Baron:15, Duke:15, Prince:15, Sovereign:15)
+- Idempotent database seeding (skips if already seeded)
+- Storage drives support splits (e.g., 64+16 GB, 128+128 GB, 512+256 GB)
 
 ## Tier Badge System
 
@@ -81,15 +87,15 @@ Each computer is assigned a royal tier based on a weighted score of its specs:
 
 **Formula:** `Score = (RAM_MB / 1024) × 0.3 + (TotalStorageGB / 1000) × 0.2 + (Price / 200) × 0.3 + (PSU_Wattage / 100) × 0.2`
 
-| Score Range | Tier      | Level       |
-| ----------- | --------- | ----------- |
-| < 3         | Page      | Entry       |
-| 3 -- 4.99   | Squire    | Budget      |
-| 5 -- 6.99   | Knight    | Mid-range   |
-| 7 -- 8.99   | Baron     | Upper mid   |
-| 9 -- 10.99  | Duke      | Performance |
-| 11 -- 12.99 | Prince    | High-end    |
-| >= 13       | Sovereign | Flagship    |
+| Score Range | Tier      | Icon | Level       |
+| ----------- | --------- | ---- | ----------- |
+| < 3         | Page      | 📜   | Entry       |
+| 3 -- 4.99   | Squire    | 🛡️   | Budget      |
+| 5 -- 6.99   | Knight    | ⚔️   | Mid-range   |
+| 7 -- 8.99   | Baron     | 🏰   | Upper mid   |
+| 9 -- 10.99  | Duke      | 🎖️   | Performance |
+| 11 -- 12.99 | Prince    | 🤴   | High-end    |
+| >= 13       | Sovereign | 👑   | Flagship    |
 
 The tier is calculated server-side in `ComputerService` when mapping entities to DTOs.
 
@@ -227,7 +233,7 @@ Copy `.env.example` to `.env` before running. All variables are documented there
 
 ## Acknowledgments
 
-- Product images sourced from [Unsplash](https://unsplash.com/)
+- Product images sourced from [Vecteezy](https://www.vecteezy.com/)
 
 ## License
 
