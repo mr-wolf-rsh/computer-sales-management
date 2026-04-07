@@ -24,5 +24,11 @@ export function formatStorage(gb: number): string {
 }
 
 export function formatWeight(weight: number, unit: string): string {
-  return `${weight} ${unit}`;
+  const lower = unit.toLowerCase();
+  if (lower === 'lb') {
+    const kg = (weight * 0.453592).toFixed(1);
+    return `${weight} Lb (${kg} Kg)`;
+  }
+  const lb = (weight / 0.453592).toFixed(1);
+  return `${weight} Kg (${lb} Lb)`;
 }

@@ -169,8 +169,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Procurator''s Ledger',        8192,   399.99, N'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    14.50, N'lb',  350, 4,  5,  N'Active'),
     -- 29. The Strategos' Gambit — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
     (N'The Strategos'' Gambit',          8192,   999.99, N'https://images.pexels.com/photos/2878465/pexels-photo-2878465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     8.60, N'kg',  700, 14, 9,  N'Active'),
-    -- 30. The Eparch's Edict — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
-    (N'The Eparch''s Edict',             4096,   249.99, N'https://images.pexels.com/photos/3528500/pexels-photo-3528500.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       20.00, N'lb',  300, 1,  3,  N'Active'),
+    -- 30. The Eparch's Edict — Page: RAM=512,Storage=128,Price=249.99,PSU=300 => score~1.15
+    (N'The Eparch''s Edict',              512,   249.99, N'https://images.pexels.com/photos/3528500/pexels-photo-3528500.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       20.00, N'lb',  300, 1,  3,  N'Active'),
     -- 31. The Archon's Seal — Duke: RAM=16384,Storage=2000,Price=1799.99,PSU=850 => score~9.60
     (N'The Archon''s Seal',             16384,  1799.99, N'https://images.pexels.com/photos/7858743/pexels-photo-7858743.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       7.70, N'kg',  850, 10, 10, N'Active'),
     -- 32. The Tyrant's Grip — Prince: RAM=32768,Storage=512,Price=799.99,PSU=450 => score~11.80
@@ -247,8 +247,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Pontifex''s Shrine',         32768,   699.99, N'https://images.pexels.com/photos/1038916/pexels-photo-1038916.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     9.60, N'kg',  450, 10, 10, N'Active'),
     -- 68. The Augur's Vision — Sovereign: RAM=65536,Storage=12000,Price=2799.99,PSU=1000 => score~26.20
     (N'The Augur''s Vision',             65536,  2799.99, N'https://images.pexels.com/photos/7858743/pexels-photo-7858743.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',10.70, N'kg', 1000, 16, 15, N'Active'),
-    -- 69. The Haruspex's Oracle — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
-    (N'The Haruspex''s Oracle',          4096,   249.99, N'https://images.pexels.com/photos/3528500/pexels-photo-3528500.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       21.00, N'lb',  300, 1,  7,  N'Active'),
+    -- 69. The Haruspex's Oracle — Page: RAM=512,Storage=128,Price=249.99,PSU=300 => score~1.15
+    (N'The Haruspex''s Oracle',           512,   249.99, N'https://images.pexels.com/photos/3528500/pexels-photo-3528500.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       21.00, N'lb',  300, 1,  7,  N'Active'),
     -- 70. The Flamen's Altar — Page: RAM=2048,Storage=128,Price=249.99,PSU=300 => score~1.60
     (N'The Flamen''s Altar',             2048,   249.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       12.00, N'lb',  300, 2,  6,  N'Active'),
     -- 71. The Vestal's Hearth — Baron: RAM=16384,Storage=1000,Price=799.99,PSU=600 => score~7.40
@@ -269,8 +269,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Warlock''s Pact',            16384,  1999.99, N'https://images.pexels.com/photos/3728099/pexels-photo-3728099.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      7.50, N'kg',  900, 10, 14, N'Active'),
     -- 79. The Wizard's Workshop — Duke: RAM=16384,Storage=1000,Price=1799.99,PSU=850 => score~9.40
     (N'The Wizard''s Workshop',         16384,  1799.99, N'https://images.pexels.com/photos/7858743/pexels-photo-7858743.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',      6.40, N'kg',  850, 11, 13, N'Active'),
-    -- 80. The Conjurer's Circle — Page: RAM=4096,Storage=128,Price=249.99,PSU=300 => score~2.20
-    (N'The Conjurer''s Circle',          4096,   249.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       23.00, N'lb',  300, 1,  7,  N'Active'),
+    -- 80. The Conjurer's Circle — Page: RAM=512,Storage=128,Price=249.99,PSU=300 => score~1.15
+    (N'The Conjurer''s Circle',           512,   249.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',       23.00, N'lb',  300, 1,  7,  N'Active'),
     -- 81. The Enchanter's Forge — Prince: RAM=32768,Storage=128,Price=499.99,PSU=350 => score~11.08
     (N'The Enchanter''s Forge',         32768,   499.99, N'https://images.pexels.com/photos/1038916/pexels-photo-1038916.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    9.00, N'kg',  350, 12, 9,  N'Active'),
     -- 82. The Necromancer's Crypt — Knight: RAM=8192,Storage=512,Price=999.99,PSU=700 => score~5.40
@@ -299,7 +299,7 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Herald''s Tower',             8192,   549.99, N'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',   16.00, N'lb',  450, 3,  3,  N'New'),
     -- 94. The Knight's Fortress (New) — Baron: score~7.95
     (N'The Knight''s Fortress',         16384,   899.99, N'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    13.80, N'lb',  500, 4,  4,  N'New'),
-    -- 95. The Baron's Citadel (New) — Sovereign: score~13.35
+    -- 95. The Baron's Citadel (New) — Sovereign: score~13.40
     (N'The Baron''s Citadel',           32768,  1099.99, N'https://images.pexels.com/photos/1038916/pexels-photo-1038916.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',  7.00, N'kg', 1000, 5,  5,  N'New'),
     -- 96. The Duke's Sanctum (New) — Prince: score~12.77
     (N'The Duke''s Sanctum',            32768,  1249.99, N'https://images.pexels.com/photos/1038916/pexels-photo-1038916.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    6.00, N'kg',  450, 6,  6,  N'New'),
@@ -309,8 +309,8 @@ INSERT INTO Computers (Name, RamAmountMB, Price, ImageUrl, Weight, WeightUnit, P
     (N'The Viscount''s Chamber',        16384,   599.99, N'https://images.pexels.com/photos/8099640/pexels-photo-8099640.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     8.00, N'lb',  750, 7,  1,  N'New'),
     -- 99. The Sovereign's Throne (New) — Squire: score~4.25
     (N'The Sovereign''s Throne',         2048,  1499.99, N'https://images.pexels.com/photos/12786602/pexels-photo-12786602.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',    9.00, N'kg',  500, 8,  7,  N'New'),
-    -- 100. The Court Jester's Box (New) — Page: score~2.55
-    (N'The Court Jester''s Box',         2048,   349.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     22.00, N'lb',  700, 7,  5,  N'New');
+    -- 100. The Court Jester's Box (New) — Page: score~2.10
+    (N'The Court Jester''s Box',          512,   349.99, N'https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',     22.00, N'lb',  700, 7,  5,  N'New');
 GO
 
 -- =============================================================================
@@ -515,8 +515,9 @@ INSERT INTO StorageDrives (ComputerId, CapacityGB, Type) VALUES
     (93,  2000, N'HDD'),
     -- 94. The Knight's Fortress: 4 TB HDD
     (94,  4000, N'HDD'),
-    -- 95. The Baron's Citadel: 512 GB SSD
+    -- 95. The Baron's Citadel: 512 GB SSD + 256 GB SSD (originally 750 GB)
     (95,   512, N'SSD'),
+    (95,   256, N'SSD'),
     -- 96. The Duke's Sanctum: 2 TB SSD
     (96,  2000, N'SSD'),
     -- 97. The Prince's Armory: 2 TB HDD

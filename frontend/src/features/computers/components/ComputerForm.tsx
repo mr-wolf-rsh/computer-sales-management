@@ -59,6 +59,7 @@ const STORAGE_TYPES = ['SSD', 'HDD'];
 const USB_TYPES = ['USB 2.0', 'USB 3.0', 'USB-C'];
 
 const RAM_OPTIONS = [
+  { value: 512, label: '512 MB' },
   { value: 2048, label: '2 GB (2048 MB)' },
   { value: 4096, label: '4 GB (4096 MB)' },
   { value: 8192, label: '8 GB (8192 MB)' },
