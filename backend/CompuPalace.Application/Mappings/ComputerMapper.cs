@@ -13,29 +13,38 @@ public partial class ComputerMapper : IComputerMapper
     [MapProperty(nameof(Computer.Gpu) + "." + nameof(Gpu.Brand), nameof(ComputerDto.GpuBrand))]
     [MapperIgnoreTarget(nameof(ComputerDto.TierBadge))]
     [MapperIgnoreTarget(nameof(ComputerDto.IsNew))]
-    public partial ComputerDto ComputerToDto(Computer computer);
+    private partial ComputerDto MapComputerToDto(Computer computer);
 
-    public partial List<ComputerDto> ComputersToDto(List<Computer> computers);
+    public ComputerDto ComputerToDto(Computer computer)
+    {
+        var dto = MapComputerToDto(computer);
+        dto.IsNew = computer.Status == "New" && computer.CreatedAt >= DateTime.UtcNow.AddDays(-15);
+        return dto;
+    }
 
+    public List<ComputerDto> ComputersToDto(List<Computer> computers)
+        => computers.Select(ComputerToDto).ToList();
+
+    [MapperIgnoreSource(nameof(StorageDrive.ComputerId))]
+    [MapperIgnoreSource(nameof(StorageDrive.CreatedAt))]
+    [MapperIgnoreSource(nameof(StorageDrive.Computer))]
     public partial StorageDriveDto StorageDriveToDto(StorageDrive storageDrive);
 
+    [MapperIgnoreSource(nameof(UsbPort.ComputerId))]
+    [MapperIgnoreSource(nameof(UsbPort.CreatedAt))]
+    [MapperIgnoreSource(nameof(UsbPort.Computer))]
     public partial UsbPortDto UsbPortToDto(UsbPort usbPort);
 
+    [MapperIgnoreSource(nameof(Processor.CreatedAt))]
+    [MapperIgnoreSource(nameof(Processor.Computers))]
     public partial ProcessorDto ProcessorToDto(Processor processor);
 
     public partial List<ProcessorDto> ProcessorsToDto(List<Processor> processors);
 
+    [MapperIgnoreSource(nameof(Gpu.CreatedAt))]
+    [MapperIgnoreSource(nameof(Gpu.Computers))]
     public partial GpuDto GpuToDto(Gpu gpu);
 
     public partial List<GpuDto> GpusToDto(List<Gpu> gpus);
 
-    private string WeightUnitToString(Domain.Enums.WeightUnit weightUnit) => weightUnit.ToString();
-
-    private string StorageDriveTypeToString(Domain.Enums.StorageDriveType type) => type.ToString();
-
-    [AfterMap]
-    private static void AfterMapComputer(Computer source, ComputerDto target)
-    {
-        target.IsNew = source.Status == "New" && source.CreatedAt >= DateTime.UtcNow.AddDays(-15);
-    }
 }
