@@ -136,7 +136,7 @@ export default function ComputerForm(): JSX.Element {
   const imageUrl = watch('imageUrl');
 
   useEffect(() => {
-    if (computer && isEditing) {
+    if (computer && isEditing && processors.length > 0 && gpus.length > 0) {
       reset({
         name: computer.name,
         ramAmountMB: computer.ramAmountMB,
@@ -157,7 +157,7 @@ export default function ComputerForm(): JSX.Element {
         })),
       });
     }
-  }, [computer, isEditing, reset]);
+  }, [computer, isEditing, reset, processors, gpus]);
 
   const onSubmit = async (data: FormValues): Promise<void> => {
     const selectedProcessor = processors.find((p) => p.id === data.processorId);
@@ -358,7 +358,7 @@ export default function ComputerForm(): JSX.Element {
                         </MenuItem>
                         {processors.map((p) => (
                           <MenuItem key={p.id} value={p.id}>
-                            {p.brand} {p.name}
+                            {p.name}
                           </MenuItem>
                         ))}
                       </TextField>
@@ -383,7 +383,7 @@ export default function ComputerForm(): JSX.Element {
                         </MenuItem>
                         {gpus.map((g) => (
                           <MenuItem key={g.id} value={g.id}>
-                            {g.brand} {g.name}
+                            {g.name}
                           </MenuItem>
                         ))}
                       </TextField>
